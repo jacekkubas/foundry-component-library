@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
-import Hourglass from "../../../assets/svg/hourglass.svg";
+import Hourglass from "../../../assets/svg/hourglass.svg?react";
 import { translate } from "../../../utils";
 import { getCases } from "../../../queries";
 import { Case, NextImage, NextLink } from "../../../types";
 import Video from "./Video";
-import Arrow from "../../../assets/svg/caret-right.svg";
+import Arrow from "../../../assets/svg/caret-right.svg?react";
 
 const More = ({
   endCursor,

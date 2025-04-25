@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./styles.module.scss";
-import CaretDown from "../../../assets/svg/caret-down.svg";
+import CaretDown from "../../../assets/svg/caret-down.svg?react";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { NextRouter } from "../../../types";
 
