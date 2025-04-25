@@ -6,11 +6,13 @@ import { extname, relative, resolve } from "path";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
 import preserveDirectives from "rollup-preserve-directives";
+import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    svgr(),
     libInjectCss(),
     dts({ tsconfigPath: "./tsconfig.app.json", include: ["lib/**/*"] }),
     preserveDirectives(),

@@ -2,9 +2,10 @@ import AgencyNumbers from "./components/AgencyNumbers/";
 import Awards from "./components/Awards";
 import Capabilities from "./components/Capabilities";
 import CaseContent from "./components/case/Content";
-// import CaseTop from "./components/case/Top";
-// import CasesItems from "./components/cases/Items";
-// import CasesTop from "./components/cases/Top";
+import CaseTop from "./components/case/Top";
+import CaseOther from "./components/case/Other";
+import CasesItems from "./components/cases/Items";
+import CasesTop from "./components/cases/Top";
 // import CaseStudyTeaser from "./components/CaseStudyTeaser";
 // import Accounts from "./components/contact/Accounts";
 // import Contacts from "./components/contact/Contacts";
@@ -42,9 +43,10 @@ export {
   Awards,
   Capabilities,
   CaseContent,
-  // CaseTop,
-  // CasesItems,
-  // CasesTop,
+  CaseTop,
+  CaseOther,
+  CasesItems,
+  CasesTop,
   // CaseStudyTeaser,
   // Accounts,
   // Contacts,
