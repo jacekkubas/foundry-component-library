@@ -1,5 +1,5 @@
 import AgencyNumbers from "./components/AgencyNumbers/";
-// import Awards from "./components/Awards";
+import Awards from "./components/Awards";
 // import Capabilities from "./components/Capabilities";
 // import CaseContent from "./components/case/Content";
 // import CaseTop from "./components/case/Top";
@@ -39,7 +39,7 @@ import Container from "./components/Container";
 
 export {
   AgencyNumbers,
-  // Awards,
+  Awards,
   // Capabilities,
   // CaseContent,
   // CaseTop,
