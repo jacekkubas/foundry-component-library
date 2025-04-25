@@ -5,6 +5,7 @@ import { libInjectCss } from "vite-plugin-lib-inject-css";
 import { extname, relative, resolve } from "path";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
+import preserveDirectives from "rollup-preserve-directives";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
     react(),
     libInjectCss(),
     dts({ tsconfigPath: "./tsconfig.app.json", include: ["lib/**/*"] }),
+    preserveDirectives(),
   ],
   build: {
     copyPublicDir: false,
