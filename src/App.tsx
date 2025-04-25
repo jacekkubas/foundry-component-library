@@ -1,10 +1,9 @@
-import { Button, Input } from "../lib";
+import { AgencyNumbers } from "../lib";
 
 function App() {
   return (
     <>
-      <Button text="asd" />
-      <Input />
+      <AgencyNumbers heading="agency" items={[]} Link="a" />
     </>
   );
 }

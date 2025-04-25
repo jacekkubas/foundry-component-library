@@ -1,0 +1,71 @@
+@use "../variables" as *;
+
+.numbers {
+  padding: 64px 0;
+  background-color: $color-pink;
+  color: $color-brown;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: $screen-md) {
+    display: block;
+  }
+}
+
+.heading {
+  font-size: 42px;
+  margin-bottom: 36px;
+  white-space: pre-wrap;
+  line-height: 1.2;
+
+  em {
+    font-style: normal;
+    color: $color-white;
+  }
+}
+
+.button {
+  @extend .button--brown;
+  display: inline-block;
+
+  @media screen and (max-width: $screen-md) {
+    margin-bottom: 60px;
+  }
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  width: 664px;
+  max-width: 100%;
+}
+
+.item {
+  width: calc(50% - 12px);
+  max-width: 100%;
+  border-top: solid 1px $color-brown;
+  padding: 16px;
+  margin-bottom: 24px;
+
+  @media screen and (max-width: $screen-sm) {
+    width: 100%;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.number {
+  font-size: 42px;
+  margin-bottom: 5px;
+}
+
+.description {
+  font-size: 22px;
+}

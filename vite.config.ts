@@ -20,7 +20,7 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime"],
+      external: ["react", "react/jsx-runtime", "next"],
       input: Object.fromEntries(
         glob
           .sync("lib/**/*.{ts,tsx}", {
