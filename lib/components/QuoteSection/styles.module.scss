@@ -1,0 +1,84 @@
+@use "../variables" as *;
+
+.quote {
+  padding: 64px 0;
+  background-color: $color-brown;
+  color: $color-pink;
+}
+
+.logo {
+  width: 180px;
+  height: 64px;
+  position: relative;
+
+  img {
+    filter: hue-rotate(180deg);
+    object-fit: contain;
+  }
+}
+
+.content {
+  display: none;
+
+  &.active {
+    display: flex;
+
+    @media screen and (max-width: $screen-sm) {
+      display: block;
+    }
+  }
+}
+
+.person {
+  width: 356px;
+  flex-shrink: 0;
+
+  @media screen and (max-width: $screen-sm) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.name {
+  font-size: 34px;
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  width: 211px;
+  max-width: 100%;
+}
+
+.position {
+  font-size: 18px;
+  width: 211px;
+  max-width: 100%;
+}
+
+.text {
+  font-size: 34px;
+  width: 800px;
+  max-width: 100%;
+
+  @media screen and (max-width: $screen-md) {
+    font-size: 25px;
+  }
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 64px;
+}
+
+.indicator {
+  width: 14px;
+  height: 14px;
+  border: solid 2px $color-pink;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &.active {
+    background-color: $color-pink;
+  }
+}

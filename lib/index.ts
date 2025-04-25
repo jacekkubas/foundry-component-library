@@ -1,7 +1,7 @@
 import AgencyNumbers from "./components/AgencyNumbers/";
 import Awards from "./components/Awards";
-// import Capabilities from "./components/Capabilities";
-// import CaseContent from "./components/case/Content";
+import Capabilities from "./components/Capabilities";
+import CaseContent from "./components/case/Content";
 // import CaseTop from "./components/case/Top";
 // import CasesItems from "./components/cases/Items";
 // import CasesTop from "./components/cases/Top";
@@ -27,7 +27,7 @@ import Container from "./components/Container";
 // import NewsTeaser from "./components/NewsTeaser";
 // import OfficesTeaser from "./components/OfficesTeaser";
 // import PartnerNetwork from "./components/PartnerNetwork";
-// import QuoteSection from "./components/QuoteSection";
+import QuoteSection from "./components/QuoteSection";
 // import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
 // import PostContent from "./components/single/Content";
 // import PostTop from "./components/single/Top";
@@ -40,8 +40,8 @@ import Container from "./components/Container";
 export {
   AgencyNumbers,
   Awards,
-  // Capabilities,
-  // CaseContent,
+  Capabilities,
+  CaseContent,
   // CaseTop,
   // CasesItems,
   // CasesTop,
@@ -67,7 +67,7 @@ export {
   // NewsTeaser,
   // OfficesTeaser,
   // PartnerNetwork,
-  // QuoteSection,
+  QuoteSection,
   // ServiceHubsTeaser,
   // PostContent,
   // PostTop,

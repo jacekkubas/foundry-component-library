@@ -1,6 +1,6 @@
 import Container from "../Container";
 import styles from "./styles.module.scss";
-import LinkType from "next/link";
+import { NextLink } from "../../types";
 
 const AgencyNumbers = ({
   heading,
@@ -12,7 +12,7 @@ const AgencyNumbers = ({
     text?: string;
     number?: string;
   }[];
-  Link?: typeof LinkType | React.ElementType;
+  Link: NextLink;
 }) => {
   return (
     <div className={styles.numbers}>

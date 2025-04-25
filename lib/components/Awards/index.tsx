@@ -1,6 +1,6 @@
-import ImageType from "next/image";
 import styles from "./styles.module.scss";
 import Container from "../Container";
+import { NextImage } from "../../types";
 
 const Awards = ({
   heading,
@@ -15,7 +15,7 @@ const Awards = ({
     heading?: string;
     text?: string;
   }[];
-  Image: typeof ImageType;
+  Image: NextImage;
 }) => {
   if (!awards) return;
 

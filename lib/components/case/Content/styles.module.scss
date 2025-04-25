@@ -1,0 +1,175 @@
+@use "../../variables" as *;
+
+.section {
+  padding: 32px 0;
+}
+
+.fullWidthImage {
+  width: 100%;
+
+  @media #{$QUERY-md} {
+    // height: 400px;
+  }
+
+  @media #{$QUERY-sm} {
+    // height: 300px;
+  }
+
+  .image {
+    width: 100%;
+    object-fit: cover;
+
+    & div:first-child {
+      max-width: 100% !important;
+    }
+
+    @media #{$QUERY-sm} {
+      min-height: 160px;
+    }
+  }
+}
+
+.wysywig {
+  width: 620px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.text {
+  max-width: 100%;
+  min-height: 350px;
+  font-size: 18px;
+  line-height: 1.4;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-secondary;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+}
+
+.twoColumns {
+  display: flex;
+  justify-content: space-between;
+
+  @media #{$QUERY-sm} {
+    display: block;
+  }
+}
+
+.column {
+  width: 600px;
+  max-width: calc(50% - 20px);
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media #{$QUERY-sm} {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.columnContent {
+  width: 100%;
+}
+
+.video {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  background-color: #eee;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.playing {
+    cursor: url("/svg/pause.svg"), auto;
+  }
+
+  &:not(.playing) {
+    cursor: url("/svg/play.svg"), auto;
+  }
+
+  .player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  iframe,
+  video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.btnMobile {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 5;
+  display: none;
+  background: transparent;
+  border: none;
+
+  &.playing {
+    background-image: url("/svg/pause.svg");
+  }
+
+  &:not(.playing) {
+    background-image: url("/svg/play.svg");
+  }
+
+  @media #{$QUERY-sm} {
+    display: block;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+
+  &.playing {
+    cursor: url("/svg/pause.svg"), auto;
+  }
+
+  &:not(.playing) {
+    cursor: url("/svg/play.svg"), auto;
+  }
+
+  @media #{$QUERY-sm} {
+    display: none;
+  }
+}
+
+.caption {
+  color: $color-gray;
+  margin: 1rem auto;
+}
