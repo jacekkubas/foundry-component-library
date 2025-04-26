@@ -18,7 +18,7 @@ import DoubleTiles from "./components/DoubleTiles";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-// import HubsAccordion from "./components/HubsAccordion";
+import HubsAccordion from "./components/HubsAccordion";
 // import ImageTitle from "./components/ImageTitle";
 // import LargeText from "./components/LargeText";
 // import LogoSection from "./components/LogoSection";
@@ -59,7 +59,7 @@ export {
   Footer,
   Header,
   Hero,
-  // HubsAccordion,
+  HubsAccordion,
   // ImageTitle,
   // LargeText,
   // LogoSection,
