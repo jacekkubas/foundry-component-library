@@ -20,7 +20,11 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "lib/index.ts"),
+      entry: {
+        main: resolve(__dirname, "lib/index.ts"),
+        queries: resolve(__dirname, "lib/queries/index.ts"),
+        types: resolve(__dirname, "lib/types/index.ts"),
+      },
       formats: ["es"],
     },
     rollupOptions: {
