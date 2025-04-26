@@ -24,7 +24,7 @@ import LargeText from "./components/LargeText";
 import LogoSection from "./components/LogoSection";
 import Management from "./components/Management";
 import MarketingStats from "./components/MarketingStats";
-// import Posts from "./components/news/Posts";
+import Posts from "./components/news/Posts";
 // import NewsTeaser from "./components/NewsTeaser";
 // import OfficesTeaser from "./components/OfficesTeaser";
 // import PartnerNetwork from "./components/PartnerNetwork";
@@ -65,7 +65,7 @@ export {
   LogoSection,
   Management,
   MarketingStats,
-  // Posts,
+  Posts,
   // NewsTeaser,
   // OfficesTeaser,
   // PartnerNetwork,
