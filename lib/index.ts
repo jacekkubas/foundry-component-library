@@ -36,7 +36,7 @@ import TeamBenefits from "./components/TeamBenefits";
 import TeamPhotos from "./components/TeamPhotos";
 import TextSection from "./components/TextSection";
 import Tiles from "./components/Tiles";
-// import VideoTeaser from "./components/VideoTeaser";
+import VideoTeaser from "./components/VideoTeaser";
 
 export {
   AgencyNumbers,
@@ -77,5 +77,5 @@ export {
   TeamPhotos,
   TextSection,
   Tiles,
-  // VideoTeaser,
+  VideoTeaser,
 };
