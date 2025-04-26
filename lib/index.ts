@@ -14,7 +14,7 @@ import OfficesSection from "./components/contact/OfficesSection";
 import ContactButton from "./components/ContactButton";
 import ContactTeaser from "./components/ContactTeaser";
 import Container from "./components/Container";
-// import DoubleTiles from "./components/DoubleTiles";
+import DoubleTiles from "./components/DoubleTiles";
 // import Footer from "./components/Footer";
 // import Header from "./components/Header";
 // import Hero from "./components/Hero";
@@ -34,7 +34,7 @@ import QuoteSection from "./components/QuoteSection";
 // import PostTop from "./components/single/Top";
 // import TeamBenefits from "./components/TeamBenefits";
 // import TeamPhotos from "./components/TeamPhotos";
-// import TextSection from "./components/TextSection";
+import TextSection from "./components/TextSection";
 // import Tiles from "./components/Tiles";
 // import VideoTeaser from "./components/VideoTeaser";
 
@@ -55,7 +55,7 @@ export {
   ContactButton,
   ContactTeaser,
   Container,
-  // DoubleTiles,
+  DoubleTiles,
   // Footer,
   // Header,
   // Hero,
@@ -75,7 +75,7 @@ export {
   // PostTop,
   // TeamBenefits,
   // TeamPhotos,
-  // TextSection,
+  TextSection,
   // Tiles,
   // VideoTeaser,
 };

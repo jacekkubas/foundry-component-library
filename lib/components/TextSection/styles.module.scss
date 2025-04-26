@@ -1,0 +1,75 @@
+@use "../variables" as *;
+
+.section {
+  padding: 64px 0;
+  width: 800px;
+  max-width: 100%;
+
+  @media #{$QUERY-sm} {
+    padding: 32px 0;
+  }
+
+  &.center {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &.right {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  &.blue {
+    color: $color-white;
+
+    .caption {
+      color: $color-pink;
+    }
+
+    .text,
+    .heading {
+      color: $color-white;
+    }
+  }
+}
+
+.caption {
+  text-transform: uppercase;
+  color: $color-blue;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.heading {
+  font-family: $font-secondary;
+  font-size: 54px;
+  line-height: 1.2;
+  color: $color-brown;
+  margin-bottom: 24px;
+  white-space: pre-wrap;
+
+  &.small {
+    font-size: 42px;
+  }
+
+  @media #{$QUERY-lg} {
+    font-size: 42px;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    font-size: 31px;
+    white-space: normal;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.text {
+  font-size: 18px;
+  color: $color-brown;
+}
