@@ -30,8 +30,8 @@ import OfficesTeaser from "./components/OfficesTeaser";
 import PartnerNetwork from "./components/PartnerNetwork";
 import QuoteSection from "./components/QuoteSection";
 import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
-// import PostContent from "./components/single/Content";
-// import PostTop from "./components/single/Top";
+import PostContent from "./components/single/Content";
+import PostTop from "./components/single/Top";
 // import TeamBenefits from "./components/TeamBenefits";
 // import TeamPhotos from "./components/TeamPhotos";
 import TextSection from "./components/TextSection";
@@ -71,8 +71,8 @@ export {
   PartnerNetwork,
   QuoteSection,
   ServiceHubsTeaser,
-  // PostContent,
-  // PostTop,
+  PostContent,
+  PostTop,
   // TeamBenefits,
   // TeamPhotos,
   TextSection,
