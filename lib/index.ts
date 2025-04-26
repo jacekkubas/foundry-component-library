@@ -32,7 +32,7 @@ import QuoteSection from "./components/QuoteSection";
 import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
 import PostContent from "./components/single/Content";
 import PostTop from "./components/single/Top";
-// import TeamBenefits from "./components/TeamBenefits";
+import TeamBenefits from "./components/TeamBenefits";
 // import TeamPhotos from "./components/TeamPhotos";
 import TextSection from "./components/TextSection";
 // import Tiles from "./components/Tiles";
@@ -73,7 +73,7 @@ export {
   ServiceHubsTeaser,
   PostContent,
   PostTop,
-  // TeamBenefits,
+  TeamBenefits,
   // TeamPhotos,
   TextSection,
   // Tiles,

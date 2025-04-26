@@ -1,0 +1,57 @@
+@use "../variables" as *;
+
+.benefits {
+  background-color: $color-gray-light;
+  padding-bottom: 128px;
+}
+
+.tiles {
+  display: flex;
+  gap: 16px;
+}
+
+.tile {
+  white-space: pre-wrap;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  max-width: calc(25% - 12px);
+  height: 328px;
+  box-sizing: border-box;
+  background-color: $color-pink;
+  color: $color-brown;
+  font-size: 34px;
+  font-family: $font-secondary;
+  flex-shrink: 0;
+
+  @media screen and (max-width: $screen-md) {
+    max-width: 90%;
+  }
+
+  &.yellow {
+    background-color: $color-yellow;
+    color: $color-blue;
+  }
+
+  &.brown {
+    background-color: $color-brown;
+    color: $color-pink;
+  }
+
+  &.brown {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+}
+
+.text {
+  margin-bottom: 42px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
