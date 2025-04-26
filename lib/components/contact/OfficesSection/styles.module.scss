@@ -1,0 +1,9 @@
+@use "../../variables" as *;
+
+.officesSection {
+  padding-bottom: 64px;
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 0;
+  }
+}

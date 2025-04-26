@@ -1,0 +1,61 @@
+@use "../../variables" as *;
+
+.section {
+  padding: 64px 0;
+  background-color: $color-gray-light;
+  color: $color-brown;
+}
+
+.heading {
+  font-size: 42px;
+  margin-bottom: 46px;
+  font-weight: 400;
+  font-family: $font-secondary;
+}
+
+.wrapper {
+  display: flex;
+
+  @media #{$QUERY-sm} {
+    display: block;
+  }
+}
+
+.column {
+  width: 396px;
+  max-width: 50%;
+  margin-right: 48px;
+  border-top: solid 2px $color-brown;
+  padding-top: 16px;
+
+  @media #{$QUERY-sm} {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+    @media #{$QUERY-sm} {
+      margin-bottom: 0;
+    }
+  }
+
+  @media #{$QUERY-sm} {
+    margin-bottom: 64px;
+  }
+}
+
+.subheading {
+  font-size: 20px;
+  font-weight: 500px;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: 18px;
+
+  strong {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,67 @@
+@use "../../variables" as *;
+
+.section {
+  padding: 64px 0;
+  background-color: $color-yellow;
+  color: $color-brown;
+}
+
+.title {
+  font-size: 42px;
+  font-family: $font-secondary;
+  margin-bottom: 46px;
+  font-weight: 400;
+}
+
+.boxes {
+  display: flex;
+  justify-content: space-between;
+
+  @media #{$QUERY-sm} {
+    display: block;
+  }
+}
+
+.box {
+  width: calc(33.333% - 10px);
+  max-width: 394px;
+  box-sizing: border-box;
+  border: solid 1px transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media #{$QUERY-md} {
+    padding: 1rem;
+  }
+
+  @media #{$QUERY-sm} {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.heading {
+  font-size: 34px;
+  font-family: $font-secondary;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 24px;
+
+  @media #{$QUERY-md} {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+}
+
+.subheading {
+  font-size: 18px;
+  margin-bottom: 36px;
+  a {
+    text-decoration: underline;
+  }
+}
+
+.button-secondary {
+}
