@@ -25,6 +25,7 @@ function VideoTeaser({ url }: { url: string }) {
 
   return (
     <div
+      // eslint-disable-next-line no-extra-boolean-cast
       className={`${styles.wrapper} ${!!url ? styles.playCursor : ""} ${
         playing ? styles.playing : ""
       }`}
