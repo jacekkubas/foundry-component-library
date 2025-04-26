@@ -15,8 +15,8 @@ import ContactButton from "./components/ContactButton";
 import ContactTeaser from "./components/ContactTeaser";
 import Container from "./components/Container";
 import DoubleTiles from "./components/DoubleTiles";
-// import Footer from "./components/Footer";
-// import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 // import Hero from "./components/Hero";
 // import HubsAccordion from "./components/HubsAccordion";
 // import ImageTitle from "./components/ImageTitle";
@@ -56,8 +56,8 @@ export {
   ContactTeaser,
   Container,
   DoubleTiles,
-  // Footer,
-  // Header,
+  Footer,
+  Header,
   // Hero,
   // HubsAccordion,
   // ImageTitle,

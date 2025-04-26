@@ -1,0 +1,147 @@
+@use "../variables" as *;
+
+.footer {
+  padding: 64px 0;
+  background-color: $color-blue;
+  color: $color-white;
+  position: relative;
+  z-index: 4;
+}
+
+.footerWrapper {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px $color-gray;
+  padding-bottom: 8px;
+
+  @media screen and (max-width: $screen-sm) {
+    display: block;
+    padding: 0;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  svg {
+    @media screen and (max-width: $screen-md) {
+      width: 350px;
+    }
+  }
+}
+
+.logoText {
+  font-size: 34px;
+  font-family: $font-secondary;
+  margin-bottom: 48px;
+
+  @media screen and (max-width: $screen-md) {
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 30px;
+  }
+}
+
+.offices {
+  display: flex;
+  gap: 48px;
+
+  @media screen and (max-width: 1000px) {
+    gap: 25px;
+  }
+
+  @media screen and (max-width: $screen-md) {
+    display: block;
+  }
+}
+
+.office {
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 20px;
+  }
+
+  &:last-child {
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.city {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.email {
+  font-size: 14px;
+
+  &:hover {
+    color: $color-pink;
+  }
+}
+
+.right {
+  width: 335px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1000px) {
+    width: 270px;
+  }
+}
+
+.menu {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.menuSocial {
+  font-size: 16px;
+
+  .menuItem {
+    margin-bottom: 27px;
+  }
+}
+
+.menuItem {
+  margin-bottom: 24px;
+
+  a {
+    &:hover {
+      color: $color-pink;
+    }
+  }
+}
+
+.socialHeading {
+  font-weight: 700;
+  margin-bottom: 26px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-top: 32px;
+}
+
+.bottomLinks {
+  display: flex;
+  gap: 24px;
+  text-transform: none;
+  font-size: 16px;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-pink;
+    }
+  }
+}
