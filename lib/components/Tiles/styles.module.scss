@@ -1,0 +1,60 @@
+@use "../variables" as *;
+
+.tiles {
+  padding-bottom: 64px;
+  display: flex;
+  gap: 20px;
+}
+
+.tile {
+  white-space: pre-wrap;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  box-sizing: border-box;
+  background-color: $color-pink;
+  color: $color-brown;
+  font-size: 42px;
+  font-family: $font-secondary;
+  flex-shrink: 0;
+
+  @media screen and (max-width: $screen-sm) {
+    max-width: 90%;
+    height: 300px;
+  }
+
+  &.yellow {
+    background-color: $color-yellow;
+    color: $color-blue;
+
+    path {
+      stroke: $color-blue;
+    }
+  }
+
+  &.brown {
+    background-color: $color-brown;
+    color: $color-pink;
+
+    path {
+      stroke: $color-pink;
+    }
+  }
+}
+
+.text {
+  margin-bottom: 42px;
+
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 20px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
