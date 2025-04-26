@@ -1,0 +1,46 @@
+@use "../variables" as *;
+
+.contactTeaser {
+  padding: 64px 0;
+  background-color: $color-yellow;
+  color: $color-brown;
+
+  &.pink {
+    background-color: $color-pink;
+    color: $color-brown;
+
+    .button {
+      @extend .button--brown;
+    }
+  }
+}
+
+.wrapper {
+  width: 800px;
+  max-width: 100%;
+}
+
+.heading {
+  font-family: $font-secondary;
+  font-size: 54px;
+  color: $color-brown;
+  margin-bottom: 24px;
+  white-space: pre-wrap;
+
+  @media screen and (max-width: $screen-sm) {
+    font-size: 31px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.margin {
+    margin-bottom: 64px;
+  }
+}
+
+.text {
+  font-size: 20px;
+  margin-bottom: 48px;
+}

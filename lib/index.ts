@@ -12,7 +12,7 @@ import Contacts from "./components/contact/Contacts";
 import Offices from "./components/contact/Offices";
 import OfficesSection from "./components/contact/OfficesSection";
 import ContactButton from "./components/ContactButton";
-// import ContactTeaser from "./components/ContactTeaser";
+import ContactTeaser from "./components/ContactTeaser";
 import Container from "./components/Container";
 // import DoubleTiles from "./components/DoubleTiles";
 // import Footer from "./components/Footer";
@@ -53,7 +53,7 @@ export {
   Offices,
   OfficesSection,
   ContactButton,
-  // ContactTeaser,
+  ContactTeaser,
   Container,
   // DoubleTiles,
   // Footer,
