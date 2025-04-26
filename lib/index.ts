@@ -33,7 +33,7 @@ import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
 import PostContent from "./components/single/Content";
 import PostTop from "./components/single/Top";
 import TeamBenefits from "./components/TeamBenefits";
-// import TeamPhotos from "./components/TeamPhotos";
+import TeamPhotos from "./components/TeamPhotos";
 import TextSection from "./components/TextSection";
 // import Tiles from "./components/Tiles";
 // import VideoTeaser from "./components/VideoTeaser";
@@ -74,7 +74,7 @@ export {
   PostContent,
   PostTop,
   TeamBenefits,
-  // TeamPhotos,
+  TeamPhotos,
   TextSection,
   // Tiles,
   // VideoTeaser,
