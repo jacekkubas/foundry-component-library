@@ -1,0 +1,142 @@
+@use "../variables" as *;
+
+.logoSection {
+  padding: 0 0 64px;
+  background-color: $color-blue;
+}
+
+.filterBtns {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.dropdown {
+  position: relative;
+  width: 150px;
+
+  &.active {
+    z-index: 3;
+  }
+}
+
+.dropdownHeading {
+  position: relative;
+  z-index: 2;
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: none;
+  color: $color-white;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: $color-blue-dark;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  svg {
+    position: relative;
+    top: -2px;
+  }
+
+  &.active,
+  &:hover {
+    background-color: $color-white;
+    color: $color-blue;
+
+    path {
+      stroke: $color-blue;
+    }
+  }
+}
+
+.dropdownInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  background-color: $color-gray-light;
+  min-width: 100%;
+  border-radius: 0 0 20px 20px;
+  padding-top: 15px;
+  top: 15px;
+  width: 100%;
+}
+
+.option {
+  padding: 5px 16px;
+  font-size: 14px;
+  color: $color-blue;
+  cursor: pointer;
+
+  &.active {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:first-child {
+    padding-top: 10px;
+  }
+
+  &:last-child {
+    padding-bottom: 10px;
+  }
+}
+
+.filterBtn {
+  padding: 5px 16px;
+  border: solid 1px $color-white;
+  border-radius: 20px;
+  color: $color-white;
+  font-size: 14px;
+  line-height: 1.2;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: transparent;
+
+  &.active,
+  &:hover {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image {
+  width: 20%;
+  height: 115px;
+  position: relative;
+
+  @media #{$QUERY-md} {
+    width: 33.333%;
+  }
+
+  @media #{$QUERY-sm} {
+    width: 50%;
+  }
+
+  img {
+    object-fit: contain;
+  }
+}

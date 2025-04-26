@@ -1,0 +1,51 @@
+@use "../variables" as *;
+
+.largeText {
+  background-color: $color-brown;
+  color: $color-pink;
+  padding: 64px 0;
+  text-align: center;
+
+  &.loading {
+    height: 347px;
+  }
+
+  &.white {
+    background-color: $color-white;
+    color: $color-brown;
+  }
+}
+
+.wrapper {
+  text-align: center;
+  font-size: 54px;
+  font-family: $font-secondary;
+  margin: auto;
+
+  @media screen and (max-width: $screen-sm) {
+    font-size: 31px;
+  }
+}
+
+.wordWrapper {
+  position: relative;
+}
+
+.word {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.ghostWord {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.1;
+}
+
+.button {
+  @extend .button--brown;
+  display: inline-block;
+  margin-top: 30px;
+}

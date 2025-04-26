@@ -1,0 +1,77 @@
+@use "../variables" as *;
+
+.marketingStats {
+  padding-bottom: 80px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 16px;
+
+  @media #{$QUERY-md} {
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  @media #{$QUERY-sm} {
+    display: block;
+  }
+}
+
+.item {
+  width: calc(25% - 12px);
+  color: $color-brown;
+
+  @media #{$QUERY-md} {
+    width: calc(50% - 16px);
+  }
+
+  @media #{$QUERY-sm} {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  height: 220px;
+  margin-bottom: 24px;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.text {
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-top: solid 1px $color-brown;
+}
+
+.percent {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  svg {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+  }
+
+  path {
+    stroke-width: 2px;
+    stroke: $color-brown;
+  }
+}

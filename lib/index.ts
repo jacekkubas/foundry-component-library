@@ -19,11 +19,11 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import HubsAccordion from "./components/HubsAccordion";
-// import ImageTitle from "./components/ImageTitle";
-// import LargeText from "./components/LargeText";
-// import LogoSection from "./components/LogoSection";
-// import Management from "./components/Management";
-// import MarketingStats from "./components/MarketingStats";
+import ImageTitle from "./components/ImageTitle";
+import LargeText from "./components/LargeText";
+import LogoSection from "./components/LogoSection";
+import Management from "./components/Management";
+import MarketingStats from "./components/MarketingStats";
 // import Posts from "./components/news/Posts";
 // import NewsTeaser from "./components/NewsTeaser";
 // import OfficesTeaser from "./components/OfficesTeaser";
@@ -60,11 +60,11 @@ export {
   Header,
   Hero,
   HubsAccordion,
-  // ImageTitle,
-  // LargeText,
-  // LogoSection,
-  // Management,
-  // MarketingStats,
+  ImageTitle,
+  LargeText,
+  LogoSection,
+  Management,
+  MarketingStats,
   // Posts,
   // NewsTeaser,
   // OfficesTeaser,
