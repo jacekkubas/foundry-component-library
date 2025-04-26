@@ -6,12 +6,12 @@ import CaseTop from "./components/case/Top";
 import CaseOther from "./components/case/Other";
 import CasesItems from "./components/cases/Items";
 import CasesTop from "./components/cases/Top";
-// import CaseStudyTeaser from "./components/CaseStudyTeaser";
-// import Accounts from "./components/contact/Accounts";
-// import Contacts from "./components/contact/Contacts";
-// import Offices from "./components/contact/Offices";
-// import OfficesSection from "./components/contact/OfficesSection";
-// import ContactButton from "./components/ContactButton";
+import CaseStudyTeaser from "./components/CaseStudyTeaser";
+import Accounts from "./components/contact/Accounts";
+import Contacts from "./components/contact/Contacts";
+import Offices from "./components/contact/Offices";
+import OfficesSection from "./components/contact/OfficesSection";
+import ContactButton from "./components/ContactButton";
 // import ContactTeaser from "./components/ContactTeaser";
 import Container from "./components/Container";
 // import DoubleTiles from "./components/DoubleTiles";
@@ -47,12 +47,12 @@ export {
   CaseOther,
   CasesItems,
   CasesTop,
-  // CaseStudyTeaser,
-  // Accounts,
-  // Contacts,
-  // Offices,
-  // OfficesSection,
-  // ContactButton,
+  CaseStudyTeaser,
+  Accounts,
+  Contacts,
+  Offices,
+  OfficesSection,
+  ContactButton,
   // ContactTeaser,
   Container,
   // DoubleTiles,
