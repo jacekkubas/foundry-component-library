@@ -1,3 +1,4 @@
+"use client";
 import { Dispatch, SetStateAction, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./styles.module.scss";
