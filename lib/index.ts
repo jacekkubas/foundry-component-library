@@ -6,6 +6,7 @@ import CaseTop from "./components/case/Top";
 import CaseOther from "./components/case/Other";
 import CasesItems from "./components/cases/Items";
 import CasesTop from "./components/cases/Top";
+import CasesPagination from "./components/cases/Pagination";
 import CaseStudyTeaser from "./components/CaseStudyTeaser";
 import Accounts from "./components/contact/Accounts";
 import Contacts from "./components/contact/Contacts";
@@ -47,6 +48,7 @@ export {
   CaseOther,
   CasesItems,
   CasesTop,
+  CasesPagination,
   CaseStudyTeaser,
   Accounts,
   Contacts,

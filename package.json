@@ -1,6 +1,6 @@
 {
   "name": "foundry-component-library",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
     }
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
     "dev": "vite",
