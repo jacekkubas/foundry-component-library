@@ -1,0 +1,32 @@
+@use "../variables" as *;
+
+.partnersNetwork {
+  background-color: $color-pink;
+  padding-bottom: 64px;
+}
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 64px;
+  padding-top: 32px;
+  padding-bottom: 64px;
+
+  &:first-child {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+.partner {
+  width: 33.333%;
+}
+
+.image {
+  position: relative;
+  width: 200px;
+  height: 40px;
+
+  img {
+    object-fit: contain;
+  }
+}

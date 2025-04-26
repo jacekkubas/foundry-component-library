@@ -1,0 +1,40 @@
+@use "../variables" as *;
+
+.officesTeaser {
+  display: flex;
+  padding: 64px 0;
+
+  @media #{$QUERY-xl} {
+    display: block;
+  }
+}
+
+.texts {
+  width: 384px;
+  flex-shrink: 0;
+}
+
+.caption {
+  font-size: 20px;
+  color: $color-blue;
+  margin-bottom: 5px;
+}
+
+.heading {
+  font-size: 42px;
+  font-family: $font-secondary;
+  white-space: pre-wrap;
+  color: $color-brown;
+
+  @media #{$QUERY-xl} {
+    margin-bottom: 32px;
+  }
+}
+
+.offices {
+  width: calc(100% - 384px);
+
+  @media #{$QUERY-xl} {
+    width: 100%;
+  }
+}

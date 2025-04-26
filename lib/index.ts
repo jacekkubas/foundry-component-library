@@ -25,11 +25,11 @@ import LogoSection from "./components/LogoSection";
 import Management from "./components/Management";
 import MarketingStats from "./components/MarketingStats";
 import Posts from "./components/news/Posts";
-// import NewsTeaser from "./components/NewsTeaser";
-// import OfficesTeaser from "./components/OfficesTeaser";
-// import PartnerNetwork from "./components/PartnerNetwork";
+import NewsTeaser from "./components/NewsTeaser";
+import OfficesTeaser from "./components/OfficesTeaser";
+import PartnerNetwork from "./components/PartnerNetwork";
 import QuoteSection from "./components/QuoteSection";
-// import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
+import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
 // import PostContent from "./components/single/Content";
 // import PostTop from "./components/single/Top";
 // import TeamBenefits from "./components/TeamBenefits";
@@ -66,11 +66,11 @@ export {
   Management,
   MarketingStats,
   Posts,
-  // NewsTeaser,
-  // OfficesTeaser,
-  // PartnerNetwork,
+  NewsTeaser,
+  OfficesTeaser,
+  PartnerNetwork,
   QuoteSection,
-  // ServiceHubsTeaser,
+  ServiceHubsTeaser,
   // PostContent,
   // PostTop,
   // TeamBenefits,

@@ -1,0 +1,121 @@
+@use "../variables" as *;
+
+.newsTeaser {
+  padding: 64px 0;
+  color: $color-brown;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1280px) {
+    display: block;
+  }
+}
+
+.texts {
+  width: 384px;
+  max-width: 100%;
+  flex-shrink: 0;
+
+  @media screen and (max-width: 1280px) {
+    width: 600px;
+    margin-bottom: 30px;
+  }
+}
+
+.caption {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: $color-blue;
+}
+
+.heading {
+  font-size: 42px;
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+
+.text {
+  font-size: 22px;
+  margin-bottom: 48px;
+}
+
+.items {
+  display: flex;
+  gap: 20px;
+
+  @media screen and (max-width: $screen-md) {
+    flex-wrap: wrap;
+  }
+}
+
+.item {
+  width: 260px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: $screen-md) {
+    width: calc(50% - 10px);
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    width: 100%;
+  }
+}
+
+.itemTexts {
+  padding: 24px 16px;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.excerpt {
+  margin-bottom: 24px;
+  max-height: 66px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.button {
+}
+
+.more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-brown;
+  line-height: 1;
+
+  path {
+    stroke: $color-brown;
+  }
+
+  &:hover {
+    color: $color-blue;
+
+    path {
+      stroke: $color-blue;
+    }
+  }
+}
+
+.image {
+  img {
+    object-fit: cover;
+  }
+}
