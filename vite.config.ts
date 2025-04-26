@@ -49,4 +49,12 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    exclude: ["foundry-component-library"],
+  },
+  server: {
+    fs: {
+      allow: [".."], // allow access to your local folder
+    },
+  },
 });

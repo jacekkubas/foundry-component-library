@@ -7,16 +7,16 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+      "import": "./lib/index.ts"
     },
     "./main": {
-      "import": "./dist/index.js"
+      "import": "./lib/index.ts"
     },
     "./queries": {
-      "import": "./dist/queries/index.js"
+      "import": "./lib/queries/index.ts"
     },
     "./types": {
-      "import": "./dist/types/index.js"
+      "import": "./lib/types/index.ts"
     }
   },
   "files": [
@@ -25,6 +25,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b ./tsconfig.build.json && vite build",
+    "build:watch": "vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
