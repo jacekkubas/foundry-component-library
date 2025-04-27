@@ -23,7 +23,7 @@ const Pagination = ({
   const handleClick = (page: number) => {
     const params = new URLSearchParams(searchParams);
     params.set("page", String(page));
-    router.push(`?${params.toString()}`, undefined, { scroll: false });
+    router.push(`?${params.toString()}`, { scroll: false });
   };
 
   return (

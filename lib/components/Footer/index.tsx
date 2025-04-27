@@ -1,7 +1,7 @@
 import Container from "../Container";
 import styles from "./styles.module.scss";
 import { translate } from "../../utils";
-import Logo from "../../assets/svg/footer-logo.svg?react";
+import Logo from "../../assets/svg/footer-logo.svg";
 import { NextLink } from "../../types";
 
 function Footer({

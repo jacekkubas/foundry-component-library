@@ -2,7 +2,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./styles.module.scss";
-import CaretDown from "../../../assets/svg/caret-down.svg?react";
+import CaretDown from "../../../assets/svg/caret-down.svg";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { NextRouter } from "../../../types";
 
@@ -35,7 +35,7 @@ const Dropdown = ({
     const params = new URLSearchParams();
     params.set(category, value);
 
-    router.push(`?${params.toString()}`, undefined, { scroll: false });
+    router.push(`?${params.toString()}`, { scroll: false });
   };
 
   const toggleOpen = () => {

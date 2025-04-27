@@ -3,7 +3,7 @@ import { useState } from "react";
 import Container from "../../Container";
 import Video from "./Video";
 import styles from "./styles.module.scss";
-import Arrow from "../../../assets/svg/arrow.svg?react";
+import Arrow from "../../../assets/svg/arrow.svg";
 import { Case, NextImage, NextLink, NextRouter } from "../../../types";
 import Top from "../Top";
 

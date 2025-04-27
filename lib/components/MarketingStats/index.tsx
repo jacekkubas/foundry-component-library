@@ -2,7 +2,7 @@ import React from "react";
 import TextSection from "../TextSection";
 import styles from "./styles.module.scss";
 import Container from "../Container";
-import Arrow from "../../assets/svg/arrow.svg?react";
+import Arrow from "../../assets/svg/arrow.svg";
 import { NextImage } from "../../types";
 
 const MarketingStats = ({

@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
 import styles from "./styles.module.scss";
-import Plus from "../../assets/svg/plus.svg?react";
+import Plus from "../../assets/svg/plus.svg";
 import { NextLink } from "../../types";
 
 const Tile = ({

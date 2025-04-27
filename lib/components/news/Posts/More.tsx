@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./styles.module.scss";
-import Hourglass from "../../../assets/svg/hourglass.svg?react";
+import Hourglass from "../../../assets/svg/hourglass.svg";
 import { translate } from "../../../utils";
 import { getPosts } from "../../../queries";
 import { NextImage, NextLink, Post } from "../../../types";

@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useRef, Dispatch, SetStateAction } from "react";
 import { Case, NextImage } from "../../types";
 import styles from "./styles.module.scss";
-import Arrow from "../../assets/svg/arrow.svg?react";
+import Arrow from "../../assets/svg/arrow.svg";
 import LinkType from "next/link";
 
 const Item = ({

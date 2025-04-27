@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player/lazy";
 import styles from "./styles.module.scss";
-import Mute from "../../assets/svg/mute.svg?react";
-import Muted from "../../assets/svg/muted.svg?react";
-import PlayButton from "../../assets/svg/play-button.svg?react";
+import Mute from "../../assets/svg/mute.svg";
+import Muted from "../../assets/svg/muted.svg";
+import PlayButton from "../../assets/svg/play-button.svg";
 
 function VideoTeaser({ url }: { url: string }) {
   const [playing, setPlaying] = useState(false);

@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage, NextLink, PostPreview } from "../../types";
-import Arrow from "../../assets/svg/arrow.svg?react";
+import Arrow from "../../assets/svg/arrow.svg";
 
 const NewsTeaser = ({
   caption,

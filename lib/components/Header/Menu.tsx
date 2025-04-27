@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import styles from "./styles.module.scss";
 import { translate } from "../../utils";
-import Arrow from "../../assets/svg/arrow.svg?react";
-import Close from "../../assets/svg/close.svg?react";
+import Arrow from "../../assets/svg/arrow.svg";
+import Close from "../../assets/svg/close.svg";
 import { NextLink } from "../../types";
 
 function Menu({

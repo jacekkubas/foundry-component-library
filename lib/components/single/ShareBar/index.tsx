@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
-import Comment from "../../../assets/svg/comment.svg?react";
-import Facebook from "../../../assets/svg/facebook.svg?react";
-import LinkedIn from "../../../assets/svg/linkedin.svg?react";
+import Comment from "../../../assets/svg/comment.svg";
+import Facebook from "../../../assets/svg/facebook.svg";
+import LinkedIn from "../../../assets/svg/linkedin.svg";
 import Container from "../../Container";
 import { translate } from "../../../utils";
 import { NextLink } from "../../../types";

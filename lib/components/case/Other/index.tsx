@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../../Container";
 import styles from "./styles.module.scss";
-import Arrow from "../../../assets/svg/arrow.svg?react";
+import Arrow from "../../../assets/svg/arrow.svg";
 import { translate } from "../../../utils";
 import { Case, NextImage, NextLink } from "../../../types";
 

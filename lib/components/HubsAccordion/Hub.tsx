@@ -2,7 +2,7 @@
 import { useRef, Dispatch, SetStateAction } from "react";
 import { NextImage, NextLink, type Hub } from "../../types";
 import styles from "./styles.module.scss";
-import Arrow from "../../assets/svg/arrow.svg?react";
+import Arrow from "../../assets/svg/arrow.svg";
 import useDrag from "../../hooks/useDrag";
 
 const Hub = ({

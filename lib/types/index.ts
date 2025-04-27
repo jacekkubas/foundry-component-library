@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NextRouter as Router } from "next/router";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { ReadonlyURLSearchParams } from "next/navigation";
 
 export type NextImage = typeof Image;
 export type NextLink = typeof Link;
-export type NextRouter = Router;
+export type NextRouter = AppRouterInstance;
 export type NextSearchParams = ReadonlyURLSearchParams;
 
 export interface Variables {
