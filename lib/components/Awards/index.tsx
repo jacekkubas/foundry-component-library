@@ -1,6 +1,9 @@
+"use client";
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage } from "../../types";
+import useDrag from "../../hooks/useDrag";
 
 const Awards = ({
   heading,
@@ -17,13 +20,27 @@ const Awards = ({
   }[];
   Image: NextImage;
 }) => {
+  const sectionRef = useRef(null);
+  const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
+    useDrag(sectionRef);
+
   if (!awards) return;
 
   return (
-    <Container>
-      <div className={styles.awards}>
+    <div className={styles.awards}>
+      <Container>
         {heading && <div className={styles.heading}>{heading}</div>}
-        <div className={styles.items}>
+      </Container>
+      <Container noMobilePadding>
+        <div
+          ref={sectionRef}
+          className={styles.items}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          style={dragStyle as React.CSSProperties}
+        >
           {awards.map((award, i) => {
             const { image, heading, text } = award;
 
@@ -40,8 +57,8 @@ const Awards = ({
             );
           })}
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

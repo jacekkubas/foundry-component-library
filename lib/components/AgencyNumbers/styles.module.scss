@@ -4,6 +4,10 @@
   padding: 64px 0;
   background-color: $color-pink;
   color: $color-brown;
+
+  @media #{$QUERY-sm} {
+    padding: 32px 0;
+  }
 }
 
 .wrapper {
@@ -22,6 +26,10 @@
   white-space: pre-wrap;
   line-height: 1.2;
 
+  @media #{$QUERY-sm} {
+    font-size: 28px;
+  }
+
   em {
     font-style: normal;
     color: $color-white;
@@ -32,8 +40,22 @@
   @extend .button--brown;
   display: inline-block;
 
-  @media screen and (max-width: $screen-md) {
-    margin-bottom: 60px;
+  &.desktop {
+    @media #{$QUERY-md} {
+      margin-bottom: 60px;
+    }
+
+    @media #{$QUERY-sm} {
+      display: none;
+    }
+  }
+
+  &.mobile {
+    display: none;
+
+    @media #{$QUERY-sm} {
+      display: block;
+    }
   }
 }
 
@@ -52,10 +74,6 @@
   padding: 16px;
   margin-bottom: 24px;
 
-  @media screen and (max-width: $screen-sm) {
-    width: 100%;
-  }
-
   &:last-child {
     margin-bottom: 0;
   }
@@ -64,8 +82,16 @@
 .number {
   font-size: 42px;
   margin-bottom: 5px;
+
+  @media #{$QUERY-sm} {
+    font-size: 36px;
+  }
 }
 
 .description {
   font-size: 22px;
+
+  @media #{$QUERY-sm} {
+    font-size: 16px;
+  }
 }

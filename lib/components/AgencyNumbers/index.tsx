@@ -26,7 +26,10 @@ const AgencyNumbers = ({
               />
             )}
             {Link && (
-              <Link className={styles.button} href="/about-us">
+              <Link
+                className={`${styles.button} ${styles.desktop}`}
+                href="/about-us"
+              >
                 About Us
               </Link>
             )}
@@ -41,6 +44,14 @@ const AgencyNumbers = ({
               );
             })}
           </div>
+          {Link && (
+            <Link
+              className={`${styles.button} ${styles.mobile}`}
+              href="/about-us"
+            >
+              About Us
+            </Link>
+          )}
         </div>
       </Container>
     </div>

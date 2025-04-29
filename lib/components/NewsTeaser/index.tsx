@@ -1,7 +1,10 @@
+"use client";
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage, NextLink, PostPreview } from "../../types";
 import Arrow from "../../assets/svg/arrow.svg";
+import useDrag from "../../hooks/useDrag";
 
 const NewsTeaser = ({
   caption,
@@ -18,21 +21,33 @@ const NewsTeaser = ({
   Link: NextLink;
   Image: NextImage;
 }) => {
+  const sectionRef = useRef(null);
+  const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
+    useDrag(sectionRef);
+
   if (!posts) return;
 
   return (
     <div className={styles.newsTeaser}>
-      <Container>
+      <Container noMobilePadding>
         <div className={styles.wrapper}>
           <div className={styles.texts}>
             <div className={styles.caption}>{caption}</div>
             <div className={styles.heading}>{heading}</div>
             <div className={styles.text}>{text}</div>
-            <Link className={styles.button} href="/news">
+            <Link className={`${styles.button} ${styles.desktop}`} href="/news">
               Explore
             </Link>
           </div>
-          <div className={styles.items}>
+          <div
+            ref={sectionRef}
+            className={styles.items}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            style={dragStyle as React.CSSProperties}
+          >
             {posts.map((post) => {
               const { id, title, uri, CustomFieldsPosts: customFields } = post;
 
@@ -62,6 +77,9 @@ const NewsTeaser = ({
               );
             })}
           </div>
+          <Link className={`${styles.button} ${styles.mobile}`} href="/news">
+            Explore News
+          </Link>
         </div>
       </Container>
     </div>

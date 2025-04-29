@@ -7,11 +7,15 @@ const ContactTeaser = ({
   heading,
   text,
   theme = "yellow",
+  buttonText = "Contact Us",
+  buttonHref = "/contact",
   Link,
 }: {
   heading: string;
   text?: string;
   theme?: "yellow" | "pink";
+  buttonText?: string;
+  buttonHref?: string;
   Link: NextLink;
 }) => {
   return (
@@ -24,8 +28,8 @@ const ContactTeaser = ({
             </div>
           )}
           {text && <div className={styles.text}>{text}</div>}
-          <Link href="/contact" className={styles.button}>
-            {translate("Contact Us")}
+          <Link href={buttonHref} className={styles.button}>
+            {translate(buttonText)}
           </Link>
         </div>
       </Container>

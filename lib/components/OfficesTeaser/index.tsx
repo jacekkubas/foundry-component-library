@@ -13,7 +13,7 @@ const OfficesTeaser = ({
   Image: NextImage;
 }) => {
   return (
-    <Container>
+    <Container noMobilePadding>
       <div className={styles.officesTeaser}>
         <div className={styles.texts}>
           <div className={styles.caption}>Our Offices</div>
@@ -21,6 +21,7 @@ const OfficesTeaser = ({
             className={styles.heading}
           >{`We operate all\nover the world`}</div>
         </div>
+
         <div className={styles.offices}>
           <Offices details={details} Image={Image} />
         </div>
