@@ -1,12 +1,13 @@
 @use "../variables" as *;
 
-.benefits {
-}
-
 .tiles {
   display: flex;
   gap: 16px;
   padding-bottom: 64px;
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 32px;
+  }
 }
 
 .tile {
@@ -28,8 +29,20 @@
   font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
-    max-width: 90%;
+    max-width: 80%;
     height: 300px;
+  }
+
+  &:first-child {
+    @media #{$QUERY-sm} {
+      margin-left: 20px;
+    }
+  }
+
+  &:last-child {
+    @media #{$QUERY-sm} {
+      margin-right: 20px;
+    }
   }
 
   &.yellow {

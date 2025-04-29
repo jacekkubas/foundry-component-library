@@ -1,5 +1,8 @@
+"use client";
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 import { NextImage, OfficeDetails } from "../../../types";
+import useDrag from "../../../hooks/useDrag";
 
 function Offices({
   details,
@@ -28,10 +31,21 @@ function Offices({
     newyorkAddress,
     newyorkAddressLink,
   } = details;
+  const sectionRef = useRef(null);
+  const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
+    useDrag(sectionRef);
 
   return (
     <section>
-      <div className={styles.wrapper}>
+      <div
+        ref={sectionRef}
+        className={styles.wrapper}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        style={dragStyle as React.CSSProperties}
+      >
         <div className={styles.office}>
           <div className={styles.image}>
             {berlinImage && (

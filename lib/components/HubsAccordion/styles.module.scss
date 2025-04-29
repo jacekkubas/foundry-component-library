@@ -2,11 +2,15 @@
 
 .hubsAccordion {
   padding: 64px 0;
+
+  @media #{$QUERY-sm} {
+    padding: 0;
+  }
 }
 
 .hub {
-  border-top: solid 2px $color-brown;
   color: $color-brown;
+  position: relative;
 
   &.active {
     .rows {
@@ -15,6 +19,22 @@
 
     .icon span {
       top: -2px;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color-brown;
+
+    @media #{$QUERY-sm} {
+      width: calc(100% - 40px);
+      height: 1px;
+      left: 20px;
     }
   }
 
@@ -31,8 +51,8 @@
   justify-content: space-between;
 
   @media #{$QUERY-sm} {
-    display: block;
-    padding: 30px 0;
+    flex-wrap: wrap;
+    padding: 16px 20px;
   }
 }
 
@@ -47,8 +67,9 @@
   }
 
   @media #{$QUERY-sm} {
-    width: 100%;
+    width: calc(100% - 24px);
     margin-bottom: 20px;
+    font-size: 28px;
   }
 }
 
@@ -63,6 +84,7 @@
   @media #{$QUERY-sm} {
     width: 100%;
     margin-bottom: 20px;
+    order: 3;
   }
 }
 
@@ -81,6 +103,14 @@
   color: $color-brown;
   flex-shrink: 0;
 
+  @media #{$QUERY-sm} {
+    width: 24px;
+    height: 24px;
+    font-size: 21px;
+    position: relative;
+    top: 8px;
+  }
+
   span {
     position: relative;
   }
@@ -91,8 +121,30 @@
 }
 
 .row {
-  border-top: solid 1px $color-brown;
   padding-bottom: 64px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color-brown;
+
+    @media #{$QUERY-sm} {
+      width: calc(100% - 40px);
+      height: 1px;
+      left: 20px;
+    }
+  }
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .rowWrapper {
@@ -115,6 +167,7 @@
   @media #{$QUERY-sm} {
     margin-bottom: 20px;
     width: 100%;
+    font-size: 16px;
   }
 }
 
@@ -128,7 +181,12 @@
 }
 
 .more {
+  @media #{$QUERY-sm} {
+    margin-bottom: 32px;
+  }
+
   a {
+    display: inline-block;
     font-size: 22px;
     border-radius: 30px;
     padding: 11px 24px;
@@ -155,18 +213,33 @@
 
 .cases {
   display: flex;
+
+  @media #{$QUERY-sm} {
+    margin: 0 -20px;
+  }
 }
 
 .case {
   width: 300px;
   margin-right: 20px;
   cursor: pointer;
+  flex-shrink: 0;
 
   &:hover {
     color: $color-blue;
 
     path {
       stroke: $color-blue;
+    }
+  }
+
+  @media #{$QUERY-sm} {
+    width: 260px;
+  }
+
+  &:first-child {
+    @media #{$QUERY-sm} {
+      margin-left: 20px;
     }
   }
 
@@ -177,10 +250,14 @@
 }
 
 .caseImage {
-  width: 300px;
+  width: 100%;
   height: 220px;
   position: relative;
   margin-bottom: 20px;
+
+  @media #{$QUERY-sm} {
+    height: 180px;
+  }
 
   &:after {
     content: "";
@@ -203,4 +280,8 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  svg {
+    flex-shrink: 0;
+  }
 }

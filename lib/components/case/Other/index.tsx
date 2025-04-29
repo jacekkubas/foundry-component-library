@@ -1,9 +1,11 @@
-import React from "react";
+"use client";
+import { useRef } from "react";
 import Container from "../../Container";
 import styles from "./styles.module.scss";
 import Arrow from "../../../assets/svg/arrow.svg";
 import { translate } from "../../../utils";
 import { Case, NextImage, NextLink } from "../../../types";
+import useDrag from "../../../hooks/useDrag";
 
 function Other({
   cases,
@@ -14,17 +16,30 @@ function Other({
   Link: NextLink;
   Image: NextImage;
 }) {
+  const sectionRef = useRef(null);
+  const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
+    useDrag(sectionRef);
+
   if (!cases) return;
 
   return (
-    <Container>
+    <Container noMobilePadding>
       <div className={styles.other}>
-        <div className={styles.caption}>{translate("Case Studies")}</div>
-        <h3 className={styles.heading}>
-          {translate("Success stories.\nWith proven results.")}
-        </h3>
-
-        <div className={styles.cases}>
+        <div className={styles.top}>
+          <div className={styles.caption}>{translate("Case Studies")}</div>
+          <h3 className={styles.heading}>
+            {translate("Success stories.\nWith proven results.")}
+          </h3>
+        </div>
+        <div
+          ref={sectionRef}
+          className={styles.cases}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          style={dragStyle as React.CSSProperties}
+        >
           {cases.map((item) => (
             <div key={item.id} className={styles.case}>
               <Link href={item.uri}>

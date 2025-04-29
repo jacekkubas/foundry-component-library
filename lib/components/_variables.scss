@@ -36,6 +36,11 @@ $font-secondary: "kareliaOuttakes", sans-serif;
   font-size: 22px;
   transition: 0.3s;
 
+  @media #{$QUERY-sm} {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
   &:hover {
     background-color: transparent;
     color: $color-blue;

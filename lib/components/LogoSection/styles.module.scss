@@ -7,7 +7,7 @@
 
 .filterBtns {
   display: flex;
-  gap: 24px;
+  gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
@@ -15,6 +15,10 @@
 .dropdown {
   position: relative;
   width: 150px;
+
+  @media #{$QUERY-sm} {
+    width: 132px;
+  }
 
   &.active {
     z-index: 3;
@@ -130,10 +134,7 @@
 
   @media #{$QUERY-md} {
     width: 33.333%;
-  }
-
-  @media #{$QUERY-sm} {
-    width: 50%;
+    height: 50px;
   }
 
   img {

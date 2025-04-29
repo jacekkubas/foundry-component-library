@@ -7,16 +7,22 @@
   box-sizing: border-box;
   padding: 0 30px;
 
-  @media screen and (max-width: $screen-lg) {
+  @media #{$QUERY-lg} {
     width: 1000px;
   }
 
-  @media screen and (max-width: $screen-md) {
+  @media #{$QUERY-md} {
     width: 900px;
   }
 
-  @media screen and (max-width: $screen-sm) {
+  @media #{$QUERY-sm} {
     width: 100%;
     padding: 0 20px;
+  }
+
+  &.noMobilePadding {
+    @media #{$QUERY-sm} {
+      padding: 0;
+    }
   }
 }

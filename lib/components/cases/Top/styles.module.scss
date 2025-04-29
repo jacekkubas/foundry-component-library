@@ -7,15 +7,20 @@
 
 .filterBtns {
   display: flex;
-  gap: 24px;
+  gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 40px;
   padding-bottom: 32px;
+  z-index: 7;
+
+  @media #{$QUERY-sm} {
+    margin-bottom: 0;
+  }
 }
 
 .dropdown {
   position: relative;
-  width: 150px;
+  width: 110px;
 
   &.active {
     z-index: 3;

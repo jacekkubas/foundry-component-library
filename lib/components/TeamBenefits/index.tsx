@@ -14,7 +14,7 @@ const TeamBenefits = ({ tiles }: { tiles: string[] }) => {
   return (
     <div className={styles.benefits}>
       <TextSection caption="join the team" heading="Why Foundry?" />
-      <Container>
+      <Container noMobilePadding>
         <div
           ref={sectionRef}
           className={styles.tiles}

@@ -37,6 +37,7 @@
   @media #{$QUERY-sm} {
     width: 100%;
     max-width: 100%;
+    margin-bottom: 46px;
   }
 
   &:nth-child(4n),
@@ -92,10 +93,19 @@
   transition: color 0.3s;
   margin-bottom: 10px;
   font-weight: 500;
+
+  @media #{$QUERY-sm} {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
 }
 
 .caption {
   font-size: 22px;
+
+  @media #{$QUERY-sm} {
+    font-size: 16px;
+  }
 }
 
 .arrowWrapper {

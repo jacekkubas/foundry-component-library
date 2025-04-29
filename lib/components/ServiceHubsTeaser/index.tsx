@@ -36,7 +36,7 @@ const ServiceHubsTeaser = ({
   return (
     <div className={styles.benefits}>
       <TextSection caption={caption} heading={heading} text={text} isSmall />
-      <Container>
+      <Container noMobilePadding>
         <div
           ref={sectionRef}
           className={styles.tiles}

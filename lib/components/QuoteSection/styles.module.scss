@@ -4,6 +4,10 @@
   padding: 64px 0;
   background-color: $color-brown;
   color: $color-pink;
+
+  @media #{$QUERY-sm} {
+    padding: 32px 0;
+  }
 }
 
 .logo {
@@ -45,12 +49,20 @@
   margin-bottom: 5px;
   width: 211px;
   max-width: 100%;
+
+  @media #{$QUERY-sm} {
+    font-size: 22px;
+  }
 }
 
 .position {
   font-size: 18px;
   width: 211px;
   max-width: 100%;
+
+  @media #{$QUERY-sm} {
+    font-size: 14px;
+  }
 }
 
 .text {
@@ -60,6 +72,10 @@
 
   @media screen and (max-width: $screen-md) {
     font-size: 25px;
+  }
+
+  @media #{$QUERY-sm} {
+    font-size: 16px;
   }
 }
 

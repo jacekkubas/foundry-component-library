@@ -32,6 +32,10 @@
 .number {
   font-size: 64px;
   margin-bottom: 5px;
+
+  @media #{$QUERY-sm} {
+    font-size: 36px;
+  }
 }
 
 .text {

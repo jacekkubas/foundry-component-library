@@ -12,6 +12,10 @@
 .texts {
   width: 384px;
   flex-shrink: 0;
+
+  @media #{$QUERY-sm} {
+    padding: 0 20px;
+  }
 }
 
 .caption {

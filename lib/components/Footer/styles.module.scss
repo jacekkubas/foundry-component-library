@@ -6,6 +6,10 @@
   color: $color-white;
   position: relative;
   z-index: 4;
+
+  @media #{$QUERY-sm} {
+    padding: 30px 20px 48px;
+  }
 }
 
 .footerWrapper {
@@ -26,8 +30,12 @@
   justify-content: space-between;
 
   svg {
-    @media screen and (max-width: $screen-md) {
+    @media #{$QUERY-md} {
       width: 350px;
+    }
+
+    @media #{$QUERY-sm} {
+      width: 245px;
     }
   }
 }
@@ -42,7 +50,7 @@
   }
 
   @media screen and (max-width: $screen-sm) {
-    margin-bottom: 30px;
+    display: none;
   }
 }
 
@@ -56,6 +64,10 @@
 
   @media screen and (max-width: $screen-md) {
     display: block;
+  }
+
+  @media #{$QUERY-sm} {
+    display: none;
   }
 }
 
@@ -93,23 +105,29 @@
   @media screen and (max-width: 1000px) {
     width: 270px;
   }
+
+  @media #{$QUERY-sm} {
+    display: block;
+  }
 }
 
 .menu {
   font-size: 18px;
   font-weight: 500;
-}
 
-.menuSocial {
-  font-size: 16px;
-
-  .menuItem {
-    margin-bottom: 27px;
+  @media #{$QUERY-sm} {
+    width: 100%;
+    font-size: 28px;
+    margin-bottom: 64px;
   }
 }
 
 .menuItem {
   margin-bottom: 24px;
+
+  @media #{$QUERY-sm} {
+    margin-bottom: 10px;
+  }
 
   a {
     &:hover {
@@ -118,9 +136,30 @@
   }
 }
 
+.menuSocial {
+  font-size: 16px;
+
+  @media #{$QUERY-sm} {
+    display: flex;
+    gap: 24px;
+  }
+
+  .menuItem {
+    margin-bottom: 27px;
+
+    @media #{$QUERY-sm} {
+      margin-bottom: 15px;
+    }
+  }
+}
+
 .socialHeading {
   font-weight: 700;
   margin-bottom: 26px;
+
+  @media #{$QUERY-sm} {
+    display: none;
+  }
 }
 
 .bottom {
@@ -129,6 +168,11 @@
   font-size: 14px;
   text-transform: uppercase;
   padding-top: 32px;
+
+  @media #{$QUERY-sm} {
+    display: block;
+    padding-top: 13px;
+  }
 }
 
 .bottomLinks {
@@ -136,6 +180,10 @@
   gap: 24px;
   text-transform: none;
   font-size: 16px;
+
+  @media #{$QUERY-sm} {
+    margin-top: 10px;
+  }
 
   a {
     text-decoration: underline;

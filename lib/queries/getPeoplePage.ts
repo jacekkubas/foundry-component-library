@@ -21,6 +21,10 @@ type PeoplePage = {
       quoteName?: string;
       quotePosition?: string;
       quoteText?: string;
+      heroImage?: {
+        sourceUrl: string;
+      };
+      heroHeading?: string;
     };
   };
   contactPage: {
@@ -31,18 +35,21 @@ type PeoplePage = {
       berlinText?: string;
       berlinEmail?: string;
       berlinPhone?: string;
+      berlinAddress?: string;
       zurichImage?: {
         sourceUrl: string;
       };
       zurichText?: string;
       zurichEmail?: string;
       zurichPhone?: string;
+      zurichAddress?: string;
       newyorkImage?: {
         sourceUrl: string;
       };
       newyorkText?: string;
       newyorkEmail?: string;
       newyorkPhone?: string;
+      newyorkAddress?: string;
     };
   };
 };
@@ -81,6 +88,10 @@ export default async function getContactPage({
           quoteName
           quotePosition
           quoteText
+          heroImage {
+            sourceUrl
+          }
+          heroHeading
         }
       }
       contactPage: page(id: "contact", idType: URI) {
@@ -91,18 +102,21 @@ export default async function getContactPage({
           berlinText
           berlinEmail
           berlinPhone
+          berlinAddress
           zurichImage {
             sourceUrl
           }
           zurichText
           zurichEmail
           zurichPhone
+          zurichAddress
           newyorkImage {
             sourceUrl
           }
           newyorkText
           newyorkEmail
           newyorkPhone
+          newyorkAddress
         }
       }
     }

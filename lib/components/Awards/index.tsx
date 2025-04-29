@@ -1,6 +1,9 @@
+"use client";
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage } from "../../types";
+import useDrag from "../../hooks/useDrag";
 
 const Awards = ({
   heading,
@@ -17,31 +20,47 @@ const Awards = ({
   }[];
   Image: NextImage;
 }) => {
+  const sectionRef = useRef(null);
+  const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
+    useDrag(sectionRef);
+
+  console.log(awards);
+
   if (!awards) return;
 
   return (
-    <Container>
-      <div className={styles.awards}>
+    <div className={styles.awards}>
+      <Container>
         {heading && <div className={styles.heading}>{heading}</div>}
-        <div className={styles.items}>
+      </Container>
+      <Container noMobilePadding>
+        <div
+          ref={sectionRef}
+          className={styles.items}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          style={dragStyle as React.CSSProperties}
+        >
           {awards.map((award, i) => {
             const { image, heading, text } = award;
 
-            if (!heading) return;
+            if (!image) return;
 
             return (
-              <div key={heading + i} className={styles.award}>
+              <div key={heading || "" + i} className={styles.award}>
                 <div className={styles.image}>
                   {image && <Image src={image?.sourceUrl} alt="" fill />}
                 </div>
-                <div className={styles.text}>{heading}</div>
+                {heading && <div className={styles.text}>{heading}</div>}
                 {text && <div className={styles.client}>{text}</div>}
               </div>
             );
           })}
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

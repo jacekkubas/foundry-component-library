@@ -53,6 +53,12 @@ type HomePage = {
         number?: string;
         text?: string;
       }>;
+      heroImage?: {
+        sourceUrl: string;
+      };
+      heroHeading?: string;
+      heroButtonText?: string;
+      heroButtonHref?: string;
       newsCaption?: string;
       newsHeading?: string;
       newsText?: string;
@@ -146,6 +152,12 @@ export default async function getHomePage({
             number
             text
           }
+          heroImage {
+            sourceUrl
+          }
+          heroHeading
+          heroButtonText
+          heroButtonHref
           newsCaption
           newsHeading
           newsText
