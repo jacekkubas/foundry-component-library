@@ -3,6 +3,10 @@
 .partnersNetwork {
   background-color: $color-pink;
   padding-bottom: 64px;
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 32px;
+  }
 }
 
 .partners {
@@ -12,6 +16,11 @@
   padding-top: 32px;
   padding-bottom: 64px;
 
+  @media #{$QUERY-sm} {
+    column-gap: 24px;
+    row-gap: 24px;
+  }
+
   &:first-child {
     padding-top: 0;
     padding-bottom: 0;
@@ -19,12 +28,17 @@
 }
 .partner {
   width: 33.333%;
+
+  @media #{$QUERY-sm} {
+    width: calc(50% - 12px);
+  }
 }
 
 .image {
   position: relative;
   width: 200px;
   height: 40px;
+  max-width: 100%;
 
   img {
     object-fit: contain;

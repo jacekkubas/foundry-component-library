@@ -18,7 +18,7 @@ const HubsAccordion = ({
 
   return (
     <div className={styles.hubsAccordion}>
-      <Container>
+      <Container noMobilePadding>
         <div className={styles.hubs}>
           {hubs.map((hub) => {
             return (

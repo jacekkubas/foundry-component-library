@@ -17,6 +17,10 @@
 
   &.first {
     margin-top: 0;
+
+    @media #{$QUERY-sm} {
+      min-height: 250px;
+    }
   }
 
   & * {
