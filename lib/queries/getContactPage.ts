@@ -45,7 +45,11 @@ export type ContactPage = {
   };
 };
 
-export default async function getContactPage(): Promise<ContactPage | null> {
+export default async function getContactPage({
+  slug,
+}: {
+  slug: string;
+}): Promise<ContactPage | null> {
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
@@ -94,7 +98,7 @@ export default async function getContactPage(): Promise<ContactPage | null> {
     }
   `;
 
-  const variables = { slug: "contact" };
+  const variables = { slug: slug };
   const data: { page: ContactPage } = await client.request(query, variables);
   return data.page;
 }

@@ -5,9 +5,13 @@ import { type ContactPage } from "./getContactPage";
 
 type NewsPage = {
   title: string;
-  caption: string;
-  heading: string;
-  text: string;
+  customFieldsNews: {
+    textCaption?: string;
+    textHeading?: string;
+    textText?: string;
+    contactHeading?: string;
+    contactText?: string;
+  };
 };
 
 type Params = {
@@ -17,9 +21,10 @@ type Params = {
   params?: { before?: string | null; after?: string | null };
   language?: string;
   exclude?: string;
+  slug: string;
 };
 
-export default async function getCasesPage(options: Params = {}): Promise<{
+export default async function getNewsPage(options: Params): Promise<{
   newsPage: NewsPage;
   posts: Post[];
   pageInfo: {
@@ -37,6 +42,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
     language = "EN",
     perPage = 10,
     exclude = "",
+    slug,
   } = options;
   const hasSearchTerm = searchTerm && searchTerm.trim() !== "";
   const hasCategoryTerm = category && category.trim() !== "";
@@ -44,6 +50,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
 
   // Definition
   const variableDefinitions = [
+    "$slug: ID!",
     "$perPage: Int!",
     isPrevious ? "$before: String" : "$after: String",
     hasSearchTerm ? "$search: String" : "",
@@ -67,8 +74,15 @@ export default async function getCasesPage(options: Params = {}): Promise<{
 
   const query = gql`
     query GetNewsPage(${variableDefinitions}) {
-      newsPage: page(id: "news", idType: URI) {
+      newsPage: page(id: $slug, idType: URI) {
         title
+        customFieldsNews {
+          textCaption
+          textHeading
+          textText
+          contactHeading
+          contactText
+        }
       }
       posts(
         ${isPrevious ? "last: $perPage" : "first: $perPage"},
@@ -130,6 +144,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
   const variables: Variables = {
     perPage: perPage,
     language: language,
+    slug: slug,
     ...(isPrevious ? { before: params.before } : { after: params.after }),
   };
 

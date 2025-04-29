@@ -47,7 +47,11 @@ type PeoplePage = {
   };
 };
 
-export default async function getContactPage(): Promise<PeoplePage> {
+export default async function getContactPage({
+  slug,
+}: {
+  slug: string;
+}): Promise<PeoplePage> {
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
@@ -104,7 +108,7 @@ export default async function getContactPage(): Promise<PeoplePage> {
     }
   `;
 
-  const variables = { slug: "people" };
+  const variables = { slug: slug };
   const data: {
     page: PeoplePage["peoplePage"];
     contactPage: ContactPage;

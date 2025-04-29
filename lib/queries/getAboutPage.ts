@@ -72,10 +72,14 @@ type AboutPage = {
   };
 };
 
-export default async function getContactPage(): Promise<AboutPage> {
+export default async function getContactPage({
+  slug,
+}: {
+  slug: string;
+}): Promise<AboutPage> {
   const query = gql`
     query GetPageBySlug($slug: ID!) {
-      aboutPage: page(id: "about-us", idType: URI) {
+      aboutPage: page(id: $slug, idType: URI) {
         customFieldsAbout {
           partnersCaption
           partnersHeading
@@ -92,7 +96,9 @@ export default async function getContactPage(): Promise<AboutPage> {
           }
         }
       }
-      homePage: page(id: $slug, idType: URI) {
+      homePage: page(id: "${
+        slug === "about-us" ? "home-berlin" : "home-berlin-de"
+      }", idType: URI) {
         customFieldsBerlin {
           brandsCaption
           brandsHeading
@@ -118,7 +124,9 @@ export default async function getContactPage(): Promise<AboutPage> {
           }
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${
+        slug === "about-us" ? "contact" : "contact-de"
+      }", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -149,7 +157,7 @@ export default async function getContactPage(): Promise<AboutPage> {
     }
   `;
 
-  const variables = { slug: "home-berlin" };
+  const variables = { slug: slug };
   const data: {
     aboutPage: AboutPage["aboutPage"];
     homePage: AboutPage["homePage"];

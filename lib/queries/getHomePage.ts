@@ -88,7 +88,11 @@ type HomePage = {
   };
 };
 
-export default async function getContactPage(): Promise<HomePage> {
+export default async function getHomePage({
+  slug,
+}: {
+  slug: string;
+}): Promise<HomePage> {
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
@@ -198,7 +202,7 @@ export default async function getContactPage(): Promise<HomePage> {
     }
   `;
 
-  const variables = { slug: "home-berlin" };
+  const variables = { slug: slug };
   const data: {
     page: HomePage["homePage"];
     hubs: { nodes: Hub[] };

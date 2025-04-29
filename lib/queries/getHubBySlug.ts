@@ -23,7 +23,11 @@ type HubFields = {
   homePage: HomePage;
 };
 
-export default async function getCaseBySlug(slug: string): Promise<HubFields> {
+export default async function getCaseBySlug({
+  slug,
+}: {
+  slug: string;
+}): Promise<HubFields> {
   const query = gql`
     query GetHubBySlug($slug: ID!) {
       hub(id: $slug, idType: SLUG) {

@@ -48,6 +48,7 @@ type Params = {
   params?: { before?: string | null; after?: string | null };
   language?: string;
   exclude?: string;
+  slug?: string;
 };
 
 export default async function getCasesPage(options: Params = {}): Promise<{
@@ -70,6 +71,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
     language = "EN",
     perPage = 10,
     exclude = "",
+    slug,
   } = options;
   const hasSearchTerm = searchTerm && searchTerm.trim() !== "";
   const hasCategoryTerm = category && category.trim() !== "";
@@ -77,6 +79,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
 
   // Definition
   const variableDefinitions = [
+    "$slug: ID!",
     "$perPage: Int!",
     isPrevious ? "$before: String" : "$after: String",
     hasSearchTerm ? "$search: String" : "",
@@ -100,7 +103,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
 
   const query = gql`
     query GetNewsPage(${variableDefinitions}) {
-      hubsPage: page(id: "hubs", idType: URI) {
+      hubsPage: page(id: $slug, idType: URI) {
         title
         id
         customFieldsHubs {
@@ -150,7 +153,9 @@ export default async function getCasesPage(options: Params = {}): Promise<{
           hasPreviousPage
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${
+        language === "EN" ? "contact" : "contact-de"
+      }", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -172,7 +177,9 @@ export default async function getCasesPage(options: Params = {}): Promise<{
           newyorkPhone
         }
       }
-      homePage: page(id: "home-berlin", idType: URI) {
+      homePage: page(id: "${
+        language === "EN" ? "home-berlin" : "home-berlin-de"
+      }", idType: URI) {
         customFieldsBerlin {
           awardsHeading
           awards {
@@ -184,7 +191,9 @@ export default async function getCasesPage(options: Params = {}): Promise<{
           }
         }
       }
-        aboutPage: page(id: "about-us", idType: URI) {
+      aboutPage: page(id: "${
+        language === "EN" ? "about-us" : "about-us-de"
+      }", idType: URI) {
         customFieldsAbout {
           partnersCaption
           partnersHeading
@@ -200,6 +209,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
   `;
 
   const variables: Variables = {
+    slug: slug,
     perPage: perPage,
     language: language,
     ...(isPrevious ? { before: params.before } : { after: params.after }),

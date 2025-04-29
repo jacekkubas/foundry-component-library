@@ -22,6 +22,7 @@ const Hero = ({
   Link: NextLink;
   Image: NextImage;
 }) => {
+  console.log(image);
   if (!image) return;
 
   if (isFullWidth) {
