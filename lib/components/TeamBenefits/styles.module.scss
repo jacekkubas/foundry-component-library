@@ -3,6 +3,10 @@
 .benefits {
   background-color: $color-gray-light;
   padding-bottom: 128px;
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 32px;
+  }
 }
 
 .tiles {
@@ -32,6 +36,10 @@
     max-width: 90%;
   }
 
+  @media #{$QUERY-sm} {
+    width: 275px;
+  }
+
   &.yellow {
     background-color: $color-yellow;
     color: $color-blue;
@@ -45,6 +53,18 @@
   &.brown {
     background-color: $color-blue;
     color: $color-white;
+  }
+
+  &:first-child {
+    @media #{$QUERY-sm} {
+      margin-left: 20px;
+    }
+  }
+
+  &:last-child {
+    @media #{$QUERY-sm} {
+      margin-right: 20px;
+    }
   }
 }
 

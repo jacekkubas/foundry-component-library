@@ -12,6 +12,7 @@
 
   @media #{$QUERY-sm} {
     min-height: 350px;
+    margin: 32px 0;
   }
 
   &.first {
@@ -33,6 +34,12 @@
 
     @media #{$QUERY-sm} {
       min-height: 350px;
+    }
+  }
+
+  &.noMarginBottom {
+    @media #{$QUERY-sm} {
+      margin-bottom: 0;
     }
   }
 
@@ -67,7 +74,7 @@
   }
 
   @media screen and (max-width: $screen-sm) {
-    font-size: 92px;
+    font-size: 54px;
   }
 }
 

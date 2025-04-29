@@ -8,6 +8,7 @@ const Hero = ({
   isFullWidth,
   isFirst,
   btn,
+  noMarginBottom,
   Link,
   Image,
 }: {
@@ -19,6 +20,7 @@ const Hero = ({
     text?: string;
     href?: string;
   };
+  noMarginBottom?: boolean;
   Link: NextLink;
   Image: NextImage;
 }) => {
@@ -27,7 +29,11 @@ const Hero = ({
 
   if (isFullWidth) {
     return (
-      <div className={`${styles.hero} ${styles.isFullWidth}`}>
+      <div
+        className={`${styles.hero} ${styles.isFullWidth} ${
+          noMarginBottom ? styles.noMarginBottom : ""
+        }`}
+      >
         <Image
           className={styles.background}
           src={image}
@@ -48,8 +54,12 @@ const Hero = ({
   }
 
   return (
-    <Container>
-      <div className={`${styles.hero} ${isFirst ? styles.first : ""}`}>
+    <Container noMobilePadding>
+      <div
+        className={`${styles.hero} ${isFirst ? styles.first : ""} ${
+          noMarginBottom ? styles.noMarginBottom : ""
+        }`}
+      >
         <Image
           className={styles.background}
           src={image}
