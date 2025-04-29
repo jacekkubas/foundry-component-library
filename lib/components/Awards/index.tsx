@@ -24,6 +24,8 @@ const Awards = ({
   const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
     useDrag(sectionRef);
 
+  console.log(awards);
+
   if (!awards) return;
 
   return (
@@ -44,14 +46,14 @@ const Awards = ({
           {awards.map((award, i) => {
             const { image, heading, text } = award;
 
-            if (!heading) return;
+            if (!image) return;
 
             return (
-              <div key={heading + i} className={styles.award}>
+              <div key={heading || "" + i} className={styles.award}>
                 <div className={styles.image}>
                   {image && <Image src={image?.sourceUrl} alt="" fill />}
                 </div>
-                <div className={styles.text}>{heading}</div>
+                {heading && <div className={styles.text}>{heading}</div>}
                 {text && <div className={styles.client}>{text}</div>}
               </div>
             );

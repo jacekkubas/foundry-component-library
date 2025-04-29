@@ -3,6 +3,10 @@
 .wrapper {
   padding: 64px 0;
   color: $color-brown;
+
+  @media #{$QUERY-sm} {
+    padding: 32px 0;
+  }
 }
 
 .link {
@@ -35,6 +39,10 @@
   color: $color-blue;
   text-transform: uppercase;
   margin-bottom: 5px;
+
+  @media #{$QUERY-sm} {
+    font-size: 16px;
+  }
 }
 
 .titleWrapper {
@@ -59,7 +67,7 @@
   font-weight: 400;
 
   @media #{$QUERY-sm} {
-    font-size: 42px;
+    font-size: 32px;
   }
 }
 
@@ -80,12 +88,11 @@
   gap: 0 26px;
 
   @media #{$QUERY-sm} {
-    display: block;
+    gap: 0 20px;
   }
 }
 
 .detail {
-  font-size: 14px;
   width: 200px;
   font-size: 18px;
 
@@ -95,7 +102,8 @@
 
   @media #{$QUERY-sm} {
     margin-bottom: 30px;
-    width: 100%;
+    width: calc(50% - 10px);
+    font-size: 14px;
   }
 }
 
@@ -103,11 +111,20 @@
   margin-bottom: 10px;
   font-size: 20px;
   text-transform: uppercase;
+
+  @media #{$QUERY-sm} {
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
 
 .awardsWrapper {
   @media #{$QUERY-md} {
     margin-top: 30px;
+  }
+
+  @media #{$QUERY-sm} {
+    margin-top: 0;
   }
 }
 
@@ -115,15 +132,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+
+  @media #{$QUERY-sm} {
+    gap: 16px;
+  }
 }
 
 .award {
   display: flex;
+
+  @media #{$QUERY-sm} {
+    max-width: 106px;
+  }
 }
 
 .awardTexts {
   width: auto;
-  max-width: 200px;
+  width: 200px;
+  max-width: 100%;
   flex-shrink: 0;
   margin-right: 20px;
 }
@@ -134,6 +160,7 @@
   flex-shrink: 0;
   position: relative;
   max-height: 100px;
+  max-width: 100%;
 
   img {
     width: 100%;
@@ -151,6 +178,10 @@
   position: relative;
   width: 100%;
   height: 534px;
+
+  @media #{$QUERY-sm} {
+    height: 230px;
+  }
 
   img {
     object-fit: cover;

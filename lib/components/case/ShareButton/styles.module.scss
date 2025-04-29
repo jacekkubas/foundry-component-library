@@ -2,4 +2,8 @@
 
 .button {
   @extend .button--pink;
+
+  @media #{$QUERY-sm} {
+    display: none;
+  }
 }
