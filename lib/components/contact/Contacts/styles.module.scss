@@ -4,6 +4,10 @@
   padding: 64px 0;
   background-color: $color-yellow;
   color: $color-brown;
+
+  @media #{$QUERY-sm} {
+    padding: 32px 0;
+  }
 }
 
 .title {
@@ -11,6 +15,11 @@
   font-family: $font-secondary;
   margin-bottom: 46px;
   font-weight: 400;
+
+  @media #{$QUERY-sm} {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
 }
 
 .boxes {
@@ -37,8 +46,15 @@
   }
 
   @media #{$QUERY-sm} {
+    padding: 0;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 32px;
+  }
+
+  &:last-child {
+    @media #{$QUERY-sm} {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -58,10 +74,18 @@
 .subheading {
   font-size: 18px;
   margin-bottom: 36px;
+
+  @media #{$QUERY-sm} {
+    margin-bottom: 16px;
+  }
+
   a {
     text-decoration: underline;
   }
 }
 
-.button-secondary {
+.buttonSecondary {
+  path {
+    stroke-width: 2px;
+  }
 }

@@ -27,6 +27,10 @@
   height: 600px;
   position: relative;
 
+  @media #{$QUERY-sm} {
+    height: 230px;
+  }
+
   img {
     object-fit: cover;
   }

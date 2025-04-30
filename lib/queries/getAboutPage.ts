@@ -3,7 +3,28 @@ import client from "./client";
 
 type AboutPage = {
   aboutPage: {
-    customFieldsAbout: {
+    customFieldsAboutBerlin: {
+      topImage?: {
+        sourceUrl: string;
+      };
+      topText?: string;
+      text1Caption?: string;
+      text1Heading?: string;
+      columnsHeading?: string;
+      columnsText?: string;
+      columnsImage?: {
+        sourceUrl: string;
+      };
+      tilesCaption?: string;
+      tilesHeading?: string;
+      tiles?: {
+        heading?: string;
+      }[];
+      quotes?: {
+        name?: string;
+        position?: string;
+        text?: string;
+      }[];
       partnersCaption?: string;
       partnersHeading?: string;
       partnersText?: string;
@@ -11,11 +32,6 @@ type AboutPage = {
         image?: {
           sourceUrl: string;
         };
-      }[];
-      quotes: {
-        name: string;
-        position: string;
-        text: string;
       }[];
     };
   };
@@ -80,7 +96,28 @@ export default async function getContactPage({
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       aboutPage: page(id: $slug, idType: URI) {
-        customFieldsAbout {
+        customFieldsAboutBerlin {
+          topImage {
+            sourceUrl
+          }
+          topText
+          text1Caption
+          text1Heading
+          columnsHeading
+          columnsText
+          columnsImage {
+            sourceUrl
+          }
+          tilesCaption
+          tilesHeading
+          tiles {
+            heading
+          }
+          quotes {
+            name
+            position
+            text
+          }
           partnersCaption
           partnersHeading
           partnersText
@@ -88,11 +125,6 @@ export default async function getContactPage({
             image {
               sourceUrl
             }
-          }
-          quotes {
-            name
-            position
-            text
           }
         }
       }

@@ -85,7 +85,11 @@ function Cases({
               <div key={item.id} className={styles.case}>
                 <Link href={item.uri}>
                   {thumbnailVideo && (
-                    <Video url={thumbnailVideo.mediaItemUrl} />
+                    <Video
+                      url={thumbnailVideo.mediaItemUrl}
+                      alt={item.title}
+                      Image={Image}
+                    />
                   )}
                   {!thumbnailVideo && mainImage && (
                     <div className={styles.imageWrapper}>
