@@ -4,6 +4,11 @@
   padding-bottom: 64px;
   display: flex;
   gap: 20px;
+
+  @media #{$QUERY-sm} {
+    padding: 0 20px;
+    padding-bottom: 32px;
+  }
 }
 
 .tile {
@@ -63,13 +68,20 @@
       display: block;
     }
   }
+
+  svg {
+    @media #{$QUERY-sm} {
+      width: 36px;
+    }
+  }
 }
 
 .heading {
   font-size: 42px;
   margin-bottom: 42px;
 
-  @media screen and (max-width: $screen-sm) {
+  @media #{$QUERY-sm} {
+    font-size: 28px;
     margin-bottom: 20px;
   }
 
@@ -80,6 +92,10 @@
 
 .text {
   font-size: 32px;
+
+  @media #{$QUERY-sm} {
+    font-size: 21px;
+  }
 }
 
 .sideTwo {
