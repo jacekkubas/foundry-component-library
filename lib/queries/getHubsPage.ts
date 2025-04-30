@@ -46,12 +46,16 @@ type Params = {
   searchTerm?: string;
   category?: string;
   params?: { before?: string | null; after?: string | null };
-  language?: string;
+  language: string;
   exclude?: string;
   slug?: string;
 };
 
-export default async function getCasesPage(options: Params = {}): Promise<{
+export default async function getCasesPage(
+  options: Params = {
+    language: "EN",
+  }
+): Promise<{
   hubsPage: HubsPage;
   hubs: Hub[];
   pageInfo: {
@@ -76,6 +80,9 @@ export default async function getCasesPage(options: Params = {}): Promise<{
   const hasSearchTerm = searchTerm && searchTerm.trim() !== "";
   const hasCategoryTerm = category && category.trim() !== "";
   const isPrevious = !!params.before;
+  const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+  const aboutPage = language === "DE" ? "about-berlin-de" : "about-berlin";
 
   // Definition
   const variableDefinitions = [
@@ -153,9 +160,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
           hasPreviousPage
         }
       }
-      contactPage: page(id: "${
-        language === "EN" ? "contact" : "contact-de"
-      }", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -175,11 +180,11 @@ export default async function getCasesPage(options: Params = {}): Promise<{
           newyorkText
           newyorkEmail
           newyorkPhone
+          contactTeaserHeading
+          contactTeaserText
         }
       }
-      homePage: page(id: "${
-        language === "EN" ? "home-berlin" : "home-berlin-de"
-      }", idType: URI) {
+      homePage: page(id: "${homePage}", idType: URI) {
         customFieldsBerlin {
           awardsHeading
           awards {
@@ -191,9 +196,7 @@ export default async function getCasesPage(options: Params = {}): Promise<{
           }
         }
       }
-      aboutPage: page(id: "${
-        language === "EN" ? "about-berlin" : "about-berlin-de"
-      }", idType: URI) {
+      aboutPage: page(id: "${aboutPage}", idType: URI) {
         customFieldsAboutBerlin {
           partnersCaption
           partnersHeading

@@ -71,11 +71,13 @@ type PerformancePage = {
       newyorkEmail?: string;
       newyorkPhone?: string;
       newyorkAddressLink?: string;
+      contactTeaserHeading?: string;
+      contactTeaserText?: string;
     };
   };
 };
 
-export default async function getContactPage(): Promise<PerformancePage> {
+export default async function getPerformanceHubPage(): Promise<PerformancePage> {
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       homePage: page(id: "home-berlin", idType: URI) {
@@ -150,6 +152,8 @@ export default async function getContactPage(): Promise<PerformancePage> {
           newyorkPhone
           newyorkAddress
           newyorkAddressLink
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }

@@ -50,15 +50,21 @@ type PeoplePage = {
       newyorkEmail?: string;
       newyorkPhone?: string;
       newyorkAddress?: string;
+      contactTeaserHeading?: string;
+      contactTeaserText?: string;
     };
   };
 };
 
 export default async function getContactPage({
   slug,
+  language,
 }: {
   slug: string;
+  language: string;
 }): Promise<PeoplePage> {
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
@@ -94,7 +100,7 @@ export default async function getContactPage({
           heroHeading
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -117,6 +123,8 @@ export default async function getContactPage({
           newyorkEmail
           newyorkPhone
           newyorkAddress
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }

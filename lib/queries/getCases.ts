@@ -7,7 +7,7 @@ type Params = {
   searchTerm?: string;
   category?: string;
   params?: { before?: string | null; after?: string | null };
-  language?: string;
+  language: string;
   exclude?: string;
 };
 

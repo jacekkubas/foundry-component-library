@@ -23,7 +23,7 @@ type Params = {
   searchTerm?: string;
   category?: string;
   params?: { before?: string | null; after?: string | null };
-  language?: string;
+  language: string;
   exclude?: string;
   page?: number;
   service?: string;
@@ -59,6 +59,8 @@ export default async function getCasesPage({
   const hasSearchTerm = searchTerm && searchTerm.trim() !== "";
   const hasCategoryTerm = category && category.trim() !== "";
   const isPrevious = !!params.before;
+  const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
+  const contactPage = language === "DE" ? "contact-de" : "contact";
 
   // Definition
   const variableDefinitions = [
@@ -132,7 +134,7 @@ export default async function getCasesPage({
           }
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -152,9 +154,11 @@ export default async function getCasesPage({
           newyorkText
           newyorkEmail
           newyorkPhone
+          contactTeaserHeading
+          contactTeaserText
         }
       }
-      homePage: page(id: "home-berlin", idType: URI) {
+      homePage: page(id: "${homePage}", idType: URI) {
         customFieldsBerlin {
           awardsHeading
           awards {

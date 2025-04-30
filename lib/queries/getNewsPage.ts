@@ -19,7 +19,7 @@ type Params = {
   searchTerm?: string;
   category?: string;
   params?: { before?: string | null; after?: string | null };
-  language?: string;
+  language: string;
   exclude?: string;
   slug: string;
 };
@@ -47,6 +47,7 @@ export default async function getNewsPage(options: Params): Promise<{
   const hasSearchTerm = searchTerm && searchTerm.trim() !== "";
   const hasCategoryTerm = category && category.trim() !== "";
   const isPrevious = !!params.before;
+  const contactPage = language === "DE" ? "contact-de" : "contact";
 
   // Definition
   const variableDefinitions = [
@@ -116,7 +117,7 @@ export default async function getNewsPage(options: Params): Promise<{
           hasPreviousPage
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -136,6 +137,8 @@ export default async function getNewsPage(options: Params): Promise<{
           newyorkText
           newyorkEmail
           newyorkPhone
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }

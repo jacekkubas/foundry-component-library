@@ -16,11 +16,20 @@ type HomePage = {
   };
 };
 
-export default async function getCaseBySlug(slug: string): Promise<{
+export default async function getCaseBySlug({
+  slug,
+  language,
+}: {
+  slug: string;
+  language: string;
+}): Promise<{
   case: Case;
   contactPage: ContactPage;
   homePage: HomePage;
 }> {
+  const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+
   const query = gql`
     query GetCaseBySlug($slug: ID!) {
       case(id: $slug, idType: SLUG) {
@@ -135,7 +144,7 @@ export default async function getCaseBySlug(slug: string): Promise<{
           }
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -155,9 +164,11 @@ export default async function getCaseBySlug(slug: string): Promise<{
           newyorkText
           newyorkEmail
           newyorkPhone
+          contactTeaserHeading
+          contactTeaserText
         }
       }
-      homePage: page(id: "home-berlin", idType: URI) {
+      homePage: page(id: "${homePage}", idType: URI) {
         customFieldsBerlin {
           awardsHeading
           awards {

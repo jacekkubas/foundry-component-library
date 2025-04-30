@@ -42,6 +42,8 @@ export type ContactPage = {
     berlinDetails: string;
     swissHeading: string;
     swissDetails: string;
+    contactTeaserHeading?: string;
+    contactTeaserText?: string;
   };
 };
 

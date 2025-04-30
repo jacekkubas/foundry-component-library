@@ -25,9 +25,14 @@ type HubFields = {
 
 export default async function getCaseBySlug({
   slug,
+  language,
 }: {
   slug: string;
+  language: string;
 }): Promise<HubFields> {
+  const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+
   const query = gql`
     query GetHubBySlug($slug: ID!) {
       hub(id: $slug, idType: SLUG) {
@@ -71,7 +76,7 @@ export default async function getCaseBySlug({
           quoteText
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -91,9 +96,11 @@ export default async function getCaseBySlug({
           newyorkText
           newyorkEmail
           newyorkPhone
+          contactTeaserHeading
+          contactTeaserText
         }
       }
-      cases(first: 3) {
+      cases(first: 3, where: {language: ${language}}) {
         nodes {
           id
           title
@@ -115,7 +122,7 @@ export default async function getCaseBySlug({
           hasPreviousPage
         }
       }
-      homePage: page(id: "home-berlin", idType: URI) {
+      homePage: page(id: "${homePage}", idType: URI) {
         customFieldsBerlin {
           awardsHeading
           awards {

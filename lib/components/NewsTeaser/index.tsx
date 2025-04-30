@@ -54,12 +54,14 @@ const NewsTeaser = ({
               return (
                 <div key={id} className={styles.item}>
                   <div className={styles.image}>
-                    <Image
-                      src={customFields.thumbnailImage.sourceUrl}
-                      width={260}
-                      height={220}
-                      alt={title}
-                    />
+                    {customFields.thumbnailImage && (
+                      <Image
+                        src={customFields.thumbnailImage?.sourceUrl}
+                        width={260}
+                        height={220}
+                        alt={title}
+                      />
+                    )}
                   </div>
                   <div className={styles.itemTexts}>
                     <div>

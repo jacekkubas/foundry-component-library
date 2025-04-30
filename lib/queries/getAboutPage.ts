@@ -84,15 +84,22 @@ type AboutPage = {
       newyorkEmail?: string;
       newyorkPhone?: string;
       newyorkAddressLink?: string;
+      contactTeaserHeading?: string;
+      contactTeaserText?: string;
     };
   };
 };
 
-export default async function getContactPage({
+export default async function getAboutPage({
   slug,
+  language,
 }: {
   slug: string;
+  language: string;
 }): Promise<AboutPage> {
+  const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       aboutPage: page(id: $slug, idType: URI) {
@@ -128,9 +135,7 @@ export default async function getContactPage({
           }
         }
       }
-      homePage: page(id: "${
-        slug === "about-us" ? "home-berlin" : "home-berlin-de"
-      }", idType: URI) {
+      homePage: page(id: "${homePage}", idType: URI) {
         customFieldsBerlin {
           brandsCaption
           brandsHeading
@@ -156,9 +161,7 @@ export default async function getContactPage({
           }
         }
       }
-      contactPage: page(id: "${
-        slug === "about-us" ? "contact" : "contact-de"
-      }", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -184,6 +187,8 @@ export default async function getContactPage({
           newyorkPhone
           newyorkAddress
           newyorkAddressLink
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }
