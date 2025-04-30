@@ -12,7 +12,7 @@ const index = ({
 }) => {
   return (
     <div className={styles.officesSection}>
-      <Container>
+      <Container noMobilePadding>
         <Offices details={details} Image={Image} />
       </Container>
     </div>

@@ -14,7 +14,7 @@ export interface Variables {
   after?: string | null;
   search?: string;
   categorySlug?: string;
-  language?: string;
+  language: string;
   slug?: string;
   exclude?: string;
 }

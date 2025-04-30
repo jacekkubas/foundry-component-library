@@ -3,7 +3,28 @@ import client from "./client";
 
 type AboutPage = {
   aboutPage: {
-    customFieldsAbout: {
+    customFieldsAboutBerlin: {
+      topImage?: {
+        sourceUrl: string;
+      };
+      topText?: string;
+      text1Caption?: string;
+      text1Heading?: string;
+      columnsHeading?: string;
+      columnsText?: string;
+      columnsImage?: {
+        sourceUrl: string;
+      };
+      tilesCaption?: string;
+      tilesHeading?: string;
+      tiles?: {
+        heading?: string;
+      }[];
+      quotes?: {
+        name?: string;
+        position?: string;
+        text?: string;
+      }[];
       partnersCaption?: string;
       partnersHeading?: string;
       partnersText?: string;
@@ -11,11 +32,6 @@ type AboutPage = {
         image?: {
           sourceUrl: string;
         };
-      }[];
-      quotes: {
-        name: string;
-        position: string;
-        text: string;
       }[];
     };
   };
@@ -68,19 +84,47 @@ type AboutPage = {
       newyorkEmail?: string;
       newyorkPhone?: string;
       newyorkAddressLink?: string;
+      contactTeaserHeading?: string;
+      contactTeaserText?: string;
     };
   };
 };
 
-export default async function getContactPage({
+export default async function getAboutPage({
   slug,
+  language,
 }: {
   slug: string;
+  language: string;
 }): Promise<AboutPage> {
+  const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       aboutPage: page(id: $slug, idType: URI) {
-        customFieldsAbout {
+        customFieldsAboutBerlin {
+          topImage {
+            sourceUrl
+          }
+          topText
+          text1Caption
+          text1Heading
+          columnsHeading
+          columnsText
+          columnsImage {
+            sourceUrl
+          }
+          tilesCaption
+          tilesHeading
+          tiles {
+            heading
+          }
+          quotes {
+            name
+            position
+            text
+          }
           partnersCaption
           partnersHeading
           partnersText
@@ -89,16 +133,9 @@ export default async function getContactPage({
               sourceUrl
             }
           }
-          quotes {
-            name
-            position
-            text
-          }
         }
       }
-      homePage: page(id: "${
-        slug === "about-us" ? "home-berlin" : "home-berlin-de"
-      }", idType: URI) {
+      homePage: page(id: "${homePage}", idType: URI) {
         customFieldsBerlin {
           brandsCaption
           brandsHeading
@@ -124,9 +161,7 @@ export default async function getContactPage({
           }
         }
       }
-      contactPage: page(id: "${
-        slug === "about-us" ? "contact" : "contact-de"
-      }", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -152,6 +187,8 @@ export default async function getContactPage({
           newyorkPhone
           newyorkAddress
           newyorkAddressLink
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }

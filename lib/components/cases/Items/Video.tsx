@@ -3,8 +3,17 @@ import { useState, useRef, useEffect } from "react";
 import { useOnScreen } from "../../../hooks/useOnScreen";
 import ReactPlayer from "react-player/lazy";
 import styles from "./styles.module.scss";
+import { NextImage } from "../../../types";
 
-const Video = ({ url }: { url: string }) => {
+const Video = ({
+  url,
+  alt,
+  Image,
+}: {
+  url: string;
+  alt?: string;
+  Image: NextImage;
+}) => {
   const sectionRef = useRef(null);
   const onScreen = useOnScreen(sectionRef, "1000px");
   // const [playing, setPlaying] = useState(false);
@@ -26,6 +35,22 @@ const Video = ({ url }: { url: string }) => {
   // useEffect(() => {
   //   setPlaying(true);
   // }, [videoLoaded]);
+
+  const extension = url.split(".").pop();
+
+  if (extension === "gif") {
+    return (
+      <div className={styles.imageWrapper}>
+        <Image
+          className={styles.image}
+          src={url}
+          alt={alt || ""}
+          width={720}
+          height={490}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.imageWrapper} ref={sectionRef}>

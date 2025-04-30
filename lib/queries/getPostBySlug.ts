@@ -3,10 +3,18 @@ import { Post } from "../../lib/types";
 import client from "./client";
 import { ContactPage } from "./getContactPage";
 
-export default async function getPostBySlug(slug: string): Promise<{
+export default async function getPostBySlug({
+  slug,
+  language,
+}: {
+  slug: string;
+  language: string;
+}): Promise<{
   post: Post;
   contactPage: ContactPage;
 }> {
+  const contactPage = language === "DE" ? "contact-de" : "contact";
+
   const query = gql`
     query GetPostBySlug($slug: ID!) {
       post(id: $slug, idType: SLUG) {
@@ -94,7 +102,7 @@ export default async function getPostBySlug(slug: string): Promise<{
           }
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -114,6 +122,8 @@ export default async function getPostBySlug(slug: string): Promise<{
           newyorkText
           newyorkEmail
           newyorkPhone
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }

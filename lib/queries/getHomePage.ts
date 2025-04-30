@@ -90,15 +90,21 @@ type HomePage = {
       newyorkText?: string;
       newyorkEmail?: string;
       newyorkPhone?: string;
+      contactTeaserHeading?: string;
+      contactTeaserText?: string;
     };
   };
 };
 
 export default async function getHomePage({
   slug,
+  language,
 }: {
   slug: string;
+  language: string;
 }): Promise<HomePage> {
+  const contactPage = language === "EN" ? "contact" : "contact-de";
+
   const query = gql`
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
@@ -163,14 +169,14 @@ export default async function getHomePage({
           newsText
         }
       }
-      hubs {
+      hubs(where: {language: ${language}}) {
         nodes {
           id
           title
           uri
         }
       }
-      posts(first: 3) {
+      posts(first: 3, where: {language: ${language}}) {
         nodes {
           id
           title
@@ -183,7 +189,7 @@ export default async function getHomePage({
           }
         }
       }
-      contactPage: page(id: "contact", idType: URI) {
+      contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
           berlinImage {
             sourceUrl
@@ -209,6 +215,8 @@ export default async function getHomePage({
           newyorkPhone
           newyorkAddress
           newyorkAddressLink
+          contactTeaserHeading
+          contactTeaserText
         }
       }
     }

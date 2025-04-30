@@ -6,11 +6,15 @@ interface Params {
   searchTerm?: string;
   category?: string;
   params?: { before?: string | null; after?: string | null };
-  language?: string;
+  language: string;
   perPage?: number;
 }
 
-export default async function getPosts(options: Params = {}): Promise<{
+export default async function getPosts(
+  options: Params = {
+    language: "EN",
+  }
+): Promise<{
   posts: Post[];
   pageInfo: {
     startCursor: string | null;

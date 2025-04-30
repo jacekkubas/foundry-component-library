@@ -138,6 +138,9 @@
 }
 
 .image {
+  height: 220px;
+  background-color: $color-gray-light;
+
   img {
     object-fit: cover;
   }
