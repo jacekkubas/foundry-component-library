@@ -7,10 +7,12 @@ import { getPosts } from "../../../queries";
 import { NextImage, NextLink, Post } from "../../../types";
 
 const More = ({
+  language,
   endCursor,
   Link,
   Image,
 }: {
+  language: "EN" | "DE";
   endCursor: string;
   Link: NextLink;
   Image: NextImage;
@@ -23,7 +25,10 @@ const More = ({
   const handleMore = async () => {
     setLoading(true);
 
-    const { posts, pageInfo } = await getPosts({ params: { after: end } });
+    const { posts, pageInfo } = await getPosts({
+      language: language,
+      params: { after: end },
+    });
 
     if (!pageInfo.hasNextPage) {
       setFinished(true);

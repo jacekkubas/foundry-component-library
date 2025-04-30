@@ -9,11 +9,13 @@ import Video from "./Video";
 import Arrow from "../../../assets/svg/caret-right.svg";
 
 const More = ({
+  language,
   endCursor,
   currentCategory,
   Image,
   Link,
 }: {
+  language: "EN" | "DE";
   endCursor: string;
   currentCategory: string;
   Image: NextImage;
@@ -28,6 +30,7 @@ const More = ({
     setLoading(true);
 
     const { cases: newCases, pageInfo } = await getCases({
+      language: language,
       category: currentCategory,
       params: {
         after: end,
@@ -58,7 +61,9 @@ const More = ({
         return (
           <div key={item.id} className={styles.case}>
             <Link href={item.uri}>
-              {thumbnailVideo && <Video url={thumbnailVideo.mediaItemUrl} />}
+              {thumbnailVideo && (
+                <Video url={thumbnailVideo.mediaItemUrl} Image={Image} />
+              )}
               {!thumbnailVideo && mainImage && mainImage.sourceUrl && (
                 <div className={styles.imageWrapper}>
                   <Image

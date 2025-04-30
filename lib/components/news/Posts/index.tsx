@@ -6,11 +6,13 @@ import More from "./More";
 
 const Posts = ({
   posts,
+  language,
   endCursor,
   Link,
   Image,
 }: {
   posts: Post[];
+  language: "EN" | "DE";
   endCursor: string;
   Link: NextLink;
   Image: NextImage;
@@ -52,7 +54,12 @@ const Posts = ({
             </div>
           );
         })}
-        <More endCursor={endCursor} Link={Link} Image={Image} />
+        <More
+          language={language}
+          endCursor={endCursor}
+          Link={Link}
+          Image={Image}
+        />
       </Container>
     </section>
   );
