@@ -11,7 +11,7 @@
 
 .image {
   @media screen and (max-width: $screen-sm) {
-    height: 400px;
+    height: 300px;
   }
 
   img {
@@ -46,7 +46,7 @@
 
 .name {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 3px;
 }
 

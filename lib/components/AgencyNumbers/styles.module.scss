@@ -54,7 +54,7 @@
     display: none;
 
     @media #{$QUERY-sm} {
-      display: block;
+      display: inline-block;
     }
   }
 }
