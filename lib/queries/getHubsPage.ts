@@ -17,7 +17,7 @@ type HomePage = {
 };
 
 type AboutPage = {
-  customFieldsAbout: {
+  customFieldsAboutBerlin: {
     partnersCaption?: string;
     partnersHeading?: string;
     partnersText?: string;
@@ -192,9 +192,9 @@ export default async function getCasesPage(options: Params = {}): Promise<{
         }
       }
       aboutPage: page(id: "${
-        language === "EN" ? "about-us" : "about-us-de"
+        language === "EN" ? "about-berlin" : "about-berlin-de"
       }", idType: URI) {
-        customFieldsAbout {
+        customFieldsAboutBerlin {
           partnersCaption
           partnersHeading
           partnersText
