@@ -7,9 +7,12 @@ type PeoplePage = {
   peoplePage: {
     title: string;
     customFieldsPeople: {
+      topCaption?: string;
+      topHeading?: string;
+      peopleHeading?: string;
       people: Person[];
-      managementCaption: string;
-      managementHeading: string;
+      managementCaption?: string;
+      managementHeading?: string;
       management?: {
         quote?: string;
         name?: string;
@@ -18,13 +21,21 @@ type PeoplePage = {
           sourceUrl: string;
         };
       }[];
-      quoteName?: string;
-      quotePosition?: string;
-      quoteText?: string;
+      textsection1Caption?: string;
+      textsection1Heading?: string;
+      textsection1Text?: string;
       heroImage?: {
         sourceUrl: string;
       };
       heroHeading?: string;
+      tilesCaption?: string;
+      tilesHeading?: string;
+      tiles?: {
+        text?: string;
+      }[];
+      quoteName?: string;
+      quotePosition?: string;
+      quoteText?: string;
     };
   };
   contactPage: {
@@ -70,6 +81,8 @@ export default async function getContactPage({
       page(id: $slug, idType: URI) {
         title
         customFieldsPeople {
+          topCaption
+          topHeading
           people {
             name
             image {
@@ -91,13 +104,21 @@ export default async function getContactPage({
               sourceUrl
             }
           }
-          quoteName
-          quotePosition
-          quoteText
+          textsection1Caption
+          textsection1Heading
+          textsection1Text
           heroImage {
             sourceUrl
           }
           heroHeading
+          tilesCaption
+          tilesHeading
+          tiles {
+            text
+          }
+          quoteName
+          quotePosition
+          quoteText
         }
       }
       contactPage: page(id: "${contactPage}", idType: URI) {

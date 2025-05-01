@@ -5,6 +5,16 @@ import { type ContactPage } from "./getContactPage";
 
 export const casesPerPage = 10;
 
+type CasesPage = {
+  customFieldsCases: {
+    topCaption?: string;
+    topHeading?: string;
+    topText?: string;
+    contactHeading?: string;
+    contactText?: string;
+  };
+};
+
 type HomePage = {
   customFieldsBerlin: {
     awardsHeading?: string;
@@ -41,6 +51,7 @@ export default async function getCasesPage({
   service = "",
   industry = "",
 }: Params): Promise<{
+  casesPage: CasesPage;
   cases: Case[];
   contactPage: ContactPage;
   homePage: HomePage;
@@ -59,6 +70,7 @@ export default async function getCasesPage({
   const hasSearchTerm = searchTerm && searchTerm.trim() !== "";
   const hasCategoryTerm = category && category.trim() !== "";
   const isPrevious = !!params.before;
+  const casesPage = language === "DE" ? 360 : 363;
   const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
@@ -99,6 +111,15 @@ export default async function getCasesPage({
 
   const query = gql`
     query GetCasesPage(${variableDefinitions}) {
+      casesPage: page(id: "${casesPage}", idType: DATABASE_ID) {
+        customFieldsCases {
+          topCaption
+          topHeading
+          topText
+          contactHeading
+          contactText
+        }
+      }
       cases(
         ${isPrevious ? "last: $perPage" : "first: $perPage"},
         ${isPrevious ? "before: $before" : "after: $after"},
@@ -192,6 +213,7 @@ export default async function getCasesPage({
   }
 
   const data: {
+    casesPage: CasesPage;
     cases: {
       nodes: Case[];
       pageInfo: {
@@ -211,6 +233,7 @@ export default async function getCasesPage({
   } = await client.request(query, variables);
 
   return {
+    casesPage: data.casesPage,
     cases: data.cases.nodes,
     contactPage: data.contactPage,
     homePage: data.homePage,

@@ -6,7 +6,7 @@ import TextSection from "../TextSection";
 import Tile from "./Tile";
 import useDrag from "../../hooks/useDrag";
 
-const TeamBenefits = ({ tiles }: { tiles: string[] }) => {
+const TeamBenefits = ({ tiles }: { tiles: { text?: string }[] }) => {
   const sectionRef = useRef(null);
   const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
     useDrag(sectionRef);
@@ -30,7 +30,13 @@ const TeamBenefits = ({ tiles }: { tiles: string[] }) => {
             if (i % 4 === 2) background = "brown";
             if (i % 4 === 3) background = "blue";
 
-            return <Tile key={tile} text={tile} background={background} />;
+            return (
+              <Tile
+                key={tile.text}
+                text={tile.text || ""}
+                background={background}
+              />
+            );
           })}
         </div>
       </Container>

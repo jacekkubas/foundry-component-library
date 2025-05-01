@@ -4,8 +4,8 @@ import client from "./client";
 export type ContactPage = {
   title: string;
   customFieldsContact: {
-    title: string;
-    subtitle: string;
+    topCaption: string;
+    topHeading: string;
     berlinImage: {
       sourceUrl: string;
     };
@@ -57,8 +57,8 @@ export default async function getContactPage({
       page(id: $slug, idType: URI) {
         title
         customFieldsContact {
-          title
-          subtitle
+          topCaption
+          topHeading
           berlinImage {
             sourceUrl
           }
