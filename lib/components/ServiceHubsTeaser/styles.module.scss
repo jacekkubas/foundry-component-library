@@ -1,7 +1,16 @@
 @use "../variables" as *;
 
+.benefits {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  // overflow-x: scroll;
+}
+
 .tiles {
-  display: flex;
+  display: inline-flex;
   gap: 16px;
   padding-bottom: 64px;
 
@@ -10,23 +19,16 @@
   }
 }
 
-.tile {
-  flex-shrink: 0;
-  white-space: pre-wrap;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.tileWrapper {
+  z-index: 0;
+  position: relative;
   width: 360px;
   max-width: 100%;
   height: 411px;
-  box-sizing: border-box;
-  background-color: $color-pink;
-  color: $color-brown;
-  font-size: 34px;
-  font-family: $font-secondary;
+
+  &:hover {
+    z-index: 1;
+  }
 
   @media screen and (max-width: $screen-sm) {
     max-width: 80%;
@@ -44,6 +46,24 @@
       margin-right: 20px;
     }
   }
+}
+
+.tile {
+  flex-shrink: 0;
+  white-space: pre-wrap;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: $color-pink;
+  color: $color-brown;
+  font-size: 34px;
+  font-family: $font-secondary;
+  width: 100%;
+  height: 100%;
 
   &.yellow {
     background-color: $color-yellow;

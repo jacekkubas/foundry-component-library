@@ -4,8 +4,8 @@ import Container from "../Container";
 import styles from "./styles.module.scss";
 import TextSection from "../TextSection";
 import Tile from "./Tile";
-import useDrag from "../../hooks/useDrag";
 import { NextLink } from "../../types";
+import { motion } from "framer-motion";
 
 const ServiceHubsTeaser = ({
   caption,
@@ -24,45 +24,49 @@ const ServiceHubsTeaser = ({
   }[];
   Link: NextLink;
 }) => {
-  const sectionRef = useRef(null);
-  const {
-    handleMouseDown,
-    handleMouseMove,
-    handleMouseUp,
-    preventedClick,
-    dragStyle,
-  } = useDrag(sectionRef);
+  const wrapperRef = useRef(null);
+  const dragStarted = useRef(false);
 
   return (
     <div className={styles.benefits}>
       <TextSection caption={caption} heading={heading} text={text} isSmall />
       <Container noMobilePadding>
-        <div
-          ref={sectionRef}
-          className={styles.tiles}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          style={dragStyle as React.CSSProperties}
-        >
-          {tiles.map((tile, i) => {
-            let background: "pink" | "yellow" | "brown" | "blue" = "pink";
-            if (i % 4 === 1) background = "yellow";
-            if (i % 4 === 2) background = "brown";
-            if (i % 4 === 3) background = "blue";
+        <div className={styles.wrapper} ref={wrapperRef}>
+          <motion.div
+            className={styles.tiles}
+            drag="x"
+            dragConstraints={wrapperRef}
+            onDragStart={() => (dragStarted.current = true)}
+            onDragEnd={() => {
+              setTimeout(() => {
+                dragStarted.current = false;
+              }, 0);
+            }}
+          >
+            {tiles.map((tile, i) => {
+              let background: "pink" | "yellow" | "brown" | "blue" = "pink";
+              if (i % 4 === 1) background = "yellow";
+              if (i % 4 === 2) background = "brown";
+              if (i % 4 === 3) background = "blue";
 
-            return (
-              <Tile
-                key={tile.id}
-                text={tile.title}
-                background={background}
-                href={tile.uri}
-                onClick={preventedClick}
-                Link={Link}
-              />
-            );
-          })}
+              return (
+                <Tile
+                  key={tile.id}
+                  text={tile.title}
+                  background={background}
+                  href={tile.uri}
+                  i={i}
+                  Link={Link}
+                  onClick={(e) => {
+                    if (dragStarted.current) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }
+                  }}
+                />
+              );
+            })}
+          </motion.div>
         </div>
       </Container>
     </div>
