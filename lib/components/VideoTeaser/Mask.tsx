@@ -17,14 +17,13 @@ const Mask = ({
           <motion.svg
             key="modal"
             initial={{ opacity: 1, scale: 1 }}
-            animate={{
+            whileInView={{
               scale: 12,
               opacity: [1, 1, 0],
               transition: {
-                duration: 1,
-                // times: [0, 0.75, 1],
-                ease: "linear",
-                // ease: [1, 0, 0, 1],
+                duration: 0.5,
+                // ease: "linear",
+                ease: [1, 0, 0, 1],
                 delay: 1,
               },
             }}
