@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, RefObject } from "react";
 
-export const useOnScreen = (ref: any, rootMargin = "0px") => {
+export const useOnScreen = (
+  ref: RefObject<null | HTMLElement>,
+  rootMargin = "0px"
+) => {
   // State and setter for storing whether element is visible
   const [isIntersecting, setIntersecting] = useState(false);
   useEffect(() => {
@@ -20,7 +23,9 @@ export const useOnScreen = (ref: any, rootMargin = "0px") => {
       observer.observe(currentElement);
     }
     return () => {
-      observer.unobserve(currentElement);
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
     };
   }, []); // Empty array ensures that effect is only run on mount and unmount
   return isIntersecting;

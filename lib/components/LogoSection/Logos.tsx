@@ -1,26 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import Dropdown from "./Dropdown";
 import { NextImage } from "../../types";
+import { motion, AnimatePresence } from "motion/react";
+
+type Brand = {
+  data?: {
+    title?: string;
+    featured?: boolean;
+    image?: {
+      sourceUrl: string;
+    };
+  };
+  service?: string[];
+  industry?: string[];
+};
 
 const Logos = ({
   brands = [],
   withoutFilters,
   Image,
 }: {
-  brands: {
-    data?: {
-      title?: string;
-      featured?: boolean;
-      image?: {
-        sourceUrl: string;
-      };
-    };
-    service?: string[];
-    industry?: string[];
-  }[];
+  brands: Brand[];
   withoutFilters?: boolean;
   Image: NextImage;
 }) => {
@@ -30,33 +33,42 @@ const Logos = ({
   });
   const services: Set<string> = new Set();
   const industries: Set<string> = new Set();
+  const [brandsToShow, setBrandsToShow] = useState<Brand[]>([]);
 
   brands.forEach((brand) => {
     brand.service?.forEach((service) => services.add(service));
     brand.industry?.forEach((industry) => industries.add(industry));
   });
 
-  let brandsToShow = brands.filter((brand) => {
-    if (selected.category === "featured" && brand.data?.featured) {
-      return true;
-    }
-    if (
-      selected.category === "service" &&
-      brand.service?.includes(selected.tag)
-    ) {
-      return true;
-    }
-    if (
-      selected.category === "industry" &&
-      brand.industry?.includes(selected.tag)
-    ) {
-      return true;
-    }
-    return false;
-  });
+  useEffect(() => {
+    setBrandsToShow([]);
+
+    setTimeout(() => {
+      setBrandsToShow(
+        brands.filter((brand) => {
+          if (selected.category === "featured" && brand.data?.featured) {
+            return true;
+          }
+          if (
+            selected.category === "service" &&
+            brand.service?.includes(selected.tag)
+          ) {
+            return true;
+          }
+          if (
+            selected.category === "industry" &&
+            brand.industry?.includes(selected.tag)
+          ) {
+            return true;
+          }
+          return false;
+        })
+      );
+    }, 400);
+  }, [selected]);
 
   if (withoutFilters) {
-    brandsToShow = brands;
+    setBrandsToShow(brands);
   }
 
   return (
@@ -90,20 +102,30 @@ const Logos = ({
       )}
 
       <div className={styles.logos}>
-        {brandsToShow.map((brand, i) => {
-          const { data } = brand;
-          if (!data?.image) return;
+        <AnimatePresence>
+          {brandsToShow.map((brand, i) => {
+            const { data } = brand;
+            if (!data?.image) return;
 
-          return (
-            <div key={data?.title || "" + i} className={styles.image}>
-              <Image
-                src={data?.image?.sourceUrl || ""}
-                alt={data?.title || ""}
-                fill
-              />
-            </div>
-          );
-        })}
+            return (
+              <motion.div
+                key={data?.title || "" + i}
+                className={styles.image}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4 }}
+                layout
+              >
+                <Image
+                  src={data?.image?.sourceUrl || ""}
+                  alt={data?.title || ""}
+                  fill
+                />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
     </Container>
   );

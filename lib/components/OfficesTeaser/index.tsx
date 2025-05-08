@@ -3,6 +3,8 @@ import Offices from "../contact/Offices";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage, NextLink, OfficeDetails } from "../../types";
+import PopInText from "../TextAnimations/PopInText";
+import WavyText from "../TextAnimations/WavyText";
 
 const OfficesTeaser = ({
   details,
@@ -16,10 +18,11 @@ const OfficesTeaser = ({
     <Container noMobilePadding>
       <div className={styles.officesTeaser}>
         <div className={styles.texts}>
-          <div className={styles.caption}>Our Offices</div>
-          <div
+          <PopInText className={styles.caption} text="Our Offices" />
+          <WavyText
             className={styles.heading}
-          >{`We operate all\nover the world`}</div>
+            text={`We operate all\nover the world`}
+          />
         </div>
 
         <div className={styles.offices}>

@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage } from "../../types";
 import useDrag from "../../hooks/useDrag";
+import WavyText from "../TextAnimations/WavyText";
 
 const Awards = ({
   heading,
@@ -29,7 +30,7 @@ const Awards = ({
   return (
     <div className={styles.awards}>
       <Container>
-        {heading && <div className={styles.heading}>{heading}</div>}
+        {heading && <WavyText className={styles.heading} text={heading} />}
       </Container>
       <Container noMobilePadding>
         <div
