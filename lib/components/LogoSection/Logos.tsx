@@ -65,11 +65,11 @@ const Logos = ({
         })
       );
     }, 400);
-  }, [selected]);
 
-  if (withoutFilters) {
-    setBrandsToShow(brands);
-  }
+    if (withoutFilters) {
+      setBrandsToShow(brands);
+    }
+  }, [selected]);
 
   return (
     <Container>
