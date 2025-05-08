@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import Container from "../Container";
 import { Case, NextImage } from "../../types";
 import useDrag from "../../hooks/useDrag";
+import WavyText from "../TextAnimations/WavyText";
 
 const CaseStudyTeaser = ({
   heading,
@@ -32,8 +33,10 @@ const CaseStudyTeaser = ({
   return (
     <div className={styles.caseStudyTeaser}>
       <Container>
-        <div ref={headingRef} className={styles.heading}>
-          {heading}
+        <div ref={headingRef}>
+          <WavyText className={styles.heading} text={heading}>
+            {heading}
+          </WavyText>
         </div>
       </Container>
 

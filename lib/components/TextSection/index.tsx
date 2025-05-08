@@ -1,5 +1,9 @@
+"use client";
 import styles from "./styles.module.scss";
 import Container from "../Container";
+import PopInText from "../TextAnimations/PopInText";
+import WavyText from "../TextAnimations/WavyText";
+import FadeInText from "../TextAnimations/FadeInText";
 
 const TextSection = ({
   caption,
@@ -24,14 +28,15 @@ const TextSection = ({
   return (
     <Container>
       <div className={`${styles.section} ${alignStyle} ${themeStyle}`}>
-        {caption && <div className={styles.caption}>{caption}</div>}
+        {caption && <PopInText className={styles.caption} text={caption} />}
         {heading && (
-          <div className={`${styles.heading} ${isSmall ? styles.small : ""}`}>
-            {heading}
-          </div>
+          <WavyText
+            className={`${styles.heading} ${isSmall ? styles.small : ""}`}
+            text={heading}
+          />
         )}
         {subheading && <div className={styles.subheading}>{subheading}</div>}
-        {text && <div className={styles.text}>{text}</div>}
+        {text && <FadeInText className={styles.text} text={text} />}
       </div>
     </Container>
   );

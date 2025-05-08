@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
 
@@ -7,7 +8,7 @@ interface Props extends HTMLMotionProps<"div"> {
   duration?: number;
 }
 
-const WavyText: FC<Props> = ({
+const FadeInText: FC<Props> = ({
   text,
   delay = 0,
   duration = 0.3,
@@ -41,4 +42,4 @@ const WavyText: FC<Props> = ({
   );
 };
 
-export default WavyText;
+export default FadeInText;

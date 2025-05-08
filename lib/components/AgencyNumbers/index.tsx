@@ -1,6 +1,7 @@
 import Container from "../Container";
 import styles from "./styles.module.scss";
 import { NextLink } from "../../types";
+import WavyText from "../TextAnimations/WavyText";
 
 const AgencyNumbers = ({
   heading,
@@ -19,12 +20,7 @@ const AgencyNumbers = ({
       <Container>
         <div className={styles.wrapper}>
           <div className={styles.headingWrapper}>
-            {heading && (
-              <div
-                className={styles.heading}
-                dangerouslySetInnerHTML={{ __html: heading }}
-              />
-            )}
+            {heading && <WavyText className={styles.heading} text={heading} />}
             {Link && (
               <Link
                 className={`${styles.button} ${styles.desktop}`}

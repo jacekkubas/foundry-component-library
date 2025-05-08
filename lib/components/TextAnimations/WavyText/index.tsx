@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
 
@@ -13,8 +14,6 @@ const WavyText: FC<Props> = ({
   duration = 0.05,
   ...props
 }: Props) => {
-  const letters = text.split("");
-
   const container: Variants = {
     hidden: {
       opacity: 0,
@@ -46,20 +45,42 @@ const WavyText: FC<Props> = ({
     },
   };
 
+  const words = text.split(/([ \n])/);
+
   return (
     <motion.div
-      style={{ display: "flex", overflow: "hidden" }}
+      // style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       {...props}
     >
-      {letters.map((letter, index) => (
-        <motion.span key={index} variants={child}>
-          {letter === " " ? "\u00A0" : letter}
-        </motion.span>
-      ))}
+      {words.map((word, i) => {
+        let sign = word;
+
+        if (word === " ") {
+          sign = "\u00A0";
+        }
+
+        if (word === "\n") {
+          return <br key={Math.random()} />;
+        }
+
+        if (word.includes("<em>")) {
+          return <em key={word + i}>{word.replace(/<[^>]*>/g, "")}</em>;
+        }
+
+        return (
+          <motion.span
+            key={word + i}
+            variants={child}
+            style={{ display: "inline-block" }}
+          >
+            {sign}
+          </motion.span>
+        );
+      })}
     </motion.div>
   );
 };
