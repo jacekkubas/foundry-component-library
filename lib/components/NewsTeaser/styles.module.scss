@@ -3,6 +3,7 @@
 .newsTeaser {
   padding: 64px 0;
   color: $color-brown;
+  overflow: hidden;
 
   @media #{$QUERY-sm} {
     padding: 32px 0;
@@ -65,8 +66,13 @@
   }
 }
 
+.itemsWrapper {
+  width: 100%;
+  // overflow-x: scroll;
+}
+
 .items {
-  display: flex;
+  display: inline-flex;
   gap: 20px;
 }
 
