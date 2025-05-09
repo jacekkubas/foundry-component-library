@@ -76,8 +76,6 @@ const Logos = ({
     }
   }, [selected]);
 
-  console.log(brandsToShow);
-
   return (
     <Container>
       {!withoutFilters && (
