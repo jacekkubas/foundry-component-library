@@ -9,6 +9,7 @@
   margin: 64px 0;
   text-align: center;
   line-height: 1.1;
+  overflow: hidden;
 
   @media #{$QUERY-sm} {
     min-height: 350px;
@@ -26,10 +27,6 @@
   & * {
     position: relative;
     z-index: 1;
-  }
-
-  img {
-    object-fit: cover;
   }
 
   &.isFullWidth {
@@ -90,6 +87,12 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+  object-fit: cover;
+  transition: transform 0.3s;
+
+  &.active {
+    transform: scale(1.1);
+  }
 }
 
 .button {

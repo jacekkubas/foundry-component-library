@@ -22,6 +22,7 @@ const OfficesTeaser = ({
           <WavyText
             className={styles.heading}
             text={`We operate all\nover the world`}
+            alternate
           />
         </div>
 

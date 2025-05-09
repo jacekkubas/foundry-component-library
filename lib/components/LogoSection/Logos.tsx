@@ -41,6 +41,11 @@ const Logos = ({
   });
 
   useEffect(() => {
+    if (withoutFilters) {
+      setBrandsToShow(brands);
+      return;
+    }
+
     setBrandsToShow([]);
 
     setTimeout(() => {
@@ -70,6 +75,8 @@ const Logos = ({
       setBrandsToShow(brands);
     }
   }, [selected]);
+
+  console.log(brandsToShow);
 
   return (
     <Container>

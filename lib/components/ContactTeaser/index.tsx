@@ -11,6 +11,7 @@ const ContactTeaser = ({
   theme = "yellow",
   buttonText = "Contact Us",
   buttonHref = "/contact",
+  alternate,
   Link,
 }: {
   heading: string;
@@ -18,6 +19,7 @@ const ContactTeaser = ({
   theme?: "yellow" | "pink";
   buttonText?: string;
   buttonHref?: string;
+  alternate: boolean;
   Link: NextLink;
 }) => {
   return (
@@ -28,6 +30,7 @@ const ContactTeaser = ({
             <WavyText
               className={`${styles.heading} ${!text ? styles.margin : ""}`}
               text={heading}
+              alternate={alternate}
             />
           )}
           {text && <FadeInText className={styles.text} text={text} />}

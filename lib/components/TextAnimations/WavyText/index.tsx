@@ -6,12 +6,14 @@ interface Props extends HTMLMotionProps<"div"> {
   text: string;
   delay?: number;
   duration?: number;
+  alternate?: boolean;
 }
 
 const WavyText: FC<Props> = ({
   text,
   delay = 0,
   duration = 0.05,
+  alternate = false,
   ...props
 }: Props) => {
   const container: Variants = {
@@ -36,7 +38,7 @@ const WavyText: FC<Props> = ({
     },
     hidden: {
       opacity: 0,
-      y: 20,
+      y: alternate ? -15 : 15,
       transition: {
         type: "spring",
         damping: 12,
