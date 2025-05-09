@@ -19,7 +19,7 @@ const ContactTeaser = ({
   theme?: "yellow" | "pink";
   buttonText?: string;
   buttonHref?: string;
-  alternate: boolean;
+  alternate?: boolean;
   Link: NextLink;
 }) => {
   return (
