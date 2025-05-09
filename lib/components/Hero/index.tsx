@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage, NextLink } from "../../types";
