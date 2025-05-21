@@ -63,7 +63,7 @@ function VideoTeaser({ url }: { url: string }) {
 
   return (
     <>
-      <div style={{ height: "1000px" }}>
+      <div style={{ height: "1100px" }}>
         <div className={styles.logoWrapper}>
           <Logo />
         </div>

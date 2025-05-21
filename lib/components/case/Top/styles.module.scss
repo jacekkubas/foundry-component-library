@@ -118,6 +118,10 @@
   }
 }
 
+.paragraph {
+  white-space: pre-wrap;
+}
+
 .awardsWrapper {
   @media #{$QUERY-md} {
     margin-top: 30px;

@@ -94,6 +94,18 @@ type HomePage = {
       contactTeaserText?: string;
     };
   };
+  aboutPage: {
+    customFieldsAboutBerlin: {
+      partnersCaption?: string;
+      partnersHeading?: string;
+      partnersText?: string;
+      partners?: {
+        image: {
+          sourceUrl: string;
+        };
+      }[];
+    };
+  };
 };
 
 export default async function getHomePage({
@@ -104,6 +116,7 @@ export default async function getHomePage({
   language: string;
 }): Promise<HomePage> {
   const contactPage = language === "EN" ? "contact" : "contact-de";
+  const aboutPage = language === "EN" ? "about-berlin" : "about-berlin-de";
 
   const query = gql`
     query GetPageBySlug($slug: ID!) {
@@ -219,6 +232,18 @@ export default async function getHomePage({
           contactTeaserText
         }
       }
+      aboutPage: page(id: "${aboutPage}", idType: URI) {
+        customFieldsAboutBerlin {
+          partnersCaption
+          partnersHeading
+          partnersText
+          partners {
+            image {
+              sourceUrl
+            }
+          }
+        }
+      }
     }
   `;
 
@@ -228,6 +253,7 @@ export default async function getHomePage({
     hubs: { nodes: Hub[] };
     posts: { nodes: PostPreview[] };
     contactPage: ContactPage;
+    aboutPage: HomePage["aboutPage"];
   } = await client.request(query, variables);
 
   return {
@@ -235,5 +261,6 @@ export default async function getHomePage({
     hubs: data.hubs.nodes,
     posts: data.posts.nodes,
     contactPage: data.contactPage,
+    aboutPage: data.aboutPage,
   };
 }
