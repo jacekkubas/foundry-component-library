@@ -45,11 +45,15 @@ const CaseStudyTeaser = ({
             }}
           >
             {cases.map((el) => {
+              const { thumbnailImage, mainImage } = el.case;
+
               return (
                 <div key={el.id} className={styles.case}>
                   <Image
                     className={styles.image}
-                    src={el.case?.mainImage?.sourceUrl || ""}
+                    src={
+                      thumbnailImage?.sourceUrl || mainImage?.sourceUrl || ""
+                    }
                     alt={el.title}
                     fill
                   />

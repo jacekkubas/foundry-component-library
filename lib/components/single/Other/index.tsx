@@ -25,27 +25,35 @@ function Other({
           </div>
         </div>
         <div className={styles.cases}>
-          {cases.map((item) => (
-            <div key={item.id} className={styles.case}>
-              <Link href={item.uri}>
-                <div className={styles.image}>
-                  {item.case.mainImage && (
-                    <Image
-                      className={styles.image}
-                      src={item.case.mainImage.sourceUrl}
-                      alt={item.title || ""}
-                      width={400}
-                      height={490}
-                    />
-                  )}
-                </div>
-                <div className={styles.texts}>
-                  <div>{item.title}</div>
-                  <Arrow />
-                </div>
-              </Link>
-            </div>
-          ))}
+          {cases.map((item) => {
+            const { thumbnailImage, mainImage } = item.case;
+
+            return (
+              <div key={item.id} className={styles.case}>
+                <Link href={item.uri}>
+                  <div className={styles.image}>
+                    {item.case.mainImage && (
+                      <Image
+                        className={styles.image}
+                        src={
+                          thumbnailImage?.sourceUrl ||
+                          mainImage?.sourceUrl ||
+                          ""
+                        }
+                        alt={item.title || ""}
+                        width={400}
+                        height={490}
+                      />
+                    )}
+                  </div>
+                  <div className={styles.texts}>
+                    <div>{item.title}</div>
+                    <Arrow />
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </Container>

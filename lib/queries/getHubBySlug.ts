@@ -50,6 +50,9 @@ export default async function getCaseBySlug({
               title
               uri
               case {
+                thumbnailImage {
+                  sourceUrl
+                }
                 mainImage {
                   sourceUrl
                 }
@@ -64,6 +67,9 @@ export default async function getCaseBySlug({
                 title
                 uri
                 case {
+                  thumbnailImage {
+                    sourceUrl
+                  }
                   mainImage {
                     sourceUrl
                   }

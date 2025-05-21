@@ -56,6 +56,9 @@ export default async function getCases(): Promise<{
                 title
                 uri
                 case {
+                  thumbnailImage {
+                    sourceUrl
+                  }
                   mainImage {
                     sourceUrl
                   }
@@ -70,6 +73,9 @@ export default async function getCases(): Promise<{
                   title
                   uri
                   case {
+                    thumbnailImage {
+                      sourceUrl
+                    }
                     mainImage {
                       sourceUrl
                     }

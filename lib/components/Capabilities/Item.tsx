@@ -104,6 +104,8 @@ const Item = ({
               >
                 {Link &&
                   cases.map((item) => {
+                    const { thumbnailImage, mainImage } = item.case;
+
                     return (
                       <Link
                         href={item.uri}
@@ -115,7 +117,11 @@ const Item = ({
                         <div className={styles.caseImage}>
                           {Image && (
                             <Image
-                              src={item.case?.mainImage?.sourceUrl || ""}
+                              src={
+                                thumbnailImage?.sourceUrl ||
+                                mainImage?.sourceUrl ||
+                                ""
+                              }
                               alt={item.title}
                               fill
                             />

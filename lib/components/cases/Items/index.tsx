@@ -79,7 +79,7 @@ function Cases({
         <div className={styles.wrapper}>
           {cases.map((item) => {
             if (!item.case) return null;
-            const { thumbnailVideo, mainImage } = item.case;
+            const { thumbnailVideo, mainImage, thumbnailImage } = item.case;
 
             return (
               <div key={item.id} className={styles.case}>
@@ -91,17 +91,19 @@ function Cases({
                       Image={Image}
                     />
                   )}
-                  {!thumbnailVideo && mainImage && (
+                  {!thumbnailVideo && (thumbnailImage || mainImage) && (
                     <div className={styles.imageWrapper}>
-                      {mainImage.sourceUrl && (
-                        <Image
-                          className={styles.image}
-                          src={mainImage.sourceUrl}
-                          alt={item.title || ""}
-                          width={720}
-                          height={490}
-                        />
-                      )}
+                      <Image
+                        className={styles.image}
+                        src={
+                          thumbnailImage?.sourceUrl ||
+                          mainImage?.sourceUrl ||
+                          ""
+                        }
+                        alt={item.title || ""}
+                        width={720}
+                        height={490}
+                      />
                     </div>
                   )}
                   <div className={styles.texts}>

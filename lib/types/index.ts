@@ -230,6 +230,9 @@ export type Case = {
     thumbnailVideo?: {
       mediaItemUrl: string;
     };
+    thumbnailImage?: {
+      sourceUrl: string;
+    };
     mainImage?: {
       sourceUrl: string;
     };

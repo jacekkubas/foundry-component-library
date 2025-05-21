@@ -29,6 +29,9 @@ type HomePage = {
         title: string;
         case: {
           caption: string;
+          thumbnailImage: {
+            sourceUrl: string;
+          };
           mainImage: {
             sourceUrl: string;
           };
@@ -146,6 +149,9 @@ export default async function getHomePage({
               title
               case {
                 caption
+                thumbnailImage {
+                  sourceUrl
+                }
                 mainImage {
                   sourceUrl
                 }

@@ -56,7 +56,7 @@ const More = ({
     <>
       {cases.map((item) => {
         if (!item.case) return null;
-        const { thumbnailVideo, mainImage } = item.case;
+        const { thumbnailVideo, thumbnailImage, mainImage } = item.case;
 
         return (
           <div key={item.id} className={styles.case}>
@@ -64,11 +64,13 @@ const More = ({
               {thumbnailVideo && (
                 <Video url={thumbnailVideo.mediaItemUrl} Image={Image} />
               )}
-              {!thumbnailVideo && mainImage && mainImage.sourceUrl && (
+              {!thumbnailVideo && (mainImage || thumbnailImage) && (
                 <div className={styles.imageWrapper}>
                   <Image
                     className={styles.image}
-                    src={mainImage.sourceUrl}
+                    src={
+                      thumbnailImage?.sourceUrl || mainImage?.sourceUrl || ""
+                    }
                     alt={item.title || ""}
                     width={720}
                     height={490}

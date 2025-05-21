@@ -145,6 +145,9 @@ export default async function getCasesPage(
                 title
                 uri
                 case {
+                  thumbnailImage {
+                    sourceUrl
+                  }
                   mainImage {
                     sourceUrl
                   }

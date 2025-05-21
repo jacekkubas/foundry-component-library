@@ -137,6 +137,9 @@ export default async function getCasesPage({
             thumbnailVideo{
               mediaItemUrl
             }
+            thumbnailImage {
+              sourceUrl
+            }
             mainImage {
               sourceUrl
             }

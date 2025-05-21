@@ -40,33 +40,41 @@ function Other({
           onMouseLeave={handleMouseUp}
           style={dragStyle as React.CSSProperties}
         >
-          {cases.map((item) => (
-            <div key={item.id} className={styles.case}>
-              <Link href={item.uri}>
-                <div className={styles.image}>
-                  {item.case.mainImage && (
-                    <Image
-                      className={styles.image}
-                      src={item.case.mainImage.sourceUrl}
-                      alt={item.title || ""}
-                      width={308}
-                      height={220}
-                    />
-                  )}
-                </div>
-                <div className={styles.texts}>
-                  <div>
-                    <div className={styles.title}>{item.title}</div>
-                    {item.case.excerpt && <div>{item.case.excerpt}</div>}
+          {cases.map((item) => {
+            const { thumbnailImage, mainImage } = item.case;
+
+            return (
+              <div key={item.id} className={styles.case}>
+                <Link href={item.uri}>
+                  <div className={styles.image}>
+                    {item.case.mainImage && (
+                      <Image
+                        className={styles.image}
+                        src={
+                          thumbnailImage?.sourceUrl ||
+                          mainImage?.sourceUrl ||
+                          ""
+                        }
+                        alt={item.title || ""}
+                        width={308}
+                        height={220}
+                      />
+                    )}
                   </div>
-                  <div className={styles.more}>
-                    {translate("See More")}
-                    <Arrow />
+                  <div className={styles.texts}>
+                    <div>
+                      <div className={styles.title}>{item.title}</div>
+                      {item.case.excerpt && <div>{item.case.excerpt}</div>}
+                    </div>
+                    <div className={styles.more}>
+                      {translate("See More")}
+                      <Arrow />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            );
+          })}
         </div>
         <div className={styles.buttonWrapper}>
           <Link className={styles.button} href="/cases">

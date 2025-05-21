@@ -88,6 +88,8 @@ const Hub = ({
                   }}
                 >
                   {customFields.relatedWork.map((item) => {
+                    const { thumbnailImage, mainImage } = item.case;
+
                     return (
                       <Link
                         href={item.uri}
@@ -98,7 +100,11 @@ const Hub = ({
                       >
                         <div className={styles.caseImage}>
                           <Image
-                            src={item.case?.mainImage?.sourceUrl || ""}
+                            src={
+                              thumbnailImage?.sourceUrl ||
+                              mainImage?.sourceUrl ||
+                              ""
+                            }
                             alt={item.title}
                             fill
                           />
