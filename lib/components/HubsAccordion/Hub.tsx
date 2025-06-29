@@ -4,6 +4,8 @@ import { NextImage, NextLink, type Hub } from "../../types";
 import styles from "./styles.module.scss";
 import Arrow from "../../assets/svg/arrow.svg";
 import useDrag from "../../hooks/useDrag";
+import Plus from "./plus.svg";
+import Minus from "./minus.svg";
 
 const Hub = ({
   hub,
@@ -46,8 +48,8 @@ const Hub = ({
             }
           }}
         >
-          {isActive && <span>-</span>}
-          {!isActive && <span>+</span>}
+          {isActive && <Minus />}
+          {!isActive && <Plus />}
         </button>
       </div>
       <div className={styles.rows}>

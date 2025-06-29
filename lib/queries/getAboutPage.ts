@@ -19,6 +19,7 @@ type AboutPage = {
       tilesHeading?: string;
       tiles?: {
         heading?: string;
+        hoverText?: string;
       }[];
       quotes?: {
         name?: string;
@@ -119,6 +120,7 @@ export default async function getAboutPage({
           tilesHeading
           tiles {
             heading
+            hoverText
           }
           quotes {
             name

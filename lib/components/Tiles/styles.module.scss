@@ -20,7 +20,6 @@
   background-color: $color-pink;
   color: $color-brown;
   font-size: 42px;
-  font-family: $font-secondary;
   flex-shrink: 0;
 
   @media screen and (max-width: $screen-sm) {
@@ -45,6 +44,16 @@
       stroke: $color-pink;
     }
   }
+
+  &:hover {
+    .face {
+      display: none;
+    }
+
+    .tails {
+      display: block;
+    }
+  }
 }
 
 .text {
@@ -57,4 +66,33 @@
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+.face {
+  display: block;
+
+  @media #{$QUERY-sm} {
+    font-size: 35px;
+  }
+
+  svg {
+    @media #{$QUERY-sm} {
+      width: 42px;
+    }
+  }
+}
+
+.tails {
+  text-align: left;
+  padding: 30px;
+  display: none;
+  font-size: 34px;
+
+  @media screen and (max-width: $screen-sm) {
+    font-size: 25px;
+  }
+}
+
+.tailsText {
+  margin-bottom: 30px;
 }

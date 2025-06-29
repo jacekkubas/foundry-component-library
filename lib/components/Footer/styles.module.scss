@@ -8,7 +8,7 @@
   z-index: 4;
 
   @media #{$QUERY-sm} {
-    padding: 30px 20px 48px;
+    padding: 48px 0;
   }
 }
 
@@ -40,14 +40,18 @@
   }
 }
 
-.logoText {
-  font-size: 34px;
-  font-family: $font-secondary;
-  margin-bottom: 48px;
+.logo {
+  width: 412px;
+  max-width: 100%;
 
-  @media screen and (max-width: $screen-md) {
-    font-size: 30px;
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 2rem;
   }
+}
+
+.logoText {
+  font-size: 24px;
+  margin-bottom: 48px;
 
   @media screen and (max-width: $screen-sm) {
     display: none;
@@ -89,8 +93,6 @@
 }
 
 .email {
-  font-size: 14px;
-
   &:hover {
     color: $color-pink;
   }
@@ -128,6 +130,7 @@
 
   @media #{$QUERY-sm} {
     margin-bottom: 10px;
+    font-weight: 400;
   }
 
   a {

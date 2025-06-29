@@ -5,6 +5,7 @@ import Container from "../Container";
 import { NextImage } from "../../types";
 import useDrag from "../../hooks/useDrag";
 import WavyText from "../TextAnimations/WavyText";
+import { motion } from "framer-motion";
 
 const Awards = ({
   heading,
@@ -28,7 +29,14 @@ const Awards = ({
   if (!awards) return;
 
   return (
-    <div className={styles.awards}>
+    <motion.div
+      className={styles.awards}
+      initial={{ opacity: 0, y: -5 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+      }}
+    >
       <Container>
         {heading && <WavyText className={styles.heading} text={heading} />}
       </Container>
@@ -59,7 +67,7 @@ const Awards = ({
           })}
         </div>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 

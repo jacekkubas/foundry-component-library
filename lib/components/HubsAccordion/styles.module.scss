@@ -16,10 +16,6 @@
     .rows {
       display: block;
     }
-
-    .icon span {
-      top: -2px;
-    }
   }
 
   &:before {
@@ -58,7 +54,6 @@
 
 .title {
   font-size: 42px;
-  font-family: $font-secondary;
   width: 360px;
 
   @media #{$QUERY-md} {
@@ -89,19 +84,15 @@
 }
 
 .icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: solid 2px $color-brown;
+  width: 52px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
-  line-height: 10px;
-  background-color: transparent;
   cursor: pointer;
-  color: $color-brown;
   flex-shrink: 0;
+  background-color: transparent;
+  border: none;
 
   @media #{$QUERY-sm} {
     width: 24px;
@@ -109,10 +100,6 @@
     font-size: 21px;
     position: relative;
     top: 8px;
-  }
-
-  span {
-    position: relative;
   }
 }
 

@@ -3,6 +3,7 @@
 .officesTeaser {
   display: flex;
   padding: 64px 0;
+  overflow: hidden;
 
   @media #{$QUERY-xl} {
     display: block;
@@ -26,7 +27,7 @@
 
 .heading {
   font-size: 42px;
-  font-family: $font-secondary;
+  line-height: 1.1;
   white-space: pre-wrap;
   color: $color-brown;
 

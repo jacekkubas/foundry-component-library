@@ -11,6 +11,7 @@ const Tiles = ({
 }: {
   tiles: {
     heading?: string;
+    hoverText?: string;
   }[];
 }) => {
   const sectionRef = useRef(null);
@@ -43,7 +44,9 @@ const Tiles = ({
             <Tile
               key={tile.heading}
               text={tile.heading || ""}
+              hoverText={tile.hoverText || ""}
               background={background}
+              i={i}
             />
           );
         })}

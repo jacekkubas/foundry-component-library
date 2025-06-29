@@ -71,6 +71,9 @@ type HomePage = {
     id: string;
     title: string;
     uri: string;
+    customFieldsHub: {
+      heading: string;
+    };
   }[];
   posts: PostPreview[];
   contactPage: {
@@ -193,6 +196,9 @@ export default async function getHomePage({
           id
           title
           uri
+          customFieldsHub {
+            heading
+          }
         }
       }
       posts(first: 3, where: {language: ${language}}) {

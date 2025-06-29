@@ -11,7 +11,6 @@
 
 .heading {
   font-size: 42px;
-  font-family: $font-secondary;
   color: $color-brown;
   margin-bottom: 64px;
 
@@ -51,6 +50,10 @@
 
   &:hover {
     width: 500px;
+
+    @media screen and (max-width: $screen-sm) {
+      width: 360px;
+    }
   }
 
   &:after {
@@ -83,7 +86,6 @@
 
 .title {
   font-size: 42px;
-  font-family: $font-secondary;
   margin-bottom: 40px;
   line-height: 1.2;
   width: 300px;

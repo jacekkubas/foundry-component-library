@@ -21,6 +21,10 @@
   font-size: 0;
   margin-left: -50px;
 
+  @media #{$QUERY-sm} {
+    margin-left: -68px;
+  }
+
   video {
     width: 250px;
     height: 47px;
@@ -131,7 +135,6 @@
 }
 
 .menuList {
-  font-family: $font-secondary;
   color: $color-brown;
   padding-top: 20px;
 }

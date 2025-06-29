@@ -14,10 +14,9 @@
   font-size: 42px;
   margin-bottom: 46px;
   font-weight: 400;
-  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 32px;
   }
 }
@@ -57,10 +56,18 @@
   font-size: 20px;
   font-weight: 500px;
   margin-bottom: 16px;
+
+  @media #{$QUERY-sm} {
+    font-size: 18px;
+  }
 }
 
 .text {
   font-size: 18px;
+
+  @media #{$QUERY-sm} {
+    font-size: 16px;
+  }
 
   strong {
     font-weight: bold;

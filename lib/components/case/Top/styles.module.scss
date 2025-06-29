@@ -65,6 +65,7 @@
   max-width: 100%;
   color: $color-brown;
   font-weight: 400;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 32px;

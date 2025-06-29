@@ -16,7 +16,7 @@ function Header({ Link }: { Link: NextLink }) {
           <div className={styles.wrapper}>
             <div className={styles.left}>
               <Link href="/">
-                <video src="/logo.mp4" autoPlay muted loop />
+                <video src="/logo.mp4" autoPlay muted />
                 Foundry
               </Link>
             </div>

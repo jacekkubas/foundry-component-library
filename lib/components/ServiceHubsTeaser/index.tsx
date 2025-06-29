@@ -21,6 +21,9 @@ const ServiceHubsTeaser = ({
     id: string;
     uri: string;
     title: string;
+    customFieldsHub: {
+      heading: string;
+    };
   }[];
   Link: NextLink;
 }) => {
@@ -53,6 +56,7 @@ const ServiceHubsTeaser = ({
                 <Tile
                   key={tile.id}
                   text={tile.title}
+                  hoverText={tile.customFieldsHub.heading}
                   background={background}
                   href={tile.uri}
                   i={i}

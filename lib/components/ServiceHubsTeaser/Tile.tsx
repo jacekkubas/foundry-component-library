@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import Plus from "../../assets/svg/plus.svg";
 import { NextLink } from "../../types";
 import { motion } from "framer-motion";
+import Arrow from "../../assets/svg/arrow.svg";
 
 const Tile = ({
   text,
@@ -11,6 +12,7 @@ const Tile = ({
   i,
   onClick,
   Link,
+  hoverText,
 }: {
   text: string;
   background: "pink" | "yellow" | "brown" | "blue";
@@ -18,6 +20,7 @@ const Tile = ({
   i: number;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   Link: NextLink;
+  hoverText: string;
 }) => {
   return (
     <motion.div
@@ -42,9 +45,17 @@ const Tile = ({
         draggable="false"
         className={`${styles.tile} ${styles[background]}`}
       >
-        <div className={styles.text}>{text}</div>
-        <div>
-          <Plus />
+        <div className={styles.face}>
+          <div className={styles.text}>{text}</div>
+          <div>
+            <Plus />
+          </div>
+        </div>
+        <div className={styles.tails}>
+          <div className={styles.tailsText}>{hoverText}</div>
+          <div>
+            Learn More <Arrow />
+          </div>
         </div>
       </Link>
     </motion.div>
