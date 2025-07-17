@@ -34,7 +34,10 @@ type ColumnImage = {
     | "Post_Customfieldsposts_Content_Twocolumns_Left_Image"
     | "Post_Customfieldsposts_Content_Twocolumns_Right_Image"
     | "Case_Case_Content_Twocolumns_Left_Image"
-    | "Case_Case_Content_Twocolumns_Right_Image";
+    | "Case_Case_Content_Twocolumns_Right_Image"
+    | "Case_Case_Content_Threecolumns_Left_Image"
+    | "Case_Case_Content_Threecolumns_Center_Image"
+    | "Case_Case_Content_Threecolumns_Right_Image";
   image: { sourceUrl: string };
   caption?: string;
 };
@@ -44,7 +47,10 @@ type ColumnText = {
     | "Post_Customfieldsposts_Content_Twocolumns_Left_Text"
     | "Post_Customfieldsposts_Content_Twocolumns_Right_Text"
     | "Case_Case_Content_Twocolumns_Left_Text"
-    | "Case_Case_Content_Twocolumns_Right_Text";
+    | "Case_Case_Content_Twocolumns_Right_Text"
+    | "Case_Case_Content_Threecolumns_Left_Text"
+    | "Case_Case_Content_Threecolumns_Center_Text"
+    | "Case_Case_Content_Threecolumns_Right_Text";
   text: string;
 };
 
@@ -74,6 +80,13 @@ export type TwoColumns = {
   right?: ColumnOption[];
 };
 
+export type ThreeColumns = {
+  fieldGroupName: "Case_Case_Content_Threecolumns";
+  left?: ColumnOption[];
+  center?: ColumnOption[];
+  right?: ColumnOption[];
+};
+
 export type Video = {
   fieldGroupName:
     | "Post_Customfieldsposts_Content_Video"
@@ -81,7 +94,10 @@ export type Video = {
     | "Post_Customfieldsposts_Content_Twocolumns_Left_Video"
     | "Post_Customfieldsposts_Content_Twocolumns_Right_Video"
     | "Case_Case_Content_Twocolumns_Left_Video"
-    | "Case_Case_Content_Twocolumns_Right_Video";
+    | "Case_Case_Content_Twocolumns_Right_Video"
+    | "Case_Case_Content_Threecolumns_Left_Video"
+    | "Case_Case_Content_Threecolumns_Center_Video"
+    | "Case_Case_Content_Threecolumns_Right_Video";
   autoplay: boolean;
   poster: { sourceUrl: string };
   caption: string;
@@ -124,6 +140,7 @@ export type Content = (
   | FullWidthImage
   | CenterColumn
   | TwoColumns
+  | ThreeColumns
   | Video
   | Results
   | Numbers
@@ -227,6 +244,19 @@ export type Case = {
     featured?: boolean;
     service?: string[];
     industry?: string[];
+    relatedCases?: {
+      id: string;
+      title: string;
+      uri: string;
+      case: {
+        thumbnailImage?: {
+          sourceUrl: string;
+        };
+        mainImage?: {
+          sourceUrl: string;
+        };
+      };
+    }[];
     thumbnailVideo?: {
       mediaItemUrl: string;
     };

@@ -21,7 +21,7 @@ const OfficesTeaser = ({
           <PopInText className={styles.caption} text="Our Offices" />
           <WavyText
             className={styles.heading}
-            text={`We operate all\nover the world`}
+            text={`We operate all\nover the world.`}
             alternate
           />
         </div>

@@ -5,7 +5,13 @@ import styles from "./styles.module.scss";
 import { useOnScreen } from "../../../hooks/useOnScreen";
 import { type Video } from "../../../types";
 
-function Video({ section }: { section: Video }) {
+function Video({
+  section,
+  defaultRatio = "56.25%",
+}: {
+  section: Video;
+  defaultRatio?: string;
+}) {
   const sectionRef = useRef(null);
   const onScreen = useOnScreen(sectionRef, "1000px");
   const [playing, setPlaying] = useState(false);
@@ -50,7 +56,7 @@ function Video({ section }: { section: Video }) {
           backgroundImage: section.poster
             ? `url(${section.poster.sourceUrl})`
             : "none",
-          paddingTop: section.ratio ? section.ratio : "56.25%",
+          paddingTop: section.ratio ? section.ratio : defaultRatio,
         }}
       >
         <div>

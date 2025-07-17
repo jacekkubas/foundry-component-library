@@ -1,6 +1,7 @@
 import FullWidthImage from "./FullWidthImage";
 import CenterColumn from "./CenterColumn";
 import TwoColumns from "./TwoColumns";
+import ThreeColumns from "./ThreeColumns";
 import Video from "./Video";
 import Container from "../../Container";
 import styles from "./styles.module.scss";
@@ -58,6 +59,15 @@ function CaseContent({
         if (section.fieldGroupName === "Case_Case_Content_Twocolumns") {
           return (
             <TwoColumns
+              key={section.fieldGroupName + i}
+              section={section}
+              Image={Image}
+            />
+          );
+        }
+        if (section.fieldGroupName === "Case_Case_Content_Threecolumns") {
+          return (
+            <ThreeColumns
               key={section.fieldGroupName + i}
               section={section}
               Image={Image}

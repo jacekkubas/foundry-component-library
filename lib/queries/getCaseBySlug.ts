@@ -51,6 +51,22 @@ export default async function getCaseBySlug({
               sourceUrl
             }
           }
+          relatedCases {
+            __typename
+            ... on Case {
+              id
+              title
+              uri
+              case {
+                thumbnailImage{
+                  sourceUrl
+                }
+                mainImage {
+                  sourceUrl
+                }
+              }
+            }
+          }
           content {
             ... on Case_Case_Content_Quote {
               fieldGroupName
@@ -130,6 +146,75 @@ export default async function getCaseBySlug({
                   text
                 }
                 ... on Case_Case_Content_Twocolumns_Right_Video {
+                  fieldGroupName
+                  autoplay
+                  poster {
+                    sourceUrl
+                  }
+                  caption
+                  video
+                  ratio
+                }
+              }
+            }
+            ... on Case_Case_Content_Threecolumns {
+              fieldGroupName
+              left {
+                ... on Case_Case_Content_Threecolumns_Left_Image {
+                  fieldGroupName
+                  image {
+                    sourceUrl
+                  }
+                }
+                ... on Case_Case_Content_Threecolumns_Left_Text {
+                  fieldGroupName
+                  text
+                }
+                ... on Case_Case_Content_Threecolumns_Left_Video {
+                  fieldGroupName
+                  autoplay
+                  poster {
+                    sourceUrl
+                  }
+                  caption
+                  video
+                  ratio
+                }
+              }
+              center {
+                ... on Case_Case_Content_Threecolumns_Center_Image {
+                  fieldGroupName
+                  image {
+                    sourceUrl
+                  }
+                }
+                ... on Case_Case_Content_Threecolumns_Center_Text {
+                  fieldGroupName
+                  text
+                }
+                ... on Case_Case_Content_Threecolumns_Center_Video {
+                  fieldGroupName
+                  autoplay
+                  poster {
+                    sourceUrl
+                  }
+                  caption
+                  video
+                  ratio
+                }
+              }
+              right {
+                ... on Case_Case_Content_Threecolumns_Right_Image {
+                  fieldGroupName
+                  image {
+                    sourceUrl
+                  }
+                }
+                ... on Case_Case_Content_Threecolumns_Right_Text {
+                  fieldGroupName
+                  text
+                }
+                ... on Case_Case_Content_Threecolumns_Right_Video {
                   fieldGroupName
                   autoplay
                   poster {
