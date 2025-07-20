@@ -5,6 +5,7 @@ import getMetadataBySlug from "./getMetadataBySlug";
 import getPageBySlug from "./getPageBySlug";
 import getPostBySlug from "./getPostBySlug";
 import getCaseBySlug from "./getCaseBySlug";
+import getCaseById from "./getCaseById";
 import getContactPage from "./getContactPage";
 import getBrands from "./getBrands";
 import getPeoplePage from "./getPeoplePage";
@@ -25,6 +26,7 @@ export {
   getPageBySlug,
   getPostBySlug,
   getCaseBySlug,
+  getCaseById,
   getContactPage,
   getBrands,
   getPeoplePage,

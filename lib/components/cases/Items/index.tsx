@@ -83,7 +83,11 @@ function Cases({
 
             return (
               <div key={item.id} className={styles.case}>
-                <Link href={item.uri}>
+                <Link
+                  href={`/cases/${
+                    item.status !== "draft" ? item.slug : `preview/${item.id}`
+                  }`}
+                >
                   {thumbnailVideo && (
                     <Video
                       url={thumbnailVideo.mediaItemUrl}
@@ -109,6 +113,7 @@ function Cases({
                   <div className={styles.texts}>
                     <div>
                       <h3 className={styles.title}>{item.title}</h3>
+                      {item.status === "draft" && <div>DRAFT</div>}
                       <div className={styles.caption}>{item.case.caption}</div>
                     </div>
                     <div className={styles.arrowWrapper}>

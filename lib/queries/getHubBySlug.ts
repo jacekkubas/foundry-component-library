@@ -23,7 +23,7 @@ type HubFields = {
   homePage: HomePage;
 };
 
-export default async function getCaseBySlug({
+export default async function getHubBySlug({
   slug,
   language,
 }: {

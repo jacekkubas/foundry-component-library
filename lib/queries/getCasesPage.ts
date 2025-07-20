@@ -38,6 +38,7 @@ type Params = {
   page?: number;
   service?: string;
   industry?: string;
+  isPreview?: boolean;
 };
 
 export default async function getCasesPage({
@@ -50,6 +51,7 @@ export default async function getCasesPage({
   page = 1,
   service = "",
   industry = "",
+  isPreview = false,
 }: Params): Promise<{
   casesPage: CasesPage;
   cases: Case[];
@@ -88,6 +90,7 @@ export default async function getCasesPage({
 
   // Where Clause
   const whereConditions = [
+    isPreview ? "status: DRAFT" : "status: PUBLISH",
     hasSearchTerm ? "search: $search" : "",
     hasCategoryTerm ? "caseCategory: $categorySlug" : "",
     exclude ? "notIn: $exclude" : "",
@@ -130,6 +133,7 @@ export default async function getCasesPage({
           title
           slug
           uri
+          status
           case {
             featured
             service

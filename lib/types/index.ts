@@ -226,8 +226,10 @@ export type Case = {
   title: string;
   slug?: string;
   uri: string;
+  link?: string;
   date?: string;
   content?: string;
+  status?: string;
   author?: {
     node: {
       name: string;
