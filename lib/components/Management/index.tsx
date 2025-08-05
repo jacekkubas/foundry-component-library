@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import TextSection from "../TextSection";
 import styles from "./styles.module.scss";
 import Container from "../Container";
@@ -27,6 +27,24 @@ const Management = ({
   const [activePerson, setActivePerson] = useState(0);
   // const [height, setHeight] = useState<number | undefined>();
   const contentRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (!items) return;
+
+    intervalRef.current = setInterval(() => {
+      setActivePerson((prev) => {
+        const next = prev + 1;
+        return next >= items.length ? 0 : next;
+      });
+    }, 4000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   // useLayoutEffect(() => {
   //   if (contentRef.current) {
