@@ -28,6 +28,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
     font-size: 32px;

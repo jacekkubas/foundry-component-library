@@ -37,6 +37,7 @@
   font-size: 42px;
   margin-bottom: 25px;
   line-height: 1.2;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-md) {
     font-size: 31px;

@@ -83,7 +83,7 @@
   line-height: 1.2;
   font-weight: bold;
   margin-bottom: 0;
-  font-family: $font-secondary;
+  font-family: $font-special;
 
   &.isCase {
     margin-bottom: 50px;
@@ -99,6 +99,7 @@
   line-height: 1.2;
   font-weight: 400;
   margin-top: 30px;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 24px;

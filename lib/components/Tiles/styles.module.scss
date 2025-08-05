@@ -21,6 +21,7 @@
   color: $color-brown;
   font-size: 42px;
   flex-shrink: 0;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
     max-width: 90%;
@@ -87,6 +88,7 @@
   padding: 30px;
   display: none;
   font-size: 34px;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
     font-size: 25px;

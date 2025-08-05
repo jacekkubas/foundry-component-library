@@ -49,6 +49,7 @@
   margin-bottom: 5px;
   width: 211px;
   max-width: 100%;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 22px;
@@ -69,6 +70,7 @@
   font-size: 34px;
   width: 800px;
   max-width: 100%;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-md) {
     font-size: 25px;

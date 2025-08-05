@@ -13,6 +13,7 @@
   font-size: 42px;
   color: $color-brown;
   margin-bottom: 64px;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
     font-size: 28px;
@@ -82,6 +83,7 @@
 .caption {
   text-transform: uppercase;
   font-size: 20px;
+  font-family: $font-secondary;
 }
 
 .title {
@@ -89,6 +91,7 @@
   margin-bottom: 40px;
   line-height: 1.2;
   width: 300px;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
     font-size: 31px;

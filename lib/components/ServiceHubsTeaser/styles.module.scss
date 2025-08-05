@@ -63,6 +63,7 @@
   font-size: 34px;
   width: 100%;
   height: 100%;
+  font-family: $font-secondary;
 
   &.yellow {
     background-color: $color-yellow;
@@ -119,6 +120,7 @@
   padding-left: 30px;
   display: none;
   font-size: 34px;
+  font-family: $font-secondary;
 }
 
 .tailsText {

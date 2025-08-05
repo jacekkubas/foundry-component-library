@@ -4,6 +4,7 @@
   font-size: 42px;
   margin-bottom: 64px;
   color: $color-brown;
+  font-family: $font-secondary;
 }
 
 .items {
@@ -38,6 +39,7 @@
 
 .title {
   font-size: 34px;
+  font-family: $font-secondary;
 
   @media #{$QUERY-md} {
     font-size: 18px;
@@ -170,6 +172,7 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 10px;
+  font-family: $font-secondary;
 
   svg {
     flex-shrink: 0;

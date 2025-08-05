@@ -26,6 +26,7 @@
   margin-bottom: 24px;
   white-space: pre-wrap;
   line-height: 1.1;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 32px;
@@ -43,6 +44,7 @@
 .text {
   font-size: 20px;
   margin-bottom: 48px;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 16px;

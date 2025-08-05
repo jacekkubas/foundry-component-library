@@ -93,6 +93,7 @@
   transition: color 0.3s;
   margin-bottom: 10px;
   font-weight: 500;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 18px;
@@ -102,6 +103,7 @@
 
 .caption {
   font-size: 22px;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 16px;

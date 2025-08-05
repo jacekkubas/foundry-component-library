@@ -23,6 +23,7 @@
   font-size: 20px;
   color: $color-blue;
   margin-bottom: 5px;
+  font-family: $font-secondary;
 }
 
 .heading {
@@ -30,6 +31,7 @@
   line-height: 1.1;
   white-space: pre-wrap;
   color: $color-brown;
+  font-family: $font-secondary;
 
   @media #{$QUERY-xl} {
     margin-bottom: 32px;

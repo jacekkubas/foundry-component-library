@@ -69,6 +69,7 @@
   color: $color-blue;
   margin-bottom: 10px;
   display: inline-block;
+  font-family: $font-secondary;
 }
 
 .title {
@@ -79,6 +80,7 @@
     margin-bottom: 15px;
     color: $color-brown;
     display: block;
+    font-family: $font-secondary;
 
     @media #{$QUERY-md} {
       font-size: 31px;
@@ -94,6 +96,7 @@
   font-size: 22px;
   margin-bottom: 30px;
   color: $color-brown;
+  font-family: $font-secondary;
 
   @media #{$QUERY-md} {
     font-size: 18px;

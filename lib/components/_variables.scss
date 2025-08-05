@@ -26,7 +26,8 @@ $QUERY-lg: "screen and (max-width: 1024px)";
 $QUERY-xl: "screen and (max-width: 1200px)";
 
 $font-primary: "Host Grotesk", sans-serif;
-$font-secondary: "kareliaOuttakes", sans-serif;
+$font-secondary: "kareliaFont", "kareliaFont Fallback", sans-serif;
+$font-special: "kareliaOuttakes", sans-serif;
 
 .button {
   border: solid 1px $color-blue;
@@ -35,6 +36,7 @@ $font-secondary: "kareliaOuttakes", sans-serif;
   padding: 10px 32px 12px;
   font-size: 22px;
   transition: 0.3s;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     font-size: 16px;
@@ -143,6 +145,7 @@ $font-secondary: "kareliaOuttakes", sans-serif;
   font-weight: 500;
   transition: 0.3s;
   display: inline-block;
+  font-family: $font-secondary;
 
   &:hover {
     background-color: $color-pink;

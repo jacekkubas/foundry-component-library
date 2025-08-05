@@ -52,6 +52,7 @@
 .logoText {
   font-size: 24px;
   margin-bottom: 48px;
+  font-family: $font-secondary;
 
   @media screen and (max-width: $screen-sm) {
     display: none;
