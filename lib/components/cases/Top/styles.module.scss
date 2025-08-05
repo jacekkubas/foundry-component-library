@@ -20,10 +20,16 @@
 
 .dropdown {
   position: relative;
-  width: 130px;
+  width: 150px;
+  transition: width 0.3s;
+
+  &:hover {
+    width: 200px;
+  }
 
   &.active {
     z-index: 3;
+    width: 200px;
   }
 }
 
