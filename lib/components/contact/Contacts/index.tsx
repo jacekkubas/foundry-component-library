@@ -1,6 +1,10 @@
+"use client";
 import Container from "../../Container";
 import styles from "./styles.module.scss";
 import Arrow from "../../../assets/svg/arrow.svg";
+import { useState } from "react";
+import Script from "next/script";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 function Contacts({
   title,
@@ -13,6 +17,8 @@ function Contacts({
     email: string;
   }[];
 }) {
+  const [isTypeformOpen, setIsTypeformOpen] = useState(false);
+  const ref = useClickOutside<HTMLDivElement>(() => setIsTypeformOpen(false));
   if (!items) return;
 
   return (
@@ -21,7 +27,11 @@ function Contacts({
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.boxes}>
           {items.map((item, i) => {
-            const { heading, subheading, email } = item;
+            const {
+              heading,
+              subheading,
+              // email
+            } = item;
 
             return (
               <div className={styles.box} key={heading}>
@@ -32,7 +42,10 @@ function Contacts({
                     dangerouslySetInnerHTML={{ __html: subheading }}
                   />
                 </div>
-                <a className={styles.buttonSecondary} href={`mailto:${email}`}>
+                <a
+                  className={styles.buttonSecondary}
+                  onClick={() => setIsTypeformOpen(true)}
+                >
                   {i === 0 && "Contact Account"}
                   {i === 1 && "General Contact"}
                   {i === 2 && "Contact HR"}
@@ -41,6 +54,21 @@ function Contacts({
               </div>
             );
           })}
+        </div>
+        <div
+          className={styles.typeform}
+          style={{ display: isTypeformOpen ? "flex" : "none" }}
+        >
+          <Script src="//embed.typeform.com/next/embed.js" />
+          <div ref={ref} className={styles.typeformWrapper}>
+            {/* <div data-tf-widget="qmv6Yk" data-tf-iframe-props="title=Foundry Website Contact Form" data-tf-medium="snippet" style={{ width: '100%', height: '400px' }} /> */}
+            <div
+              data-tf-widget="DJkseH"
+              data-tf-iframe-props="title=Foundry Website Contact Form"
+              data-tf-medium="snippet"
+              style={{ width: "100%", height: "400px" }}
+            />
+          </div>
         </div>
       </Container>
     </section>
