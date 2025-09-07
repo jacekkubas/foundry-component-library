@@ -17,8 +17,12 @@ function Contacts({
     email: string;
   }[];
 }) {
-  const [isTypeformOpen, setIsTypeformOpen] = useState(false);
-  const ref = useClickOutside<HTMLDivElement>(() => setIsTypeformOpen(false));
+  const [isTypeform1Open, setIsTypeform1Open] = useState(false);
+  const [isTypeform2Open, setIsTypeform2Open] = useState(false);
+  const ref = useClickOutside<HTMLDivElement>(() => {
+    setIsTypeform1Open(false);
+    setIsTypeform2Open(false);
+  });
   if (!items) return;
 
   return (
@@ -44,8 +48,13 @@ function Contacts({
                 </div>
                 <a
                   className={styles.buttonSecondary}
-                  onClick={() => setIsTypeformOpen(true)}
-                >
+                  onClick={() => {
+                    if (i === 2) {
+                      setIsTypeform1Open(true);
+                    } else {
+                      setIsTypeform2Open(true);
+                    }
+                  }}>
                   {i === 0 && "Contact Account"}
                   {i === 1 && "General Contact"}
                   {i === 2 && "Contact HR"}
@@ -57,13 +66,26 @@ function Contacts({
         </div>
         <div
           className={styles.typeform}
-          style={{ display: isTypeformOpen ? "flex" : "none" }}
-        >
+          style={{ display: isTypeform1Open ? "flex" : "none" }}>
           <Script src="//embed.typeform.com/next/embed.js" />
           <div ref={ref} className={styles.typeformWrapper}>
             {/* <div data-tf-widget="qmv6Yk" data-tf-iframe-props="title=Foundry Website Contact Form" data-tf-medium="snippet" style={{ width: '100%', height: '400px' }} /> */}
             <div
               data-tf-widget="DJkseH"
+              data-tf-iframe-props="title=Foundry Website Contact Form"
+              data-tf-medium="snippet"
+              style={{ width: "100%", height: "400px" }}
+            />
+          </div>
+        </div>
+        <div
+          className={styles.typeform}
+          style={{ display: isTypeform2Open ? "flex" : "none" }}>
+          <Script src="//embed.typeform.com/next/embed.js" />
+          <div ref={ref} className={styles.typeformWrapper}>
+            {/* <div data-tf-widget="qmv6Yk" data-tf-iframe-props="title=Foundry Website Contact Form" data-tf-medium="snippet" style={{ width: '100%', height: '400px' }} /> */}
+            <div
+              data-tf-widget="qmv6Yk"
               data-tf-iframe-props="title=Foundry Website Contact Form"
               data-tf-medium="snippet"
               style={{ width: "100%", height: "400px" }}
