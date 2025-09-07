@@ -10,7 +10,7 @@ const ContactTeaser = ({
   text,
   theme = "yellow",
   buttonText = "Contact Us",
-  buttonHref = "/contact",
+  buttonHref = "/contact#contact-us",
   alternate,
   Link,
 }: {

@@ -4,6 +4,7 @@
   padding: 64px 0;
   background-color: $color-yellow;
   color: $color-brown;
+  scroll-margin-top: 60px;
 
   @media #{$QUERY-sm} {
     padding: 32px 0;

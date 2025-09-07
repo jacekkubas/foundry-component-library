@@ -26,7 +26,7 @@ function Contacts({
   if (!items) return;
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="contact-us">
       <Container>
         <h2 className={styles.title}>{title}</h2>
         <div className={styles.boxes}>
