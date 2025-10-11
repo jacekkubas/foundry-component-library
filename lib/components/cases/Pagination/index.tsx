@@ -23,7 +23,7 @@ const Pagination = ({
   const handleClick = (page: number) => {
     const params = new URLSearchParams(searchParams);
     params.set("page", String(page));
-    router.push(`?${params.toString()}`, { scroll: false });
+    router.push(`?${params.toString()}`, { scroll: true });
   };
 
   return (
@@ -34,8 +34,7 @@ const Pagination = ({
             return (
               <span
                 key={page + 1}
-                className={`${styles.indicator} ${styles.current}`}
-              >
+                className={`${styles.indicator} ${styles.current}`}>
                 {page + 1}
               </span>
             );
@@ -47,8 +46,7 @@ const Pagination = ({
               className={styles.indicator}
               onClick={() => {
                 handleClick(page + 1);
-              }}
-            >
+              }}>
               {page + 1}
             </button>
           );
