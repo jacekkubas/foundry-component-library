@@ -1,11 +1,13 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Container from "../Container";
 import styles from "./styles.module.scss";
 import TextSection from "../TextSection";
 import Tile from "./Tile";
 import { NextLink } from "../../types";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValue, useSpring } from "framer-motion";
+
+const SCROLL_DISTANCE = -500;
 
 const ServiceHubsTeaser = ({
   caption,
@@ -27,8 +29,31 @@ const ServiceHubsTeaser = ({
   }[];
   Link: NextLink;
 }) => {
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const dragStarted = useRef(false);
+
+  const x = useMotionValue(0);
+
+  const smoothX = useSpring(x, {
+    stiffness: 120,
+    damping: 20,
+    mass: 0.1,
+  });
+
+  const { scrollYProgress } = useScroll({
+    target: wrapperRef,
+    offset: ["start end", "end start"],
+  });
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      const scrollOffset = latest * SCROLL_DISTANCE;
+      if (!dragStarted.current) {
+        x.set(scrollOffset);
+      }
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress, x]);
 
   return (
     <div className={styles.benefits}>
@@ -39,18 +64,22 @@ const ServiceHubsTeaser = ({
             className={styles.tiles}
             drag="x"
             dragConstraints={wrapperRef}
+            style={{ x: smoothX }}
+            dragMomentum={true}
             onDragStart={() => (dragStarted.current = true)}
             onDragEnd={() => {
               setTimeout(() => {
                 dragStarted.current = false;
               }, 0);
-            }}
-          >
+            }}>
             {tiles.map((tile, i) => {
-              let background: "pink" | "yellow" | "brown" | "blue" = "pink";
-              if (i % 4 === 1) background = "yellow";
-              if (i % 4 === 2) background = "brown";
-              if (i % 4 === 3) background = "blue";
+              const colors: Array<"pink" | "yellow" | "brown" | "blue"> = [
+                "pink",
+                "yellow",
+                "brown",
+                "blue",
+              ];
+              const background = colors[i % colors.length];
 
               return (
                 <Tile
