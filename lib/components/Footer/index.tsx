@@ -87,7 +87,7 @@ function Footer({
                   <Link href="https://facebook.com">Facebook</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <Link href="https://linkedin.com">Linked-In</Link>
+                  <Link href="https://linkedin.com">LinkedIn</Link>
                 </li>
               </ul>
             </div>

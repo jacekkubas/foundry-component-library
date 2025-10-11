@@ -12,12 +12,6 @@
   color: $color-brown;
   position: relative;
 
-  &.active {
-    .rows {
-      display: block;
-    }
-  }
-
   &:before {
     content: "";
     position: absolute;
@@ -103,10 +97,6 @@
     position: relative;
     top: 8px;
   }
-}
-
-.rows {
-  display: none;
 }
 
 .row {
