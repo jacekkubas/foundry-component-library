@@ -319,6 +319,9 @@ export type Hub = {
     mainimage: {
       sourceUrl: string;
     };
+    mainvideo: {
+      mediaItemUrl: string;
+    };
     caption: string;
     heading: string;
     subheading: string;

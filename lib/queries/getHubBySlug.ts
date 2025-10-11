@@ -45,6 +45,9 @@ export default async function getHubBySlug({
           mainimage {
             sourceUrl
           }
+          mainvideo{
+            mediaItemUrl
+          }
           relatedWork {
             ... on Case {
               title
