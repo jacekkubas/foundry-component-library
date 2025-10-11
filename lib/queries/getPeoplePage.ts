@@ -40,6 +40,9 @@ type PeoplePage = {
   };
   contactPage: {
     customFieldsContact: {
+      facebook: string;
+      instagram: string;
+      linkedin: string;
       berlinImage?: {
         sourceUrl: string;
       };
@@ -123,6 +126,9 @@ export default async function getContactPage({
       }
       contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           berlinImage {
             sourceUrl
           }

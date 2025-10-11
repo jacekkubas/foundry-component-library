@@ -165,6 +165,9 @@ export default async function getCasesPage(
       }
       contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           berlinImage {
             sourceUrl
           }

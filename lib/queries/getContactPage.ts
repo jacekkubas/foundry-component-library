@@ -4,6 +4,9 @@ import client from "./client";
 export type ContactPage = {
   title: string;
   customFieldsContact: {
+    facebook: string;
+    instagram: string;
+    linkedin: string;
     topCaption: string;
     topHeading: string;
     berlinImage: {
@@ -57,6 +60,9 @@ export default async function getContactPage({
       page(id: $slug, idType: URI) {
         title
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           topCaption
           topHeading
           berlinImage {

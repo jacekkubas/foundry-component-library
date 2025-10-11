@@ -231,6 +231,9 @@ export default async function getCaseBySlug({
       }
       contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           berlinImage {
             sourceUrl
           }

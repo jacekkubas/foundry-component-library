@@ -7,6 +7,9 @@ import { NextLink } from "../../types";
 function Footer({
   details,
   Link,
+  facebook,
+  linkedin,
+  instagram,
 }: {
   details: {
     berlinEmail: string;
@@ -14,6 +17,9 @@ function Footer({
     newyorkEmail: string;
   };
   Link: NextLink;
+  facebook: string;
+  linkedin: string;
+  instagram: string;
 }) {
   const { berlinEmail, zurichEmail, newyorkEmail } = details;
   const year = new Date().getFullYear();
@@ -81,13 +87,13 @@ function Footer({
               <div className={styles.socialHeading}>Follow Us</div>
               <ul className={styles.menuSocial}>
                 <li className={styles.menuItem}>
-                  <Link href="https://instagram.com">Instagram</Link>
+                  <Link href={instagram}>Instagram</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <Link href="https://facebook.com">Facebook</Link>
+                  <Link href={facebook}>Facebook</Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <Link href="https://linkedin.com">LinkedIn</Link>
+                  <Link href={linkedin}>LinkedIn</Link>
                 </li>
               </ul>
             </div>

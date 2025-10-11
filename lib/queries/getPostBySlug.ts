@@ -104,6 +104,9 @@ export default async function getPostBySlug({
       }
       contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           berlinImage {
             sourceUrl
           }

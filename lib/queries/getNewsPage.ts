@@ -119,6 +119,9 @@ export default async function getNewsPage(options: Params): Promise<{
       }
       contactPage: page(id: "${contactPage}", idType: URI) {
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           berlinImage {
             sourceUrl
           }

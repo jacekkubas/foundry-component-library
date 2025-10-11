@@ -50,6 +50,9 @@ type PerformancePage = {
   };
   contactPage: {
     customFieldsContact: {
+      facebook: string;
+      instagram: string;
+      linkedin: string;
       berlinImage?: {
         sourceUrl: string;
       };
@@ -128,6 +131,9 @@ export default async function getPerformanceHubPage(): Promise<PerformancePage> 
       }
       contactPage: page(id: "contact", idType: URI) {
         customFieldsContact {
+          facebook
+          instagram
+          linkedin
           berlinImage {
             sourceUrl
           }
