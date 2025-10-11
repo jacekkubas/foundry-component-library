@@ -33,13 +33,6 @@
   width: 620px;
   max-width: 100%;
   margin: 0 auto;
-}
-
-.text {
-  max-width: 100%;
-  min-height: 350px;
-  font-size: 18px;
-  line-height: 1.4;
 
   h1,
   h2,
@@ -56,6 +49,13 @@
   h3 {
     font-size: 30px;
   }
+}
+
+.text {
+  max-width: 100%;
+  min-height: 350px;
+  font-size: 18px;
+  line-height: 1.4;
 }
 
 .twoColumns {

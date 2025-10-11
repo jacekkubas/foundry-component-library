@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 
@@ -13,6 +13,20 @@ const QuoteSection = ({
   }[];
 }) => {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!items || items.length <= 1) return;
+
+    const interval = setInterval(() => {
+      if (!paused) {
+        setActive((prev) => (prev + 1) % items.length);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [items, paused]);
+
   if (!items || (items.length === 1 && !items[0].text)) return;
 
   return (
@@ -24,18 +38,24 @@ const QuoteSection = ({
               key={item?.name || i}
               className={`${styles.content} ${
                 active === i ? styles.active : ""
-              }`}
-            >
+              }`}>
               <div className={styles.person}>
-                <div className={styles.name}>{item.name}</div>
-                <div className={styles.position}>{item.position}</div>
+                <div>
+                  <div className={styles.name}>{item.name}</div>
+                  <div className={styles.position}>{item.position}</div>
+                </div>
               </div>
-              <div className={styles.text}>{item.text}</div>
+              <div
+                className={styles.text}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}>
+                {item.text}
+              </div>
             </div>
           );
         })}
         {items.length > 1 && (
-          <div className={styles.indicators}>
+          <div className={`${styles.indicators} ${styles.desktop}}`}>
             {items.map((el, i) => {
               return (
                 <div

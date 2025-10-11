@@ -66,6 +66,10 @@
   height: 100%;
   font-family: $font-secondary;
 
+  path {
+    stroke: $color-brown;
+  }
+
   &.yellow {
     background-color: $color-yellow;
     color: $color-blue;
@@ -114,6 +118,7 @@
 
 .face {
   display: block;
+  font-size: 42px;
 }
 
 .tails {

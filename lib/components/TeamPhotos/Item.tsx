@@ -11,9 +11,9 @@ const Item = ({ person, Image }: { person: Person; Image: NextImage }) => {
     <div
       className={styles.person}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+      onMouseLeave={() => setIsHovered(false)}>
       <div className={styles.image}>
+        {video && <div>{video.sourceUrl}</div>}
         {image && (
           <Image
             src={isHovered && video ? video.sourceUrl : image.sourceUrl}

@@ -45,7 +45,7 @@
   max-width: 100%;
 
   @media screen and (max-width: $screen-sm) {
-    margin-bottom: 2rem;
+    margin-bottom: 40px;
   }
 }
 
@@ -118,6 +118,7 @@
 .menu {
   font-size: 18px;
   font-weight: 500;
+  font-family: $font-secondary;
 
   @media #{$QUERY-sm} {
     width: 100%;
@@ -147,7 +148,7 @@
   @media #{$QUERY-sm} {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 24px;
   }
 
@@ -196,8 +197,10 @@
   }
 
   @media #{$QUERY-sm} {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
+    justify-content: flex-start;
+    gap: 40px;
   }
 
   a {

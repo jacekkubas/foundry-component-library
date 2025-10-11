@@ -16,7 +16,13 @@ function Header({ Link }: { Link: NextLink }) {
           <div className={styles.wrapper}>
             <div className={styles.left}>
               <Link href="/">
-                <video src="/logo.mp4" autoPlay muted />
+                <video
+                  src="/logo.mp4"
+                  autoPlay
+                  muted
+                  playsInline
+                  {...{ "webkit-playsinline": "true" }}
+                />
                 Foundry
               </Link>
             </div>
@@ -28,8 +34,7 @@ function Header({ Link }: { Link: NextLink }) {
                 onClick={() => {
                   setMenuOpen(!isMenuOpen);
                 }}
-                aria-label="Toggle menu"
-              >
+                aria-label="Toggle menu">
                 Menu
                 <div className={styles.hamburger}>
                   <span className={styles.line}></span>

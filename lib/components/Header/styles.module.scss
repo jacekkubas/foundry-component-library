@@ -19,7 +19,7 @@
 
 .left {
   font-size: 0;
-  margin-left: -50px;
+  margin-left: -65px;
 
   @media #{$QUERY-sm} {
     margin-left: -68px;
@@ -98,9 +98,6 @@
   display: flex;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  @media #{$QUERY-sm} {
-  }
-
   &.isMenuOpen {
     // display: flex;
     transform: translateX(0);
@@ -132,6 +129,10 @@
   max-height: 600px;
   margin: auto 0;
   padding: 0 40px;
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 60px;
+  }
 }
 
 .menuList {

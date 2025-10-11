@@ -63,6 +63,7 @@
 
   @media #{$QUERY-sm} {
     font-size: 14px;
+    min-height: 40px;
   }
 }
 
@@ -71,6 +72,7 @@
   width: 800px;
   max-width: 100%;
   font-family: $font-secondary;
+  min-height: 300px;
 
   @media screen and (max-width: $screen-md) {
     font-size: 25px;
@@ -78,15 +80,19 @@
 
   @media #{$QUERY-sm} {
     font-size: 16px;
+    min-height: 200px;
   }
 }
 
 .indicators {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
-  padding-top: 64px;
+
+  @media #{$QUERY-sm} {
+    padding-top: 30px;
+  }
 }
 
 .indicator {
@@ -95,6 +101,11 @@
   border: solid 2px $color-pink;
   border-radius: 50%;
   cursor: pointer;
+
+  @media #{$QUERY-sm} {
+    width: 11px;
+    height: 11px;
+  }
 
   &.active {
     background-color: $color-pink;
