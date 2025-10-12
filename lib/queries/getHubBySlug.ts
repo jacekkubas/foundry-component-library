@@ -83,6 +83,21 @@ export default async function getHubBySlug({
           quoteName
           quotePosition
           quoteText
+          caseStudies {
+            ... on Case {
+              title
+              uri
+              id
+              case {
+                thumbnailImage {
+                  sourceUrl
+                }
+                mainImage {
+                  sourceUrl
+                }
+              }
+            }
+          }
         }
       }
       contactPage: page(id: "${contactPage}", idType: URI) {

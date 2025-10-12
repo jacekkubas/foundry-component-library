@@ -338,6 +338,7 @@ export type Hub = {
     quoteName?: string;
     quotePosition?: string;
     quoteText?: string;
+    caseStudies: Case[];
   };
 };
 

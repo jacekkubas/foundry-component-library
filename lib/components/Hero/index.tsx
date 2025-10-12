@@ -33,8 +33,6 @@ const Hero = ({
   const sectionRef = useRef(null);
   const onScreen = useOnScreen(sectionRef, "-50%");
 
-  console.log("pop", video);
-
   if (!image && !video) return;
 
   if (isFullWidth) {
