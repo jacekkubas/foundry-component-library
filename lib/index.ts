@@ -37,6 +37,7 @@ import TeamBenefits from "./components/TeamBenefits";
 import TeamPhotos from "./components/TeamPhotos";
 import TextSection from "./components/TextSection";
 import Tiles from "./components/Tiles";
+import StickyTiles from "./components/StickyTiles";
 import VideoTeaser from "./components/VideoTeaser";
 
 export {
@@ -79,5 +80,6 @@ export {
   TeamPhotos,
   TextSection,
   Tiles,
+  StickyTiles,
   VideoTeaser,
 };
