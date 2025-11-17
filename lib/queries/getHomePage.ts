@@ -113,6 +113,11 @@ type HomePage = {
           sourceUrl: string;
         };
       }[];
+      quotes?: {
+        name?: string;
+        position?: string;
+        text?: string;
+      }[];
     };
   };
 };
@@ -259,6 +264,11 @@ export default async function getHomePage({
             image {
               sourceUrl
             }
+          }
+          quotes {
+            name
+            position
+            text
           }
         }
       }

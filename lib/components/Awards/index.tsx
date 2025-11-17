@@ -1,11 +1,24 @@
 "use client";
-import { useRef } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextImage } from "../../types";
-import useDrag from "../../hooks/useDrag";
 import WavyText from "../TextAnimations/WavyText";
 import { motion } from "framer-motion";
+
+// Infinite marquee animation settings
+const marqueeVariants = {
+  animate: {
+    x: [0, -"100%"],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 20,
+        ease: "linear",
+      },
+    },
+  },
+};
 
 const Awards = ({
   heading,
@@ -22,49 +35,41 @@ const Awards = ({
   }[];
   Image: NextImage;
 }) => {
-  const sectionRef = useRef(null);
-  const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
-    useDrag(sectionRef);
+  if (!awards) return null;
 
-  if (!awards) return;
+  // Duplicate awards to create seamless looping
+  const marqueeItems = [...awards, ...awards];
 
   return (
     <motion.div
       className={styles.awards}
       initial={{ opacity: 0, y: -5 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 1,
-      }}
-    >
+      transition={{ duration: 1 }}>
       <Container>
         {heading && <WavyText className={styles.heading} text={heading} />}
       </Container>
       <Container noMobilePadding>
-        <div
-          ref={sectionRef}
-          className={styles.items}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          style={dragStyle as React.CSSProperties}
-        >
-          {awards.map((award, i) => {
-            const { image, heading, text } = award;
+        <div className={styles.marqueeWrapper}>
+          <motion.div
+            className={styles.marquee}
+            variants={marqueeVariants}
+            animate="animate">
+            {marqueeItems.map((award, i) => {
+              const { image, heading, text } = award;
+              if (!image) return null;
 
-            if (!image) return;
-
-            return (
-              <div key={image.sourceUrl + i} className={styles.award}>
-                <div className={styles.image}>
-                  {image && <Image src={image?.sourceUrl} alt="" fill />}
+              return (
+                <div key={image.sourceUrl + i} className={styles.award}>
+                  <div className={styles.image}>
+                    {image && <Image src={image.sourceUrl} alt="" fill />}
+                  </div>
+                  {heading && <div className={styles.text}>{heading}</div>}
+                  {text && <div className={styles.client}>{text}</div>}
                 </div>
-                {heading && <div className={styles.text}>{heading}</div>}
-                {text && <div className={styles.client}>{text}</div>}
-              </div>
-            );
-          })}
+              );
+            })}
+          </motion.div>
         </div>
       </Container>
     </motion.div>

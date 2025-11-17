@@ -21,13 +21,28 @@
   }
 }
 
-.items {
+/* NEW — wrapper that clips the scrolling track */
+.marqueeWrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* NEW — marquee track */
+.marquee {
   display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 20s linear infinite;
 
   @media #{$QUERY-sm} {
     gap: 24px;
+    animation-duration: 16s;
   }
 }
+
+/* Remove if using marquee (track should scroll) */
+/* .items { display: flex; } */
 
 .award {
   width: 20%;
@@ -83,5 +98,15 @@
 
   @media #{$QUERY-sm} {
     font-size: 16px;
+  }
+}
+
+/* NEW — marquee animation: scroll half the track (because items are duplicated) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
