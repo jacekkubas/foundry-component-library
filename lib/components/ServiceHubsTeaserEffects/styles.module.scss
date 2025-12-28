@@ -1,0 +1,135 @@
+@use "../variables" as *;
+
+.benefits {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  // overflow-x: scroll;
+  user-select: none;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 64px;
+
+  @media #{$QUERY-sm} {
+    padding-bottom: 32px;
+  }
+}
+
+.tileWrapper {
+  z-index: 0;
+  position: relative;
+  width: calc(25% - 12px);
+  max-width: 100%;
+  height: 351px;
+
+  &:hover {
+    z-index: 1;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    max-width: 80%;
+    height: 300px;
+  }
+
+  &:first-child {
+    @media #{$QUERY-sm} {
+      margin-left: 20px;
+    }
+  }
+
+  &:last-child {
+    @media #{$QUERY-sm} {
+      margin-right: 20px;
+    }
+  }
+}
+
+.tile {
+  flex-shrink: 0;
+  white-space: pre-wrap;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: $color-pink;
+  color: $color-brown;
+  font-size: 25px;
+  width: 100%;
+  height: 100%;
+  font-family: $font-secondary;
+
+  path {
+    stroke: $color-brown;
+  }
+
+  &.yellow {
+    background-color: $color-yellow;
+    color: $color-blue;
+
+    path {
+      stroke: $color-blue;
+    }
+  }
+
+  &.brown {
+    background-color: $color-brown;
+    color: $color-pink;
+
+    path {
+      stroke: $color-pink;
+    }
+  }
+
+  &.blue {
+    background-color: $color-blue;
+    color: $color-white;
+
+    path {
+      stroke: $color-white;
+    }
+  }
+
+  // &:hover {
+  //   .face {
+  //     display: none;
+  //   }
+
+  //   .tails {
+  //     display: block;
+  //   }
+  // }
+}
+
+.text {
+  margin-bottom: 42px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.face {
+  display: block;
+  font-size: 35px;
+}
+
+// .tails {
+//   text-align: left;
+//   padding-left: 30px;
+//   display: none;
+//   font-size: 21px;
+//   font-family: $font-secondary;
+// }
+
+// .tailsText {
+//   margin-bottom: 30px;
+// }

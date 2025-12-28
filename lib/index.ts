@@ -31,6 +31,7 @@ import OfficesTeaser from "./components/OfficesTeaser";
 import PartnerNetwork from "./components/PartnerNetwork";
 import QuoteSection from "./components/QuoteSection";
 import ServiceHubsTeaser from "./components/ServiceHubsTeaser";
+import ServiceHubsTeaserEffects from "./components/ServiceHubsTeaserEffects";
 import PostContent from "./components/single/Content";
 import PostTop from "./components/single/Top";
 import TeamBenefits from "./components/TeamBenefits";
@@ -74,6 +75,7 @@ export {
   PartnerNetwork,
   QuoteSection,
   ServiceHubsTeaser,
+  ServiceHubsTeaserEffects,
   PostContent,
   PostTop,
   TeamBenefits,
