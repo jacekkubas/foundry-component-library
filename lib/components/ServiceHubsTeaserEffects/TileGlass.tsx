@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
-import Lens from "./Lens";
+import Lens from "./glass/Lens";
 
 const TileGlass = () => {
   return (

@@ -19,7 +19,7 @@ const Bubbles = () => {
     (state, delta) =>
       void (ref.current.rotation.y = MathUtils.damp(
         ref.current.rotation.y,
-        (-state.mouse.x * Math.PI) / 6,
+        (-state.pointer.x * Math.PI) / 6,
         2.75,
         delta
       ))

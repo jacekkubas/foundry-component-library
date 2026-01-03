@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment, Text } from "@react-three/drei";
 import { EffectComposer, N8AO, TiltShift2 } from "@react-three/postprocessing";
-import Bubbles from "./Bubbles";
+import Bubbles from "./bubbles/Bubbles";
 
 const TileBalls = () => {
   return (

@@ -47,13 +47,11 @@ const ServiceHubsTeaserEffects = ({
 
               return (
                 <div className={styles.tileWrapper} key={tile.id}>
-                  <Link
-                    href={tile.uri}
-                    className={`${styles.tile} ${styles[background]}`}>
+                  <div className={`${styles.tile} ${styles[background]}`}>
                     {i === 0 && <TileGlass />}
                     {i === 1 && <TileBalls />}
                     {/* {i === 2 && <TileRays />} */}
-                  </Link>
+                  </div>
                 </div>
               );
             })}
