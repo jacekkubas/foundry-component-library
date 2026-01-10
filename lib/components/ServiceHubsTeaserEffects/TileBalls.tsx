@@ -15,7 +15,7 @@ const TileBalls = () => {
       <ambientLight intensity={1.5} />
       <pointLight position={[10, 10, 10]} intensity={1} castShadow />
       <Bubbles />
-      <EffectComposer disableNormalPass>
+      <EffectComposer>
         <N8AO aoRadius={6} intensity={2} color="red" />
         <TiltShift2 blur={0.1} />
       </EffectComposer>

@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import TextSection from "../TextSection";
 import TileGlass from "./TileGlass";
 import TileBalls from "./TileBalls";
-// import TileRays from "./TileRays";
+import TileRays from "./TileRays";
 import { NextLink } from "../../types";
 
 const ServiceHubsTeaserEffects = ({
@@ -50,7 +50,7 @@ const ServiceHubsTeaserEffects = ({
                   <div className={`${styles.tile} ${styles[background]}`}>
                     {i === 0 && <TileGlass />}
                     {i === 1 && <TileBalls />}
-                    {/* {i === 2 && <TileRays />} */}
+                    {i === 2 && <TileRays />}
                   </div>
                 </div>
               );
