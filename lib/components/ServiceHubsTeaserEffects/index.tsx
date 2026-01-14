@@ -6,6 +6,7 @@ import TextSection from "../TextSection";
 import TileGlass from "./TileGlass";
 import TileBalls from "./TileBalls";
 import TileRays from "./TileRays";
+import TileFluid from "./TileFluid";
 import { NextLink } from "../../types";
 
 const ServiceHubsTeaserEffects = ({
@@ -51,6 +52,7 @@ const ServiceHubsTeaserEffects = ({
                     {i === 0 && <TileGlass />}
                     {i === 1 && <TileBalls />}
                     {i === 2 && <TileRays />}
+                    {i === 3 && <TileFluid />}
                   </div>
                 </div>
               );
