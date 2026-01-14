@@ -10,7 +10,7 @@ const TileBalls = () => {
       dpr={[1, 2]}
       gl={{ antialias: false }}
       camera={{ fov: 15, position: [0, 0, 20] }}>
-      <color attach="background" args={["#fbff00"]} />
+      <color attach="background" args={["#380de8"]} />
       <fog attach="fog" args={["red", 20, -5]} />
       <ambientLight intensity={1.5} />
       <pointLight position={[10, 10, 10]} intensity={1} castShadow />
@@ -25,8 +25,8 @@ const TileBalls = () => {
         fontSize={0.4}
         textAlign="center"
         fontWeight={600}
-        color="#380de8">
-        Branding &{"\n"}Corporate ID
+        color="#fff">
+        Content and{"\n"}Campaigning
       </Text>
     </Canvas>
   );

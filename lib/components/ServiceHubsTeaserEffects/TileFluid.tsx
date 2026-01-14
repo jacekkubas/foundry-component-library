@@ -15,11 +15,12 @@ const TileFluid = () => {
         position={[0, 0, 0]}
         fontSize={0.4}
         textAlign="center"
-        fontWeight={600}>
-        Content and{"\n"}Campaigning
+        fontWeight={600}
+        color="#380de8">
+        Branding &{"\n"}Corporate ID
       </Text>
       <EffectComposer>
-        <Fluid backgroundColor="#380de8" />
+        <Fluid backgroundColor="#fbff00" fluidColor="#380de8" rainbow={true} />
       </EffectComposer>
     </Canvas>
   );

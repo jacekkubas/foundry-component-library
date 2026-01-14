@@ -50,9 +50,9 @@ const ServiceHubsTeaserEffects = ({
                 <div className={styles.tileWrapper} key={tile.id}>
                   <div className={`${styles.tile} ${styles[background]}`}>
                     {i === 0 && <TileGlass />}
-                    {i === 1 && <TileBalls />}
+                    {i === 1 && <TileFluid />}
                     {i === 2 && <TileRays />}
-                    {i === 3 && <TileFluid />}
+                    {i === 3 && <TileBalls />}
                   </div>
                 </div>
               );
