@@ -47,14 +47,17 @@ const ServiceHubsTeaserEffects = ({
               const background = colors[i % colors.length];
 
               return (
-                <div className={styles.tileWrapper} key={tile.id}>
+                <Link
+                  href={tile.uri}
+                  className={styles.tileWrapper}
+                  key={tile.id}>
                   <div className={`${styles.tile} ${styles[background]}`}>
                     {i === 0 && <TileGlass />}
                     {i === 1 && <TileFluid />}
                     {i === 2 && <TileRays />}
                     {i === 3 && <TileBalls />}
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

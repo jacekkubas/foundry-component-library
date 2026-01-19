@@ -2,8 +2,8 @@
 
 import React, { useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Vector2, MeshBasicMaterial, DoubleSide } from "three";
+import { useGLTF } from "@react-three/drei";
+import { MeshBasicMaterial, DoubleSide, Mesh, Group } from "three";
 import { LightSource } from "./rays/LightSource";
 import {
   EffectComposer,
@@ -12,13 +12,13 @@ import {
   RenderPass,
 } from "postprocessing";
 
-function Slab({ url }) {
+function Slab({ url }: { url: string }) {
   const gltf = useGLTF(url);
-  const slabRef = useRef();
+  const slabRef = useRef<Group>(null);
   const { camera, scene, gl } = useThree();
 
   // GodRays light
-  const lightRef = useRef();
+  const lightRef = useRef<Mesh>(null);
   useFrame(({ pointer }) => {
     if (lightRef.current) {
       const LIGHT_RANGE = 5;
@@ -34,7 +34,7 @@ function Slab({ url }) {
     slab.rotation.x = Math.PI / 2;
 
     slab.traverse((obj) => {
-      if (obj.isMesh) {
+      if (obj instanceof Mesh) {
         obj.material = new MeshBasicMaterial({
           color: 0x491b11,
           side: DoubleSide,
@@ -42,11 +42,15 @@ function Slab({ url }) {
       }
     });
 
-    slabRef.current.add(slab);
+    if (slabRef.current) {
+      slabRef.current.add(slab);
+    }
 
     // Setup postprocessing
     const composer = new EffectComposer(gl);
     composer.addPass(new RenderPass(scene, camera));
+
+    if (!lightRef.current) return;
 
     const gre = new GodRaysEffect(camera, lightRef.current, {
       height: 480,
@@ -62,12 +66,12 @@ function Slab({ url }) {
     composer.addPass(new EffectPass(camera, gre));
 
     // Render loop override
-    const originalSetAnimationLoop = gl.setAnimationLoop;
+    // const originalSetAnimationLoop = gl.setAnimationLoop;
     gl.setAnimationLoop(() => composer.render());
 
     return () => {
       // Cleanup
-      gl.setAnimationLoop(originalSetAnimationLoop);
+      // gl.setAnimationLoop(originalSetAnimationLoop);
       composer.dispose();
     };
   }, [gltf, gl, scene, camera]);

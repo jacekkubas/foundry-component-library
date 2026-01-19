@@ -16,7 +16,7 @@ const Capabilities = ({
     text: string;
     cases: Case[];
   }[];
-  Link?: typeof LinkType | React.ElementType;
+  Link?: typeof LinkType;
   Image: NextImage;
 }) => {
   const [active, setActive] = useState("");

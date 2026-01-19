@@ -1,9 +1,22 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Instance } from "@react-three/drei";
+import type { Mesh } from "three";
 
-const Bubble = ({ factor, speed, xFactor, yFactor, zFactor }) => {
-  const ref = useRef();
+const Bubble = ({
+  factor,
+  speed,
+  xFactor,
+  yFactor,
+  zFactor,
+}: {
+  factor: number;
+  speed: number;
+  xFactor: number;
+  yFactor: number;
+  zFactor: number;
+}) => {
+  const ref = useRef<Mesh>(null);
 
   useFrame((state) => {
     const t = factor + state.clock.elapsedTime * (speed / 2);

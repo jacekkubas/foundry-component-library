@@ -1,4 +1,4 @@
-import { MathUtils } from "three";
+import { MathUtils, InstancedMesh } from "three";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Instances } from "@react-three/drei";
@@ -13,17 +13,18 @@ const particles = Array.from({ length: 20 }, () => ({
 }));
 
 const Bubbles = () => {
-  const ref = useRef(null);
+  const ref = useRef<InstancedMesh>(null);
 
-  useFrame(
-    (state, delta) =>
-      void (ref.current.rotation.y = MathUtils.damp(
-        ref.current.rotation.y,
-        (-state.pointer.x * Math.PI) / 6,
-        2.75,
-        delta
-      ))
-  );
+  useFrame((state, delta) => {
+    if (!ref.current) return;
+
+    ref.current.rotation.y = MathUtils.damp(
+      ref.current.rotation.y,
+      (-state.pointer.x * Math.PI) / 6,
+      2.75,
+      delta
+    );
+  });
 
   return (
     <Instances

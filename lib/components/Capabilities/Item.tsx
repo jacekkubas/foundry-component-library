@@ -20,7 +20,7 @@ const Item = ({
   cases: Case[];
   active: string;
   setActive: Dispatch<SetStateAction<string>>;
-  Link?: typeof LinkType | React.ElementType;
+  Link?: typeof LinkType;
   Image: NextImage;
 }) => {
   const casesRef = useRef<HTMLDivElement>(null);
@@ -75,8 +75,7 @@ const Item = ({
             } else {
               setActive(title);
             }
-          }}
-        >
+          }}>
           {isActive && <span>-</span>}
           {!isActive && <span>+</span>}
         </button>
@@ -100,8 +99,7 @@ const Item = ({
                   overflowX: "auto",
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
-                }}
-              >
+                }}>
                 {Link &&
                   cases.map((item) => {
                     const { thumbnailImage, mainImage } = item.case;
@@ -112,8 +110,7 @@ const Item = ({
                         key={item.uri}
                         className={styles.case}
                         draggable={false}
-                        onClick={handleClick}
-                      >
+                        onClick={handleClick}>
                         <div className={styles.caseImage}>
                           {Image && (
                             <Image

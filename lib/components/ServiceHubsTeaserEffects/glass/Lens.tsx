@@ -4,13 +4,22 @@ import { createPortal, useFrame, useThree } from "@react-three/fiber";
 import { useFBO, useGLTF, MeshTransmissionMaterial } from "@react-three/drei";
 import { easing } from "maath";
 
-const Lens = ({ children, damping = 0.2, ...props }) => {
-  const ref = useRef(null);
-  const { nodes } = useGLTF("/lens-transformed.glb");
+const Lens = ({
+  children,
+  damping = 0.2,
+  ...props
+}: {
+  children: React.ReactNode;
+  damping?: number;
+  [key: string]: any;
+}) => {
+  const ref = useRef<THREE.Mesh>(null);
+  const { nodes }: { nodes: any } = useGLTF("/lens-transformed.glb");
   const buffer = useFBO();
   const viewport = useThree((state) => state.viewport);
   const [scene] = useState(() => new THREE.Scene());
   useFrame((state, delta) => {
+    if (!ref.current) return;
     // Tie lens to the pointer
     // getCurrentViewport gives us the width & height that would fill the screen in threejs units
     // By giving it a target coordinate we can offset these bounds, for instance width/height for a plane that
@@ -20,7 +29,7 @@ const Lens = ({ children, damping = 0.2, ...props }) => {
       [0, 0, 15]
     );
     easing.damp3(
-      ref.current!.position,
+      ref.current.position,
       [
         (state.pointer.x * viewport.width) / 2,
         (state.pointer.y * viewport.height) / 2,

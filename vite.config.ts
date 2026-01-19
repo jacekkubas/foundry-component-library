@@ -49,6 +49,7 @@ export default defineConfig({
       },
     },
   },
+  assetsInclude: ["**/*.frag"],
   optimizeDeps: {
     exclude: ["foundry-component-library"],
   },
