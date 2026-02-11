@@ -6,6 +6,31 @@ import CaretDown from "../../../assets/svg/caret-down.svg";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { NextRouter } from "../../../types";
 
+const servicesDisplayLabels: Record<string, string> = {
+  "Brand Identity": "Brand Identity",
+  "Advertising & Campaigning": "Advertising & Campaigning",
+  "Strategy & Growth": "Strategy & Growth",
+  "Social Media & Influencer Marketing": "Social Media & Influencer Marketing",
+  "Media & Performance": "Media & Performance",
+  "Content Creation & Production": "Content Creation & Production",
+  "B2B & Thought-Leadership": "B2B & Thought-Leadership",
+};
+
+const industriesDisplayLabels: Record<string, string> = {
+  "Banken & Versicherungen": "Banking & Insurance",
+  FMCG: "FMCG",
+  "Gesundheit & Wellness": "Health & Wellness",
+  "Handel & E-Commerce": "Retail & E-Commerce",
+  Lifestyle: "Lifestyle",
+  "Mobilität & Transport": "Mobility & Transport",
+  "Forschung & Bildung": "Research & Education",
+  "Hospitality & Real Estate": "Hospitality & Real Estate",
+  "Öffentlicher Sektor & Non-Profit": "Public Sector & Non-Profit",
+  Versorgungsunternehmen: "Utilities",
+  "Konsumgüter & Technologie": "Consumer Goods & Technology",
+  Dienstleister: "Service Providers",
+};
+
 const Dropdown = ({
   heading,
   items,
@@ -47,12 +72,10 @@ const Dropdown = ({
   return (
     <div
       className={`${styles.dropdown} ${isOpen ? styles.active : ""}`}
-      ref={ref}
-    >
+      ref={ref}>
       <button
         onClick={toggleOpen}
-        className={`${styles.dropdownHeading} ${isOpen ? styles.active : ""}`}
-      >
+        className={`${styles.dropdownHeading} ${isOpen ? styles.active : ""}`}>
         <span>{items.includes(selected.tag) ? selected.tag : heading}</span>
         <CaretDown />
       </button>
@@ -64,8 +87,7 @@ const Dropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.2 }}
-            className={styles.dropdownInner}
-          >
+            className={styles.dropdownInner}>
             {items.map((option) => (
               <motion.li
                 key={option}
@@ -79,9 +101,10 @@ const Dropdown = ({
                 }}
                 className={`${styles.option} ${
                   selected.tag === option ? styles.active : ""
-                }`}
-              >
-                {option}
+                }`}>
+                {heading === "Industry"
+                  ? industriesDisplayLabels[option]
+                  : servicesDisplayLabels[option]}
               </motion.li>
             ))}
           </motion.ul>
