@@ -87,13 +87,19 @@ function Footer({
               <div className={styles.socialHeading}>Follow Us</div>
               <ul className={styles.menuSocial}>
                 <li className={styles.menuItem}>
-                  <Link href={instagram}>Instagram</Link>
+                  <Link href={instagram} target="_blank">
+                    Instagram
+                  </Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <Link href={facebook}>Facebook</Link>
+                  <Link href={facebook} target="_blank">
+                    Facebook
+                  </Link>
                 </li>
                 <li className={styles.menuItem}>
-                  <Link href={linkedin}>LinkedIn</Link>
+                  <Link href={linkedin} target="_blank">
+                    LinkedIn
+                  </Link>
                 </li>
               </ul>
             </div>

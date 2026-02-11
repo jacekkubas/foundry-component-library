@@ -28,13 +28,6 @@ function Accounts({
         <h2 className={styles.heading}>{bankTitle}</h2>
         <div className={styles.wrapper}>
           <div className={styles.column}>
-            <div className={`${styles.subheading}`}>{berlinHeading}</div>
-            <div
-              className={styles.text}
-              dangerouslySetInnerHTML={{ __html: berlinDetails }}
-            />
-          </div>
-          <div className={styles.column}>
             <div className={`${styles.subheading}`}>{swissHeading}</div>
             <div
               className={styles.text}

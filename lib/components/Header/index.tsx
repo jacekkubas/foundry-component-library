@@ -21,7 +21,11 @@ function Header({ Link }: { Link: NextLink }) {
                   autoPlay
                   muted
                   playsInline
-                  {...{ "webkit-playsinline": "true" }}
+                  {...{
+                    "webkit-playsinline": "true",
+                    playsinline: "true",
+                    autoplay: "true",
+                  }}
                 />
                 Foundry
               </Link>
