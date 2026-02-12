@@ -49,6 +49,7 @@ export default async function getCases({
     hasCategoryTerm ? "caseCategory: $categorySlug" : "",
     exclude ? "notIn: $exclude" : "",
     "language: $language",
+    "orderby: { field: MENU_ORDER, order: ASC }",
   ].filter(Boolean);
 
   const whereClause =

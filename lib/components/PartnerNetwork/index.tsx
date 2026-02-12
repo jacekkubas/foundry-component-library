@@ -1,14 +1,12 @@
 import TextSection from "../TextSection";
 import styles from "./styles.module.scss";
 import Container from "../Container";
-import { NextImage } from "../../types";
 
 const PartnerNetwork = ({
   caption,
   heading,
   text,
   partners,
-  Image,
 }: {
   caption?: string;
   heading?: string;
@@ -18,7 +16,6 @@ const PartnerNetwork = ({
       sourceUrl: string;
     };
   }[];
-  Image: NextImage;
 }) => {
   if (!partners) return;
 
@@ -31,9 +28,7 @@ const PartnerNetwork = ({
             {partners.map((partner) => {
               return (
                 <div key={partner.image?.sourceUrl} className={styles.partner}>
-                  <div className={styles.image}>
-                    <Image src={partner.image?.sourceUrl || ""} alt="" fill />
-                  </div>
+                  <img src={partner.image?.sourceUrl || ""} alt="" />
                 </div>
               );
             })}

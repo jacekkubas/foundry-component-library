@@ -38,7 +38,7 @@ const Awards = ({
   if (!awards) return null;
 
   // Duplicate awards to create seamless looping
-  const marqueeItems = [...awards, ...awards];
+  const marqueeItems = awards.length < 5 ? awards : [...awards, ...awards];
 
   return (
     <motion.div
@@ -52,9 +52,9 @@ const Awards = ({
       <Container noMobilePadding>
         <div className={styles.marqueeWrapper}>
           <motion.div
-            className={styles.marquee}
+            className={`${styles.marquee} ${awards.length < 5 ? styles.noAnimation : ""}`}
             variants={marqueeVariants}
-            animate="animate">
+            animate={awards.length < 5 ? "" : "animate"}>
             {marqueeItems.map((award, i) => {
               const { image, heading, text } = award;
               if (!image) return null;

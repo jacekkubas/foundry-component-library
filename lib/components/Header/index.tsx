@@ -23,8 +23,6 @@ function Header({ Link }: { Link: NextLink }) {
                   playsInline
                   {...{
                     "webkit-playsinline": "true",
-                    playsinline: "true",
-                    autoplay: "true",
                   }}
                 />
                 Foundry

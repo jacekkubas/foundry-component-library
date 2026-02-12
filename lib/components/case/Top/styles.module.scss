@@ -137,17 +137,14 @@
 }
 
 .awards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-
-  @media #{$QUERY-sm} {
-    gap: 16px;
-  }
+  width: 300px;
+  position: relative;
+  top: -2px;
 }
 
 .award {
   display: flex;
+  align-items: center;
 
   @media #{$QUERY-sm} {
     max-width: 106px;
@@ -164,12 +161,10 @@
 }
 
 .awardImage {
-  // width: 100px;
-  // height: 100px;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
   position: relative;
-  max-height: 100px;
-  max-width: 100%;
 
   img {
     width: 100%;
@@ -179,9 +174,12 @@
 }
 
 .awardHeading {
-  font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-family: $font-secondary;
+}
+
+.awardText {
+  font-size: 14px;
 }
 
 .mainImage {

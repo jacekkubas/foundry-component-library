@@ -8,13 +8,14 @@ const headers: Record<string, string> = {
 
 if (process.env.WP_PREVIEW_USER && process.env.WP_PREVIEW_PASS) {
   const auth = Buffer.from(`admin:${process.env.WP_PREVIEW_PASS}`).toString(
-    "base64"
+    "base64",
   );
   headers["Authorization"] = `Basic ${auth}`;
 }
 
 const graphqlClient = new GraphQLClient(`${baseUrl}/graphql`, {
   headers,
+  errorPolicy: "all",
 });
 
 export default graphqlClient;

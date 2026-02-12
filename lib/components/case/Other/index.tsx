@@ -38,9 +38,9 @@ function Other({
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
-          style={dragStyle as React.CSSProperties}
-        >
+          style={dragStyle as React.CSSProperties}>
           {cases.map((item) => {
+            if (!item) return;
             const { thumbnailImage, mainImage } = item.case;
 
             return (

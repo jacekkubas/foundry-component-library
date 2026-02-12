@@ -95,6 +95,7 @@ export default async function getCasesPage({
     hasCategoryTerm ? "caseCategory: $categorySlug" : "",
     exclude ? "notIn: $exclude" : "",
     "language: $language",
+    "orderby: { field: MENU_ORDER, order: ASC }",
     page
       ? `offsetPagination:{ offset: ${(page - 1) * perPage}, size: ${perPage} }`
       : "",
