@@ -56,6 +56,9 @@
   min-height: 350px;
   font-size: 18px;
   line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .twoColumns {
@@ -70,6 +73,7 @@
 .threeColumns {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 
   @media #{$QUERY-sm} {
     display: block;
