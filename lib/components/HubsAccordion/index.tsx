@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Container from "../Container";
 import styles from "./styles.module.scss";
 import Hub from "./Hub";
@@ -14,23 +13,12 @@ const HubsAccordion = ({
   Link: NextLink;
   Image: NextImage;
 }) => {
-  const [active, setActive] = useState("");
-
   return (
     <div className={styles.hubsAccordion}>
       <Container noMobilePadding>
         <div className={styles.hubs}>
           {hubs.map((hub) => {
-            return (
-              <Hub
-                key={hub.id}
-                hub={hub}
-                active={active}
-                setActive={setActive}
-                Link={Link}
-                Image={Image}
-              />
-            );
+            return <Hub key={hub.id} hub={hub} Link={Link} Image={Image} />;
           })}
         </div>
       </Container>

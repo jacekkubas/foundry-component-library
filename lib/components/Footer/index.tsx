@@ -73,9 +73,9 @@ function Footer({
               <li className={styles.menuItem}>
                 <Link href="/cases">Case Studies</Link>
               </li>
-              <li className={styles.menuItem}>
+              {/* <li className={styles.menuItem}>
                 <Link href="/team">Team & Careers</Link>
-              </li>
+              </li> */}
               <li className={styles.menuItem}>
                 <Link href="/news">News & Insights</Link>
               </li>

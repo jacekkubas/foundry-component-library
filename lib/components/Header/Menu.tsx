@@ -20,8 +20,7 @@ function Menu({
         className={styles.close}
         onClick={() => {
           setMenuOpen(false);
-        }}
-      >
+        }}>
         <Close />
       </div>
       <div className={styles.menuWrapper}>
@@ -56,12 +55,12 @@ function Menu({
               </Link>
             </Container>
           </li> */}
-          <li className={styles.secondaryMenuItem}>
+          {/* <li className={styles.secondaryMenuItem}>
             <Link href="/team">
               {translate("Team & Careers")}
               <Arrow />
             </Link>
-          </li>
+          </li> */}
           <li className={styles.secondaryMenuItem}>
             <Link href="/news">
               {translate("News & Insights")}

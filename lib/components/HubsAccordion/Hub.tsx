@@ -1,11 +1,5 @@
 "use client";
-import {
-  useRef,
-  useState,
-  useLayoutEffect,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NextImage, NextLink, type Hub } from "../../types";
 import styles from "./styles.module.scss";
@@ -16,20 +10,17 @@ import Minus from "./minus.svg";
 
 const Hub = ({
   hub,
-  active,
-  setActive,
   Link,
   Image,
 }: {
   hub: Hub;
-  active: string;
-  setActive: Dispatch<SetStateAction<string>>;
   Link: NextLink;
   Image: NextImage;
 }) => {
   const casesRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number | "auto">(0);
+  const [isActive, setIsActive] = useState(false);
 
   const {
     handleMouseDown,
@@ -39,7 +30,6 @@ const Hub = ({
     dragStyle,
   } = useDrag(casesRef);
 
-  const isActive = active === hub.slug;
   const customFields = hub.customFieldsHub;
 
   useLayoutEffect(() => {
@@ -53,9 +43,7 @@ const Hub = ({
       <div className={styles.top}>
         <div className={styles.title}>{hub.title}</div>
         <div className={styles.text}>{customFields.subheading}</div>
-        <button
-          className={styles.icon}
-          onClick={() => setActive(isActive ? "" : hub.slug)}>
+        <button className={styles.icon} onClick={() => setIsActive(!isActive)}>
           {isActive ? <Minus /> : <Plus />}
         </button>
       </div>
