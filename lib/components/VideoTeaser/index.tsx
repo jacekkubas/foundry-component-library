@@ -48,6 +48,7 @@ function VideoTeaser({ url }: { url: string }) {
               width="100%"
               height="100%"
               muted={isMuted}
+              loop={true}
               config={{
                 file: { attributes: { poster: "/video-poster.jpg" } },
               }}
