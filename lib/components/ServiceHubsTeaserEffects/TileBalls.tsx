@@ -9,7 +9,7 @@ const TileBalls = () => {
       shadows
       dpr={[1, 2]}
       gl={{ antialias: false }}
-      camera={{ fov: 15, position: [0, 0, 20] }}>
+      camera={{ position: [0, 0, 20], fov: 15 }}>
       <color attach="background" args={["#380de8"]} />
       <fog attach="fog" args={["red", 20, -5]} />
       <ambientLight intensity={1.5} />
@@ -24,8 +24,8 @@ const TileBalls = () => {
         position={[0, 0, 0]}
         fontSize={0.4}
         textAlign="center"
-        fontWeight={600}
-        color="#fff">
+        color="#fff"
+        font="/Karelia-Medium.otf">
         Content and{"\n"}Campaigning
       </Text>
     </Canvas>

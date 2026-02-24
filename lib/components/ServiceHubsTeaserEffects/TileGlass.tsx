@@ -10,8 +10,8 @@ const TileGlass = () => {
           position={[0, 0, 0]}
           fontSize={0.4}
           textAlign="center"
-          fontWeight={600}
-          color="#491b11">
+          color="#491b11"
+          font="/Karelia-Medium.otf">
           Strategy &{"\n"}
           Positioning
         </Text>

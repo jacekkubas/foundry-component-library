@@ -15,8 +15,8 @@ const TileFluid = () => {
         position={[0, 0, 0]}
         fontSize={0.4}
         textAlign="center"
-        fontWeight={600}
-        color="#380de8">
+        color="#380de8"
+        font="/Karelia-Medium.otf">
         Branding &{"\n"}Corporate ID
       </Text>
       <EffectComposer>

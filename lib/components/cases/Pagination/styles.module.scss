@@ -15,6 +15,11 @@
   background-color: transparent;
   font-size: 16px;
   border: none;
+  color: $color-black;
+
+  &:visited {
+    color: $color-black;
+  }
 
   &:not(span):hover {
     background-color: $color-gray-light;

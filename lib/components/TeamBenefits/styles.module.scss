@@ -56,13 +56,13 @@
 
   &:first-child {
     @media #{$QUERY-sm} {
-      margin-left: 20px;
+      margin-left: 40px;
     }
   }
 
   &:last-child {
     @media #{$QUERY-sm} {
-      margin-right: 20px;
+      margin-right: 40px;
     }
   }
 }
