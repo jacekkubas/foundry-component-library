@@ -11,12 +11,23 @@
 .heading {
   font-size: 42px;
   color: $color-brown;
-  margin-bottom: 64px;
   line-height: 1.3;
   font-family: $font-secondary;
+  margin-bottom: 24px;
 
   @media #{$QUERY-sm} {
     font-size: 28px;
+  }
+}
+
+.subheading {
+  font-size: 18px;
+  color: $color-brown;
+  margin-bottom: 64px;
+  width: 800px;
+  max-width: 100%;
+
+  @media #{$QUERY-sm} {
     margin-bottom: 44px;
   }
 }

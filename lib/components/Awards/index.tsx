@@ -4,6 +4,7 @@ import Container from "../Container";
 import { NextImage } from "../../types";
 import WavyText from "../TextAnimations/WavyText";
 import { motion } from "framer-motion";
+import FadeInText from "../TextAnimations/FadeInText";
 
 // Infinite marquee animation settings
 const marqueeVariants = {
@@ -22,10 +23,12 @@ const marqueeVariants = {
 
 const Awards = ({
   heading,
+  text,
   awards,
   Image,
 }: {
   heading?: string;
+  text?: string;
   awards?: {
     image?: {
       sourceUrl: string;
@@ -48,6 +51,7 @@ const Awards = ({
       transition={{ duration: 1 }}>
       <Container>
         {heading && <WavyText className={styles.heading} text={heading} />}
+        {text && <FadeInText className={styles.subheading} text={text} />}
       </Container>
       <Container noMobilePadding>
         <div className={styles.marqueeWrapper}>

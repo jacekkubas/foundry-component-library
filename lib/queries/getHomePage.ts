@@ -15,6 +15,7 @@ type HomePage = {
       hubsHeading?: string;
       hubsText?: string;
       awardsHeading?: string;
+      awardsText?: string;
       awards?: Array<{
         image: {
           sourceUrl: string;
@@ -145,6 +146,7 @@ export default async function getHomePage({
           hubsHeading
           hubsText
           awardsHeading
+          awardsText
           awards {
             image {
               sourceUrl
