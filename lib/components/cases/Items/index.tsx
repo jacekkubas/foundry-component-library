@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import Arrow from "../../../assets/svg/arrow.svg";
 import { Case, NextImage, NextLink, NextRouter } from "../../../types";
 import Top from "../Top";
+import { usePathname } from "next/navigation";
 
 function Cases({
   cases,
@@ -42,6 +43,13 @@ function Cases({
   }
 
   const [selected, setSelected] = useState(defaultValue);
+
+  const path = usePathname();
+  const currentLang = path.startsWith("/de") ? "DE" : "EN";
+
+  const langPrefix =
+    currentLang === "EN" ? "" : `/${currentLang.toLowerCase()}`;
+
   const services = [
     "Brand Identity",
     "Advertising & Campaigning",
@@ -84,10 +92,9 @@ function Cases({
             return (
               <div key={item.id} className={styles.case}>
                 <Link
-                  href={`/cases/${
+                  href={`${langPrefix}/cases/${
                     item.status !== "draft" ? item.slug : `preview/${item.id}`
-                  }`}
-                >
+                  }`}>
                   {thumbnailVideo && (
                     <Video
                       url={thumbnailVideo.mediaItemUrl}

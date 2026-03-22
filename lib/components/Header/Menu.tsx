@@ -19,8 +19,6 @@ function Menu({
   const path = usePathname();
   const currentLang = path.startsWith("/de") ? "DE" : "EN";
 
-  console.log(path);
-
   const langPrefix =
     currentLang === "EN" ? "" : `/${currentLang.toLowerCase()}`;
 

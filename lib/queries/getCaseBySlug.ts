@@ -18,7 +18,7 @@ type HomePage = {
 
 export default async function getCaseBySlug({
   slug,
-  language,
+  language = "EN",
 }: {
   slug: string;
   language: string;
@@ -31,8 +31,9 @@ export default async function getCaseBySlug({
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
   const query = gql`
-    query GetCaseBySlug($slug: ID!) {
-      case(id: $slug, idType: SLUG) {
+  query GetCaseBySlug($slug: String, $language: LanguageCodeFilterEnum!) {
+    cases(where: { name: $slug, language: $language }) {
+      nodes {
         id
         title
         case {
@@ -229,58 +230,61 @@ export default async function getCaseBySlug({
           }
         }
       }
-      contactPage: page(id: "${contactPage}", idType: URI) {
-        customFieldsContact {
-          facebook
-          instagram
-          linkedin
-          berlinImage {
-            sourceUrl
-          }
-          berlinText
-          berlinEmail
-          berlinPhone
-          zurichImage {
-            sourceUrl
-          }
-          zurichText
-          zurichEmail
-          zurichPhone
-          newyorkImage {
-            sourceUrl
-          }
-          newyorkText
-          newyorkEmail
-          newyorkPhone
-          contactTeaserHeading
-          contactTeaserText
+    }
+    contactPage: page(id: "${contactPage}", idType: URI) {
+      customFieldsContact {
+        facebook
+        instagram
+        linkedin
+        berlinImage {
+          sourceUrl
         }
+        berlinText
+        berlinEmail
+        berlinPhone
+        zurichImage {
+          sourceUrl
+        }
+        zurichText
+        zurichEmail
+        zurichPhone
+        newyorkImage {
+          sourceUrl
+        }
+        newyorkText
+        newyorkEmail
+        newyorkPhone
+        contactTeaserHeading
+        contactTeaserText
       }
-      homePage: page(id: "${homePage}", idType: URI) {
-        customFieldsBerlin {
-          awardsHeading
-          awards {
-            image {
-              sourceUrl
-            }
-            heading
-            text
+    }
+    homePage: page(id: "${homePage}", idType: URI) {
+      customFieldsBerlin {
+        awardsHeading
+        awards {
+          image {
+            sourceUrl
           }
+          heading
+          text
         }
       }
     }
-  `;
+  }
+`;
 
-  const variables = { slug };
+  const variables = { slug, language };
   const data: {
-    case: Case;
+    cases: {
+      nodes: Case[];
+    };
     contactPage: ContactPage;
     homePage: HomePage;
   } = await client.request(query, variables);
 
   return {
-    case: data.case,
-    contactPage: data.contactPage,
-    homePage: data.homePage,
+    case: data?.cases.nodes[0],
+    contactPage: data?.contactPage,
+    homePage: data?.homePage,
   };
 }
