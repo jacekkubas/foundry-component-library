@@ -1,4 +1,6 @@
+"use client";
 import { Dispatch, SetStateAction } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./styles.module.scss";
 import { translate } from "../../utils";
 import Arrow from "../../assets/svg/arrow.svg";
@@ -14,6 +16,14 @@ function Menu({
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
   Link: NextLink;
 }) {
+  const path = usePathname();
+  const currentLang = path.startsWith("/de") ? "DE" : "EN";
+
+  console.log(path);
+
+  const langPrefix =
+    currentLang === "EN" ? "" : `/${currentLang.toLowerCase()}`;
+
   return (
     <div className={`${styles.menu} ${isOpen}`}>
       <div
@@ -26,16 +36,18 @@ function Menu({
       <div className={styles.menuWrapper}>
         <ul className={styles.menuList}>
           <li className={styles.menuListItem}>
-            <Link href="/hubs">{translate("Service Hubs")}</Link>
+            <Link href={`${langPrefix}/hubs`}>{translate("Service Hubs")}</Link>
           </li>
           <li className={styles.menuListItem}>
-            <Link href="/cases">{translate("Work")}</Link>
+            <Link href={`${langPrefix}/cases`}>{translate("Work")}</Link>
           </li>
           <li className={styles.menuListItem}>
-            <Link href="/about-us">{translate("About Us")}</Link>
+            <Link href={`${langPrefix}/about-us`}>{translate("About Us")}</Link>
           </li>
           <li className={styles.menuListItem}>
-            <Link href="/contact">{translate("Contact Us")}</Link>
+            <Link href={`${langPrefix}/contact`}>
+              {translate("Contact Us")}
+            </Link>
           </li>
         </ul>
         <ul className={styles.menuSecondary}>
@@ -56,18 +68,31 @@ function Menu({
             </Container>
           </li> */}
           <li className={styles.secondaryMenuItem}>
-            <Link href="/team">
+            <Link href={`${langPrefix}/team`}>
               {translate("Team & Careers")}
               <Arrow />
             </Link>
           </li>
           <li className={styles.secondaryMenuItem}>
-            <Link href="/news">
+            <Link href={`${langPrefix}/news`}>
               {translate("News & Insights")}
               <Arrow />
             </Link>
           </li>
         </ul>
+        <div className={styles.languageSwitcher} aria-label="Language switcher">
+          <a
+            href={path.replace(`${langPrefix}`, "")}
+            className={`${styles.langBtn} ${currentLang === "EN" ? styles.active : ""}`}>
+            EN
+          </a>
+          <div className={styles.divider} />
+          <a
+            href={currentLang === "DE" ? "" : ` /de${path}`}
+            className={`${styles.langBtn} ${currentLang === "DE" ? styles.active : ""}`}>
+            DE
+          </a>
+        </div>
       </div>
     </div>
   );

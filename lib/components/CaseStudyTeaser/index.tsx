@@ -42,9 +42,10 @@ const CaseStudyTeaser = ({
               setTimeout(() => {
                 dragStarted.current = false;
               }, 0);
-            }}
-          >
+            }}>
             {cases.map((el) => {
+              if (!el) return;
+
               const { thumbnailImage, mainImage } = el.case;
 
               return (
@@ -68,8 +69,7 @@ const CaseStudyTeaser = ({
                           e.preventDefault();
                           e.stopPropagation();
                         }
-                      }}
-                    >
+                      }}>
                       {translate("See More")}
                     </a>
                   </div>
