@@ -12,13 +12,18 @@
 .partners {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 64px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
   padding-top: 32px;
   padding-bottom: 64px;
 
+  @media screen and (max-width: 1150px) {
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
   @media #{$QUERY-sm} {
-    column-gap: 24px;
-    row-gap: 24px;
   }
 
   &:first-child {
