@@ -37,7 +37,7 @@ function Menu({
             <Link href={`${langPrefix}/hubs`}>{translate("Service Hubs")}</Link>
           </li>
           <li className={styles.menuListItem}>
-            <Link href={`${langPrefix}/cases`}>{translate("Work")}</Link>
+            <Link href={`${langPrefix}/cases`}>{translate("Cases")}</Link>
           </li>
           <li className={styles.menuListItem}>
             <Link href={`${langPrefix}/about-us`}>{translate("About Us")}</Link>

@@ -17,6 +17,8 @@ const Posts = ({
   Link: NextLink;
   Image: NextImage;
 }) => {
+  const langPrefix = language === "EN" ? "" : `/${language.toLowerCase()}`;
+
   return (
     <section className={styles.section}>
       <Container>
@@ -39,13 +41,17 @@ const Posts = ({
                 <div className={styles.texts}>
                   {date && <span className={styles.date}>{date}</span>}
                   <h2 className={styles.title}>
-                    <Link href={`/news/${item.uri}`}>{item.title}</Link>
+                    <Link href={`${langPrefix}/news/${item.slug}`}>
+                      {item.title}
+                    </Link>
                   </h2>
                   <div className={styles.excerpt}>
                     {item.CustomFieldsPosts.excerpt}
                   </div>
                   <div className={styles.buttonWrapper}>
-                    <Link className={styles.button} href={`/news/${item.uri}`}>
+                    <Link
+                      className={styles.button}
+                      href={`${langPrefix}/news/${item.slug}`}>
                       {translate("Read more")}
                     </Link>
                   </div>

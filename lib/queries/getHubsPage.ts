@@ -38,6 +38,9 @@ type HubsPage = {
     mainimage?: {
       sourceUrl: string;
     };
+    mainimagevideo?: {
+      mediaItemUrl: string;
+    };
   };
 };
 
@@ -54,7 +57,7 @@ type Params = {
 export default async function getCasesPage(
   options: Params = {
     language: "EN",
-  }
+  },
 ): Promise<{
   hubsPage: HubsPage;
   hubs: Hub[];
@@ -119,6 +122,9 @@ export default async function getCasesPage(
           text
           mainimage {
             sourceUrl
+          }
+          mainimagevideo {
+            mediaItemUrl
           }
         }
       }

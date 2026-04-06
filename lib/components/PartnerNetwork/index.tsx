@@ -25,10 +25,14 @@ const PartnerNetwork = ({
       <Container>
         {partners.length && (
           <div className={styles.partners}>
-            {partners.map((partner) => {
+            {partners.map((partner, i) => {
               return (
-                <div key={partner.image?.sourceUrl} className={styles.partner}>
-                  <img src={partner.image?.sourceUrl || ""} alt="" />
+                <div
+                  key={partner.image?.sourceUrl || "partner" + i}
+                  className={styles.partner}>
+                  {partner.image?.sourceUrl && (
+                    <img src={partner.image?.sourceUrl || ""} alt="" />
+                  )}
                 </div>
               );
             })}

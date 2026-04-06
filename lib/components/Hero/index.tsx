@@ -35,6 +35,8 @@ const Hero = ({
 
   if (!image && !video) return;
 
+  console.log("video", video);
+
   if (isFullWidth) {
     return (
       <div
