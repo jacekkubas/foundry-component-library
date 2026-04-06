@@ -11,6 +11,7 @@ const Top = ({
   selected,
   setSelected,
   useRouter,
+  industriesDisplayLabels,
 }: {
   services: string[];
   industries: string[];
@@ -25,6 +26,7 @@ const Top = ({
     }>
   >;
   useRouter: () => NextRouter;
+  industriesDisplayLabels?: Record<string, string>;
 }) => {
   const router = useRouter();
   if (!services) return;
@@ -55,6 +57,7 @@ const Top = ({
         <Dropdown
           heading="Industry"
           items={[...industries]}
+          displayLabels={industriesDisplayLabels as any}
           selected={selected}
           setSelected={setSelected}
           useRouter={useRouter}

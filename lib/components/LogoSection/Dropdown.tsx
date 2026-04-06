@@ -10,9 +10,11 @@ const Dropdown = ({
   items,
   selected,
   setSelected,
+  displayLabels,
 }: {
   heading: string;
   items?: string[];
+  displayLabels?: Record<string, string>;
   selected: {
     category: string;
     tag: string;
@@ -32,6 +34,7 @@ const Dropdown = ({
   };
 
   if (!items) return;
+  const currentDisplay = displayLabels?.[selected.tag] ?? selected.tag;
 
   return (
     <div
@@ -42,7 +45,7 @@ const Dropdown = ({
         onClick={toggleOpen}
         className={`${styles.dropdownHeading} ${isOpen ? styles.active : ""}`}
       >
-        <span>{items.includes(selected.tag) ? selected.tag : heading}</span>
+        <span>{currentDisplay}</span>
         <CaretDown />
       </button>
 
@@ -55,23 +58,23 @@ const Dropdown = ({
             transition={{ duration: 0.2 }}
             className={styles.dropdownInner}
           >
-            {items.map((option) => (
-              <motion.li
-                key={option}
-                onClick={() => {
-                  setSelected({
-                    category: heading.toLocaleLowerCase(),
-                    tag: option,
-                  });
-                  setIsOpen(false);
-                }}
-                className={`${styles.option} ${
-                  selected.tag === option ? styles.active : ""
-                }`}
-              >
-                {option}
-              </motion.li>
-            ))}
+              {items.map((option) => (
+                <motion.li
+                  key={option}
+                  onClick={() => {
+                    setSelected({
+                      category: heading.toLocaleLowerCase(),
+                      tag: option,
+                    });
+                    setIsOpen(false);
+                  }}
+                  className={`${styles.option} ${
+                    selected.tag === option ? styles.active : ""
+                  }`}
+                >
+                {displayLabels?.[option] ?? option}
+                </motion.li>
+              ))}
           </motion.ul>
         )}
       </AnimatePresence>

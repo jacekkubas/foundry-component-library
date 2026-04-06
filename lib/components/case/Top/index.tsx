@@ -76,7 +76,9 @@ function Top({
                           </div>
                         )}
                         <div className={styles.awardImage}>
-                          <img src={image.sourceUrl} alt={heading} />
+                          {image?.sourceUrl && (
+                            <img src={image.sourceUrl} alt={heading} />
+                          )}
                         </div>
                       </div>
                     );

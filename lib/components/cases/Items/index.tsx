@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import Arrow from "../../../assets/svg/arrow.svg";
 import { Case, NextImage, NextLink, NextRouter } from "../../../types";
 import Top from "../Top";
+import { SERVICES, INDUSTRIES_GERMAN, INDUSTRIES_DISPLAY_LABELS } from "../../constants";
 import { usePathname } from "next/navigation";
 
 function Cases({
@@ -50,35 +51,16 @@ function Cases({
   const langPrefix =
     currentLang === "EN" ? "" : `/${currentLang.toLowerCase()}`;
 
-  const services = [
-    "Brand Identity",
-    "Advertising & Campaigning",
-    "Strategy & Growth",
-    "Social Media & Influencer Marketing",
-    "Media & Performance",
-    "Content Creation & Production",
-    "B2B & Thought-Leadership",
-  ];
-  const industries = [
-    "Banken & Versicherungen",
-    "FMCG",
-    "Gesundheit & Wellness",
-    "Handel & E-Commerce",
-    "Lifestyle",
-    "Mobilität & Transport",
-    "Forschung & Bildung",
-    "Hospitality & Real Estate",
-    "Öffentlicher Sektor & Non-Profit",
-    "Versorgungsunternehmen",
-    "Konsumgüter & Technologie",
-    "Dienstleister",
-  ];
+  // Use centralized lists from constants for services and industries
+  const services = SERVICES;
+  const industries = INDUSTRIES_GERMAN;
 
   return (
     <>
       <Top
-        services={Array.from(services)}
-        industries={Array.from(industries)}
+        services={services as string[]}
+        industries={industries as string[]}
+        industriesDisplayLabels={INDUSTRIES_DISPLAY_LABELS}
         selected={selected}
         setSelected={setSelected}
         useRouter={useRouter}

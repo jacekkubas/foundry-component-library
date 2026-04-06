@@ -37,9 +37,11 @@ const Dropdown = ({
   selected,
   setSelected,
   useRouter,
+  displayLabels,
 }: {
   heading: string;
   items?: string[];
+  displayLabels?: Record<string, string>;
   selected: {
     category: string;
     tag: string;
@@ -102,9 +104,11 @@ const Dropdown = ({
                 className={`${styles.option} ${
                   selected.tag === option ? styles.active : ""
                 }`}>
-                {heading === "Industry"
-                  ? industriesDisplayLabels[option]
-                  : servicesDisplayLabels[option]}
+                {displayLabels?.[option] ?? (
+                  heading === "Industry"
+                    ? industriesDisplayLabels[option]
+                    : servicesDisplayLabels[option]
+                )}
               </motion.li>
             ))}
           </motion.ul>

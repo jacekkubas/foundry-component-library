@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import Dropdown from "./Dropdown";
+import { SERVICES, INDUSTRIES_GERMAN, INDUSTRIES_DISPLAY_LABELS } from "../constants";
 import { NextImage } from "../../types";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -31,13 +32,25 @@ const Logos = ({
     category: "featured",
     tag: "featured",
   });
-  const services: Set<string> = new Set();
-  const industries: Set<string> = new Set();
+  // Use centralized lists for UI filters
+  const servicesList = [...SERVICES];
+  const industriesList = [...INDUSTRIES_GERMAN];
   const [brandsToShow, setBrandsToShow] = useState<Brand[]>([]);
 
   brands.forEach((brand) => {
-    brand.service?.forEach((service) => services.add(service));
-    brand.industry?.forEach((industry) => industries.add(industry));
+    brand.service?.forEach((service) => {
+      // optionally append if not in list
+      if (!servicesList.includes(service)) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        servicesList.push(service);
+      }
+    });
+    brand.industry?.forEach((industry) => {
+      if (!industriesList.includes(industry)) {
+        industriesList.push(industry);
+      }
+    });
   });
 
   useEffect(() => {
@@ -93,13 +106,14 @@ const Logos = ({
 
           <Dropdown
             heading="Service"
-            items={[...services]}
+            items={[...servicesList]}
             selected={selected}
             setSelected={setSelected}
           />
           <Dropdown
             heading="Industry"
-            items={[...industries]}
+            items={industriesList}
+            displayLabels={INDUSTRIES_DISPLAY_LABELS}
             selected={selected}
             setSelected={setSelected}
           />

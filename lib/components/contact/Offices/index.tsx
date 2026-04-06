@@ -44,8 +44,7 @@ function Offices({
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        style={dragStyle as React.CSSProperties}
-      >
+        style={dragStyle as React.CSSProperties}>
         <div className={styles.office}>
           <div className={styles.image}>
             {berlinImage && (
