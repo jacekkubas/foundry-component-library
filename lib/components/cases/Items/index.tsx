@@ -6,7 +6,11 @@ import styles from "./styles.module.scss";
 import Arrow from "../../../assets/svg/arrow.svg";
 import { Case, NextImage, NextLink, NextRouter } from "../../../types";
 import Top from "../Top";
-import { SERVICES, INDUSTRIES_GERMAN, INDUSTRIES_DISPLAY_LABELS } from "../../constants";
+import {
+  SERVICES,
+  INDUSTRIES_GERMAN,
+  INDUSTRIES_DISPLAY_LABELS,
+} from "../../constants";
 import { usePathname } from "next/navigation";
 
 function Cases({

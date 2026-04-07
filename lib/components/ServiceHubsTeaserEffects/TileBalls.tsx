@@ -26,7 +26,7 @@ const TileBalls = () => {
         textAlign="center"
         color="#fff"
         font="/Karelia-Medium.otf">
-        Content and{"\n"}Campaigning
+        Content &{"\n"}Campaigning
       </Text>
     </Canvas>
   );

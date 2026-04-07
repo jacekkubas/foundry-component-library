@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import Dropdown from "./Dropdown";
-import { SERVICES, INDUSTRIES_GERMAN, INDUSTRIES_DISPLAY_LABELS } from "../constants";
+import {
+  SERVICES,
+  INDUSTRIES_GERMAN,
+  INDUSTRIES_DISPLAY_LABELS,
+} from "../constants";
 import { NextImage } from "../../types";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -80,7 +84,7 @@ const Logos = ({
             return true;
           }
           return false;
-        })
+        }),
       );
     }, 400);
 
@@ -99,9 +103,8 @@ const Logos = ({
             }`}
             onClick={() => {
               setSelected({ category: "featured", tag: "featured" });
-            }}
-          >
-            featured
+            }}>
+            Featured
           </button>
 
           <Dropdown
@@ -134,8 +137,7 @@ const Logos = ({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.45 }}
-                layout
-              >
+                layout>
                 <Image
                   src={data?.image?.sourceUrl || ""}
                   alt={data?.title || ""}

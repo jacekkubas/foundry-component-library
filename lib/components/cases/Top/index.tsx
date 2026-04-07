@@ -42,9 +42,8 @@ const Top = ({
             setSelected({ category: "featured", tag: "featured" });
             const params = new URLSearchParams();
             router.push(`?${params.toString()}`);
-          }}
-        >
-          featured
+          }}>
+          Featured
         </button>
 
         <Dropdown

@@ -50,7 +50,12 @@ const Awards = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}>
       <Container>
-        {heading && <WavyText className={styles.heading} text={heading} />}
+        {heading && (
+          <WavyText
+            className={`${styles.heading} ${text ? "" : styles.morePadding}`}
+            text={heading}
+          />
+        )}
         {text && <FadeInText className={styles.subheading} text={text} />}
       </Container>
       <Container noMobilePadding>

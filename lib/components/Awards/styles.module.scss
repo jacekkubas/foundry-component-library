@@ -15,6 +15,10 @@
   font-family: $font-secondary;
   margin-bottom: 24px;
 
+  &.morePadding {
+    margin-bottom: 64px;
+  }
+
   @media #{$QUERY-sm} {
     font-size: 28px;
   }
@@ -89,7 +93,7 @@
   position: relative;
   min-width: 100px;
   height: 64px;
-  margin-bottom: 64px;
+  margin-bottom: 34px;
 
   @media #{$QUERY-sm} {
     margin-bottom: 0;
