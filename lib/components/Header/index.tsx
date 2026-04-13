@@ -1,13 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Menu from "./Menu";
 import styles from "./styles.module.scss";
 import Container from "../Container";
 import { NextLink } from "../../types";
+import lottie from "lottie-web";
+import logo from "../../assets/logo.json";
 
 function Header({ Link }: { Link: NextLink }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const isOpen = isMenuOpen ? styles.isMenuOpen : "";
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const animation = lottie.loadAnimation({
+      container: containerRef.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: logo,
+    });
+
+    return () => {
+      animation.destroy();
+    };
+  }, [logo]);
 
   return (
     <>
@@ -16,16 +36,7 @@ function Header({ Link }: { Link: NextLink }) {
           <div className={styles.wrapper}>
             <div className={styles.left}>
               <Link href="/">
-                <video
-                  src="/logo.mp4"
-                  autoPlay
-                  muted
-                  playsInline
-                  {...{
-                    "webkit-playsinline": "true",
-                  }}
-                />
-                Foundry
+                <div ref={containerRef} className={styles.logo} />
               </Link>
             </div>
             <div className={styles.right}>
