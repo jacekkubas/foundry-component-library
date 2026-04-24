@@ -19,11 +19,6 @@
 
 .left {
   font-size: 0;
-  margin-left: -65px;
-
-  @media #{$QUERY-sm} {
-    margin-left: -68px;
-  }
 
   video {
     width: 250px;
