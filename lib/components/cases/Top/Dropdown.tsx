@@ -78,7 +78,20 @@ const Dropdown = ({
       <button
         onClick={toggleOpen}
         className={`${styles.dropdownHeading} ${isOpen ? styles.active : ""}`}>
-        <span>{items.includes(selected.tag) ? selected.tag : heading}</span>
+        {heading === "Industry" && (
+          <span>
+            {items.includes(selected.tag)
+              ? industriesDisplayLabels[selected.tag]
+              : heading}
+          </span>
+        )}
+        {heading === "Service" && (
+          <span>
+            {items.includes(selected.tag)
+              ? servicesDisplayLabels[selected.tag]
+              : heading}
+          </span>
+        )}
         <CaretDown />
       </button>
 
@@ -104,11 +117,10 @@ const Dropdown = ({
                 className={`${styles.option} ${
                   selected.tag === option ? styles.active : ""
                 }`}>
-                {displayLabels?.[option] ?? (
-                  heading === "Industry"
+                {displayLabels?.[option] ??
+                  (heading === "Industry"
                     ? industriesDisplayLabels[option]
-                    : servicesDisplayLabels[option]
-                )}
+                    : servicesDisplayLabels[option])}
               </motion.li>
             ))}
           </motion.ul>

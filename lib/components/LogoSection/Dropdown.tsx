@@ -34,17 +34,23 @@ const Dropdown = ({
   };
 
   if (!items) return;
-  const currentDisplay = displayLabels?.[selected.tag] ?? selected.tag;
+  let currentDisplay = heading;
+
+  if (displayLabels && selected.category === heading.toLowerCase()) {
+    currentDisplay = displayLabels[selected.tag];
+  } else if (selected.category === heading.toLowerCase()) {
+    currentDisplay = selected.tag;
+  }
+
+  console.log("pp", displayLabels);
 
   return (
     <div
       className={`${styles.dropdown} ${isOpen ? styles.active : ""}`}
-      ref={ref}
-    >
+      ref={ref}>
       <button
         onClick={toggleOpen}
-        className={`${styles.dropdownHeading} ${isOpen ? styles.active : ""}`}
-      >
+        className={`${styles.dropdownHeading} ${isOpen ? styles.active : ""}`}>
         <span>{currentDisplay}</span>
         <CaretDown />
       </button>
@@ -56,25 +62,23 @@ const Dropdown = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.2 }}
-            className={styles.dropdownInner}
-          >
-              {items.map((option) => (
-                <motion.li
-                  key={option}
-                  onClick={() => {
-                    setSelected({
-                      category: heading.toLocaleLowerCase(),
-                      tag: option,
-                    });
-                    setIsOpen(false);
-                  }}
-                  className={`${styles.option} ${
-                    selected.tag === option ? styles.active : ""
-                  }`}
-                >
+            className={styles.dropdownInner}>
+            {items.map((option) => (
+              <motion.li
+                key={option}
+                onClick={() => {
+                  setSelected({
+                    category: heading.toLocaleLowerCase(),
+                    tag: option,
+                  });
+                  setIsOpen(false);
+                }}
+                className={`${styles.option} ${
+                  selected.tag === option ? styles.active : ""
+                }`}>
                 {displayLabels?.[option] ?? option}
-                </motion.li>
-              ))}
+              </motion.li>
+            ))}
           </motion.ul>
         )}
       </AnimatePresence>

@@ -93,6 +93,8 @@ const Logos = ({
     }
   }, [selected]);
 
+  console.log("qwe", selected);
+
   return (
     <Container>
       {!withoutFilters && (
