@@ -20,9 +20,14 @@ const GetInTouch = ({
 }) => {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    note: "",
+  });
   const [state, formAction] = useActionState(submitLead, null);
-
-  console.log("qq", state);
 
   if (state?.success) {
     router.push("/hubs/thank-you");
@@ -72,6 +77,13 @@ const GetInTouch = ({
                 className={`${styles.input} ${errors.firstName ? styles.inputError : ""}`}
                 required
                 onKeyDown={endSubmitting}
+                value={form.firstName}
+                onChange={(e) => {
+                  setForm({
+                    ...form,
+                    firstName: e.target.value,
+                  });
+                }}
               />
               {errors.firstName && (
                 <p className={styles.error}>{errors.firstName}</p>
@@ -89,6 +101,13 @@ const GetInTouch = ({
                 className={`${styles.input} ${errors.lastName ? styles.inputError : ""}`}
                 required
                 onKeyDown={endSubmitting}
+                value={form.lastName}
+                onChange={(e) => {
+                  setForm({
+                    ...form,
+                    lastName: e.target.value,
+                  });
+                }}
               />
               {errors.lastName && (
                 <p className={styles.error}>{errors.lastName}</p>
@@ -108,13 +127,20 @@ const GetInTouch = ({
                 className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
                 required
                 onKeyDown={endSubmitting}
+                value={form.email}
+                onChange={(e) => {
+                  setForm({
+                    ...form,
+                    email: e.target.value,
+                  });
+                }}
               />
               {errors.email && <p className={styles.error}>{errors.email}</p>}
             </div>
 
             <div className={styles.field}>
               <label className={styles.label} htmlFor="phone">
-                Phone Number
+                Phone Number *
               </label>
               <input
                 id="phone"
@@ -122,6 +148,13 @@ const GetInTouch = ({
                 type="tel"
                 className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
                 onKeyDown={endSubmitting}
+                value={form.phone}
+                onChange={(e) => {
+                  setForm({
+                    ...form,
+                    phone: e.target.value,
+                  });
+                }}
               />
               {errors.phone && <p className={styles.error}>{errors.phone}</p>}
             </div>
@@ -131,7 +164,18 @@ const GetInTouch = ({
             <label className={styles.label} htmlFor="note">
               Note
             </label>
-            <textarea id="note" name="note" className={styles.textarea} />
+            <textarea
+              id="note"
+              name="note"
+              className={styles.textarea}
+              value={form.note}
+              onChange={(e) => {
+                setForm({
+                  ...form,
+                  note: e.target.value,
+                });
+              }}
+            />
           </div>
 
           {errors._form && <p className={styles.formError}>{errors._form}</p>}
