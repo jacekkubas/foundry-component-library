@@ -102,6 +102,8 @@ const Item = ({
                 }}>
                 {Link &&
                   cases.map((item) => {
+                    if (!item) return "";
+
                     const { thumbnailImage, mainImage } = item.case;
 
                     return (

@@ -40,6 +40,7 @@ import TextSection from "./components/TextSection";
 import Tiles from "./components/Tiles";
 import StickyTiles from "./components/StickyTiles";
 import VideoTeaser from "./components/VideoTeaser";
+import GetInTouch from "./components/GetInTouch";
 
 export {
   AgencyNumbers,
@@ -84,4 +85,5 @@ export {
   Tiles,
   StickyTiles,
   VideoTeaser,
+  GetInTouch,
 };
