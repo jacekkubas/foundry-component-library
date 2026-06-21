@@ -25,6 +25,9 @@ const Capabilities = ({
 
   return (
     <Container>
+      <a className={styles.button} href="#get-in-touch">
+        Get in touch
+      </a>
       <div className={styles.heading}>Our capabilities</div>
       <div className={styles.items}>
         {items.map((item) => {

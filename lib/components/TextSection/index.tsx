@@ -27,9 +27,10 @@ const TextSection = ({
       <div className={`${styles.section} ${alignStyle} ${themeStyle}`}>
         {caption && <div className={styles.caption}>{caption}</div>}
         {heading && (
-          <div className={`${styles.heading} ${isSmall ? styles.small : ""}`}>
-            {heading}
-          </div>
+          <div
+            className={`${styles.heading} ${isSmall ? styles.small : ""}`}
+            dangerouslySetInnerHTML={{ __html: heading }}
+          />
         )}
         {subheading && <div className={styles.subheading}>{subheading}</div>}
         {text && <div className={styles.text}>{text}</div>}
