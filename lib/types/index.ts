@@ -330,6 +330,7 @@ export type Hub = {
     }[];
     approach: string;
     relatedWork: Case[];
+    capabilitiesHeading: string;
     capabilities: {
       heading: string;
       text: string;

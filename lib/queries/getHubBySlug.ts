@@ -62,6 +62,7 @@ export default async function getHubBySlug({
               }
             }
           }
+          capabilitiesHeading
           capabilities {
             heading
             text

@@ -5,12 +5,15 @@ import styles from "./styles.module.scss";
 import type { Case, NextImage } from "../../types";
 import Item from "./Item";
 import LinkType from "next/link";
+import { translate } from "../../utils";
 
 const Capabilities = ({
+  heading,
   items,
   Link,
   Image,
 }: {
+  heading: string;
   items: {
     heading: string;
     text: string;
@@ -26,9 +29,9 @@ const Capabilities = ({
   return (
     <Container>
       <a className={styles.button} href="#get-in-touch">
-        Get in touch
+        {translate("Get in touch", "DE")}
       </a>
-      <div className={styles.heading}>Our capabilities</div>
+      <div className={styles.heading}>{heading}</div>
       <div className={styles.items}>
         {items.map((item) => {
           return (

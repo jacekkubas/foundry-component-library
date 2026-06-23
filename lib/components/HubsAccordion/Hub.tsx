@@ -42,7 +42,7 @@ const Hub = ({
     <div className={`${styles.hub} ${isActive ? styles.active : ""}`}>
       <div className={styles.top}>
         <div className={styles.title}>{hub.title}</div>
-        <div className={styles.text}>{customFields.subheading}</div>
+        <div className={styles.text}>{customFields.approach}</div>
         <button className={styles.icon} onClick={() => setIsActive(!isActive)}>
           {isActive ? <Minus /> : <Plus />}
         </button>

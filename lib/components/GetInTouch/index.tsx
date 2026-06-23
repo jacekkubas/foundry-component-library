@@ -3,6 +3,7 @@ import React from "react";
 import { useActionState, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./styles.module.scss";
+import { translate } from "../../utils";
 
 type LeadResult =
   | { success: true }
@@ -43,9 +44,12 @@ const GetInTouch = ({
   return (
     <section id="get-in-touch" className={styles.formSection}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Get in touch</h2>
+        <h2 className={styles.heading}>{translate("Get in touch", "DE")}</h2>
         <p className={styles.subtitle}>
-          Tell us about your brand and discover how we can help.
+          {translate(
+            "Tell us about your brand and discover how we can help.",
+            "DE",
+          )}
         </p>
         <form
           action={formAction}

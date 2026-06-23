@@ -11,10 +11,12 @@ function Other({
   cases,
   Link,
   Image,
+  lang,
 }: {
   cases: Case[];
   Link: NextLink;
   Image: NextImage;
+  lang?: "EN" | "DE";
 }) {
   const sectionRef = useRef(null);
   const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
@@ -26,9 +28,11 @@ function Other({
     <Container noMobilePadding>
       <div className={styles.other}>
         <div className={styles.top}>
-          <div className={styles.caption}>{translate("Case Studies")}</div>
+          <div className={styles.caption}>
+            {translate("Case Studies", lang)}
+          </div>
           <h3 className={styles.heading}>
-            {translate("Success stories.\nWith proven results.")}
+            {translate("Success stories.\nWith proven results.", lang)}
           </h3>
         </div>
         <div

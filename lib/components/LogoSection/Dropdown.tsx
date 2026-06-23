@@ -42,8 +42,6 @@ const Dropdown = ({
     currentDisplay = selected.tag;
   }
 
-  console.log("pp", displayLabels);
-
   return (
     <div
       className={`${styles.dropdown} ${isOpen ? styles.active : ""}`}
