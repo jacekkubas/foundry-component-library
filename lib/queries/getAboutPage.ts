@@ -203,11 +203,15 @@ export default async function getAboutPage({
   `;
 
   const variables = { slug: slug };
+
+  console.time("graphql");
   const data: {
     aboutPage: AboutPage["aboutPage"];
     homePage: AboutPage["homePage"];
     contactPage: AboutPage["contactPage"];
   } = await client.request(query, variables);
+
+  console.timeEnd("graphql");
 
   return {
     aboutPage: data.aboutPage,

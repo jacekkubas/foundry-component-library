@@ -34,17 +34,26 @@ function Menu({
       <div className={styles.menuWrapper}>
         <ul className={styles.menuList}>
           <li className={styles.menuListItem}>
-            <Link href={`${langPrefix}/hubs`}>{translate("Service Hubs")}</Link>
+            <Link href={`${langPrefix}`}>{translate("Home", currentLang)}</Link>
           </li>
           <li className={styles.menuListItem}>
-            <Link href={`${langPrefix}/cases`}>{translate("Cases")}</Link>
+            <Link href={`${langPrefix}/hubs`}>
+              {translate("Service Hubs", currentLang)}
+            </Link>
           </li>
           <li className={styles.menuListItem}>
-            <Link href={`${langPrefix}/about-us`}>{translate("About Us")}</Link>
+            <Link href={`${langPrefix}/cases`}>
+              {translate("Cases", currentLang)}
+            </Link>
+          </li>
+          <li className={styles.menuListItem}>
+            <Link href={`${langPrefix}/about-us`}>
+              {translate("About Us", currentLang)}
+            </Link>
           </li>
           <li className={styles.menuListItem}>
             <Link href={`${langPrefix}/contact`}>
-              {translate("Contact Us")}
+              {translate("Contact Us", currentLang)}
             </Link>
           </li>
         </ul>
@@ -67,13 +76,13 @@ function Menu({
           </li> */}
           <li className={styles.secondaryMenuItem}>
             <Link href={`${langPrefix}/team`}>
-              {translate("Team & Careers")}
+              {translate("Team & Careers", currentLang)}
               <Arrow />
             </Link>
           </li>
           <li className={styles.secondaryMenuItem}>
             <Link href={`${langPrefix}/news`}>
-              {translate("News & Insights")}
+              {translate("News & Insights", currentLang)}
               <Arrow />
             </Link>
           </li>

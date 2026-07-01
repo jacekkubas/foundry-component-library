@@ -10,6 +10,7 @@ function Footer({
   facebook,
   linkedin,
   instagram,
+  lang,
 }: {
   details: {
     berlinEmail: string;
@@ -20,6 +21,7 @@ function Footer({
   facebook: string;
   linkedin: string;
   instagram: string;
+  lang?: "DE" | "EN";
 }) {
   const { berlinEmail, zurichEmail, newyorkEmail } = details;
   const year = new Date().getFullYear();
@@ -38,7 +40,7 @@ function Footer({
             <div className={styles.offices}>
               {berlinEmail && (
                 <div className={styles.office}>
-                  <div className={styles.city}>{translate("Berlin")}</div>
+                  <div className={styles.city}>{translate("Berlin", lang)}</div>
                   <div className={styles.email}>
                     <a href={`mailto:${berlinEmail}`}>{berlinEmail}</a>
                   </div>
@@ -46,7 +48,7 @@ function Footer({
               )}
               {zurichEmail && (
                 <div className={styles.office}>
-                  <div className={styles.city}>{translate("Zurich")}</div>
+                  <div className={styles.city}>{translate("Zurich", lang)}</div>
                   <div className={styles.email}>
                     <a href={`mailto:${zurichEmail}`}>{zurichEmail}</a>
                   </div>
@@ -54,7 +56,9 @@ function Footer({
               )}
               {newyorkEmail && (
                 <div className={styles.office}>
-                  <div className={styles.city}>{translate("New York")}</div>
+                  <div className={styles.city}>
+                    {translate("New York", lang)}
+                  </div>
                   <div className={styles.email}>
                     <a href={`mailto:${newyorkEmail}`}>{newyorkEmail}</a>
                   </div>
@@ -65,26 +69,28 @@ function Footer({
           <div className={styles.right}>
             <ul className={styles.menu}>
               <li className={styles.menuItem}>
-                <Link href="/hubs">Service Hubs</Link>
+                <Link href="/hubs">{translate("Service Hubs", lang)}</Link>
               </li>
               <li className={styles.menuItem}>
-                <Link href="/about-us">About Us</Link>
+                <Link href="/about-us">{translate("About Us", lang)}</Link>
               </li>
               <li className={styles.menuItem}>
-                <Link href="/cases">Case Studies</Link>
+                <Link href="/cases">{translate("Case Studies", lang)}</Link>
               </li>
               {/* <li className={styles.menuItem}>
                 <Link href="/team">Team & Careers</Link>
               </li> */}
               <li className={styles.menuItem}>
-                <Link href="/news">News & Insights</Link>
+                <Link href="/news">{translate("News & Insights", lang)}</Link>
               </li>
               <li className={styles.menuItem}>
-                <Link href="/contact">Contact</Link>
+                <Link href="/contact">{translate("Contact", lang)}</Link>
               </li>
             </ul>
             <div className={styles.social}>
-              <div className={styles.socialHeading}>Follow Us</div>
+              <div className={styles.socialHeading}>
+                {translate("Follow Us", lang)}
+              </div>
               <ul className={styles.menuSocial}>
                 <li className={styles.menuItem}>
                   <Link href={instagram} target="_blank">
@@ -108,9 +114,11 @@ function Footer({
         <div className={styles.bottom}>
           <div>FOUNDRY © {year}</div>
           <div className={styles.bottomLinks}>
-            <Link href="/imprint">{translate("Imprint")}</Link>
-            <Link href="/terms">{translate("Terms")}</Link>
-            <Link href="/privacy-policy">{translate("Privacy policy")}</Link>
+            <Link href="/imprint">{translate("Imprint", lang)}</Link>
+            <Link href="/terms">{translate("Terms", lang)}</Link>
+            <Link href="/privacy-policy">
+              {translate("Privacy policy", lang)}
+            </Link>
           </div>
         </div>
       </Container>
