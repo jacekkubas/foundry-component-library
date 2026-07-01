@@ -44,7 +44,7 @@ const strings: Translations = {
     DE: "Datenschutz",
   },
   "Team & Careers": {
-    DE: "",
+    DE: "Team & Karriere",
   },
   "News & Insights": {
     DE: "News & Insights",
@@ -67,8 +67,6 @@ export const translate = (text: string, lang: "DE" | "EN" = "EN") => {
 
   Object.keys(strings).forEach((key: string) => {
     if (key === text) {
-      console.log("key", key, "text", text);
-      console.log("AAAAA");
       trans = strings[key][lang];
       return;
     }

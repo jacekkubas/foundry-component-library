@@ -176,18 +176,18 @@
 
 .langBtn {
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 1;
 }
 .divider {
   margin: 3px 1px;
   width: 2px;
   height: calc(100% - 6px);
   background-color: $color-text;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .langBtn.active {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .logo {

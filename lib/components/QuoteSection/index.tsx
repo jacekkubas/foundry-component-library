@@ -32,45 +32,47 @@ const QuoteSection = ({
   return (
     <div className={styles.quote}>
       <Container>
-        {items.map((item, i) => {
-          return (
-            <div
-              key={item?.name || i}
-              className={`${styles.content} ${
-                active === i ? styles.active : ""
-              }`}>
-              <div className={styles.person}>
-                <div>
-                  <div className={styles.name}>{item.name}</div>
-                  <div className={styles.position}>{item.position}</div>
+        <div className={styles.quoteWrapper}>
+          {items.map((item, i) => {
+            return (
+              <div
+                key={item?.name || i}
+                className={`${styles.content} ${
+                  active === i ? styles.active : ""
+                }`}>
+                <div className={styles.person}>
+                  <div>
+                    <div className={styles.name}>{item.name}</div>
+                    <div className={styles.position}>{item.position}</div>
+                  </div>
+                </div>
+                <div
+                  className={styles.text}
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}>
+                  {item.text}
                 </div>
               </div>
-              <div
-                className={styles.text}
-                onMouseEnter={() => setPaused(true)}
-                onMouseLeave={() => setPaused(false)}>
-                {item.text}
-              </div>
+            );
+          })}
+          {items.length > 1 && (
+            <div className={`${styles.indicators} ${styles.desktop}}`}>
+              {items.map((el, i) => {
+                return (
+                  <div
+                    key={el.name}
+                    className={`${styles.indicator} ${
+                      active === i ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      setActive(i);
+                    }}
+                  />
+                );
+              })}
             </div>
-          );
-        })}
-        {items.length > 1 && (
-          <div className={`${styles.indicators} ${styles.desktop}}`}>
-            {items.map((el, i) => {
-              return (
-                <div
-                  key={el.name}
-                  className={`${styles.indicator} ${
-                    active === i ? styles.active : ""
-                  }`}
-                  onClick={() => {
-                    setActive(i);
-                  }}
-                />
-              );
-            })}
-          </div>
-        )}
+          )}
+        </div>
       </Container>
     </div>
   );

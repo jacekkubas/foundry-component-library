@@ -10,6 +10,17 @@
   }
 }
 
+.quoteWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 432px;
+
+  @media #{$QUERY-sm} {
+    min-height: 350px;
+  }
+}
+
 .logo {
   width: 180px;
   height: 64px;
@@ -89,6 +100,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
+  margin-top: auto;
 
   @media #{$QUERY-sm} {
     padding-top: 30px;

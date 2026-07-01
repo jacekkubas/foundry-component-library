@@ -29,6 +29,14 @@ function Header({ Link }: { Link: NextLink }) {
     };
   }, [logo]);
 
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onScroll = () => setMenuOpen(false);
+    window.addEventListener("scroll", onScroll, { once: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isMenuOpen, setMenuOpen]);
+
   return (
     <>
       <header className={styles.header}>
