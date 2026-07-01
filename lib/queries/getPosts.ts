@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Post, Variables } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 
 interface Params {
   searchTerm?: string;
@@ -55,7 +54,7 @@ export default async function getPosts(
   const whereClause =
     whereConditions.length > 0 ? `where: { ${whereConditions.join(", ")}}` : "";
 
-  const query = gql`
+  const query = `
     query GetPosts(${variableDefinitions}) {
       posts(
         ${isPrevious ? "last: $perPage" : "first: $perPage"},
@@ -116,7 +115,7 @@ export default async function getPosts(
         hasPreviousPage: boolean;
       };
     };
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     posts: data.posts.nodes,

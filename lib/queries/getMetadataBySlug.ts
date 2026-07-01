@@ -1,12 +1,11 @@
-import { gql } from "graphql-request";
 import { Metadata, Variables } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 
 export default async function getMetadataBySlug(
   slug: string,
   language: string = "EN"
 ) {
-  const query = gql`
+  const query = `
     query getMetadata($slug: String, $language: LanguageCodeFilterEnum) {
       pages(where: { name: $slug, language: $language }) {
         nodes {
@@ -40,7 +39,7 @@ export default async function getMetadataBySlug(
   };
 
   const data: { pages: { nodes: Metadata[] }; posts: { nodes: Metadata[] } } =
-    await client.request(query, variables);
+    await request(query, variables);
   const pages = data.pages.nodes;
   const posts = data.posts.nodes;
 

@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Case } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 import { type ContactPage } from "./getContactPage";
 
 type HomePage = {
@@ -30,7 +29,7 @@ export default async function getCaseBySlug({
   const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
-  const query = gql`
+  const query = `
     query GetCaseBySlug($id: ID!) {
       case(id: $id, idType: ID) {
         id
@@ -277,7 +276,7 @@ export default async function getCaseBySlug({
     case: Case;
     contactPage: ContactPage;
     homePage: HomePage;
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     case: data.case,

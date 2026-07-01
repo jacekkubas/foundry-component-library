@@ -1,9 +1,8 @@
-import { gql } from "graphql-request";
 import { Category } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 
 export default async function getCategories(): Promise<Category[]> {
-  const query = gql`
+  const query = `
     query getCategories {
       caseCategories(where: { language: EN }) {
         nodes {
@@ -16,7 +15,7 @@ export default async function getCategories(): Promise<Category[]> {
     }
   `;
 
-  const data: { caseCategories: { nodes: Category[] } } = await client.request(
+  const data: { caseCategories: { nodes: Category[] } } = await request(
     query
   );
   return data.caseCategories.nodes;

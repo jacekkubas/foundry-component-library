@@ -1,5 +1,3 @@
-import { GraphQLClient } from "graphql-request";
-
 const baseUrl = process.env.WORDPRESS_URL || "https://data.foundry.ch";
 
 const headers: Record<string, string> = {
@@ -13,9 +11,26 @@ if (process.env.WP_PREVIEW_USER && process.env.WP_PREVIEW_PASS) {
   headers["Authorization"] = `Basic ${auth}`;
 }
 
-const graphqlClient = new GraphQLClient(`${baseUrl}/graphql`, {
-  headers,
-  errorPolicy: "all",
-});
+export async function request<T>(
+  query: string,
+  variables?: Record<string, unknown>,
+): Promise<T> {
+  const response = await fetch(`${baseUrl}/graphql`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ query, variables }),
+    next: {
+      revalidate: 60 * 3,
+    },
+  } as RequestInit & { next?: { revalidate?: number } });
 
-export default graphqlClient;
+  if (!response.ok) {
+    throw new Error(`GraphQL request failed: ${response.statusText}`);
+  }
+
+  const json = await response.json();
+  if (json.errors) {
+    throw new Error(json.errors[0]?.message || "GraphQL error");
+  }
+  return json.data as T;
+}

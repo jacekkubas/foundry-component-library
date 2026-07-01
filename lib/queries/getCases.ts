@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Case, Variables } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 
 type Params = {
   perPage?: number;
@@ -55,7 +54,7 @@ export default async function getCases({
   const whereClause =
     whereConditions.length > 0 ? `where: { ${whereConditions.join(", ")}}` : "";
 
-  const query = gql`
+  const query = `
     query GetCases(${variableDefinitions}) {
       cases(
         ${isPrevious ? "last: $perPage" : "first: $perPage"},
@@ -117,7 +116,7 @@ export default async function getCases({
         hasPreviousPage: boolean;
       };
     };
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     cases: data.cases.nodes,

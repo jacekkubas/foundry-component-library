@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import client from "./client";
+import { request } from "./client";
 
 type PerformancePage = {
   homePage: {
@@ -81,7 +80,7 @@ type PerformancePage = {
 };
 
 export default async function getPerformanceHubPage(): Promise<PerformancePage> {
-  const query = gql`
+  const query = `
     query GetPageBySlug($slug: ID!) {
       homePage: page(id: "home-berlin", idType: URI) {
         customFieldsBerlin {
@@ -170,7 +169,7 @@ export default async function getPerformanceHubPage(): Promise<PerformancePage> 
     homePage: PerformancePage["homePage"];
     performancePage: PerformancePage["performancePage"];
     contactPage: PerformancePage["contactPage"];
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     homePage: data.homePage,

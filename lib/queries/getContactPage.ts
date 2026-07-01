@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import client from "./client";
+import { request } from "./client";
 
 export type ContactPage = {
   title: string;
@@ -55,7 +54,7 @@ export default async function getContactPage({
 }: {
   slug: string;
 }): Promise<ContactPage | null> {
-  const query = gql`
+  const query = `
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
         title
@@ -107,6 +106,6 @@ export default async function getContactPage({
   `;
 
   const variables = { slug: slug };
-  const data: { page: ContactPage } = await client.request(query, variables);
+  const data: { page: ContactPage } = await request(query, variables);
   return data.page;
 }

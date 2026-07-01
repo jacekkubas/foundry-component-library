@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Post } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 import { ContactPage } from "./getContactPage";
 
 export default async function getPostBySlug({
@@ -15,7 +14,7 @@ export default async function getPostBySlug({
 }> {
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
-  const query = gql`
+  const query = `
     query GetPostBySlug($slug: ID!) {
       post(id: $slug, idType: SLUG) {
         id
@@ -133,7 +132,7 @@ export default async function getPostBySlug({
   `;
 
   const variables = { slug };
-  const data: { post: Post; contactPage: ContactPage } = await client.request(
+  const data: { post: Post; contactPage: ContactPage } = await request(
     query,
     variables
   );

@@ -1,11 +1,10 @@
-import { gql } from "graphql-request";
 import { Page } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 
 export default async function getBrands(): Promise<
   Page["customFields"]["brands"] | null
 > {
-  const query = gql`
+  const query = `
     query GetBrands($slug: ID!) {
       page(id: $slug, idType: URI) {
         customFields {
@@ -21,6 +20,6 @@ export default async function getBrands(): Promise<
   `;
 
   const variables = { slug: "home", language: "EN" };
-  const data: { page: Page } = await client.request(query, variables);
+  const data: { page: Page } = await request(query, variables);
   return data.page.customFields.brands;
 }

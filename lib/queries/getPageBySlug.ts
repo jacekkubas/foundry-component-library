@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Page } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 import { ContactPage } from "./getContactPage";
 
 export default async function getPageBySlug(
@@ -9,7 +8,7 @@ export default async function getPageBySlug(
 ): Promise<{ page: Page; contactPage: ContactPage }> {
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
-  const query = gql`
+  const query = `
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
         title
@@ -46,7 +45,7 @@ export default async function getPageBySlug(
   `;
 
   const variables = { slug };
-  const data: { page: Page; contactPage: ContactPage } = await client.request(
+  const data: { page: Page; contactPage: ContactPage } = await request(
     query,
     variables
   );

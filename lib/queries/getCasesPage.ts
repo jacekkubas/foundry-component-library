@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Case, Variables } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 import { type ContactPage } from "./getContactPage";
 
 export const casesPerPage = 10;
@@ -113,7 +112,7 @@ export default async function getCasesPage({
   const whereClause =
     whereConditions.length > 0 ? `where: { ${whereConditions.join(", ")}}` : "";
 
-  const query = gql`
+  const query = `
     query GetCasesPage(${variableDefinitions}) {
       casesPage: page(id: "${casesPage}", idType: DATABASE_ID) {
         customFieldsCases {
@@ -241,7 +240,7 @@ export default async function getCasesPage({
     };
     contactPage: ContactPage;
     homePage: HomePage;
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     casesPage: data.casesPage,

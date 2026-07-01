@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Hub } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 
 export default async function getCases(): Promise<{
   hubs: Hub[];
@@ -33,7 +32,7 @@ export default async function getCases(): Promise<{
     };
   };
 }> {
-  const query = gql`
+  const query = `
     query GetHubs {
       hubs(where: { language: EN }) {
         nodes {
@@ -127,7 +126,7 @@ export default async function getCases(): Promise<{
         }>;
       };
     };
-  } = await client.request(query);
+  } = await request(query);
 
   return {
     hubs: data.hubs.nodes,

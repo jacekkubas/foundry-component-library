@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import client from "./client";
+import { request } from "./client";
 import { Hub, PostPreview } from "../types";
 import { type ContactPage } from "./getContactPage";
 
@@ -133,7 +132,7 @@ export default async function getHomePage({
   const contactPage = language === "EN" ? "contact" : "contact-de";
   const aboutPage = language === "EN" ? "about-berlin" : "about-berlin-de";
 
-  const query = gql`
+  const query = `
     query GetPageBySlug($slug: ID!) {
       page(id: $slug, idType: URI) {
         title
@@ -284,7 +283,7 @@ export default async function getHomePage({
     posts: { nodes: PostPreview[] };
     contactPage: ContactPage;
     aboutPage: HomePage["aboutPage"];
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     homePage: data.page,

@@ -1,6 +1,5 @@
-import { gql } from "graphql-request";
 import { Variables, Hub } from "../../lib/types";
-import client from "./client";
+import { request } from "./client";
 import { type ContactPage } from "./getContactPage";
 
 type HomePage = {
@@ -111,7 +110,7 @@ export default async function getCasesPage(
   const whereClause =
     whereConditions.length > 0 ? `where: { ${whereConditions.join(", ")}}` : "";
 
-  const query = gql`
+  const query = `
     query GetNewsPage(${variableDefinitions}) {
       hubsPage: page(id: $slug, idType: URI) {
         title
@@ -256,7 +255,7 @@ export default async function getCasesPage(
     contactPage: ContactPage;
     homePage: HomePage;
     aboutPage: AboutPage;
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   return {
     hubsPage: data.hubsPage,

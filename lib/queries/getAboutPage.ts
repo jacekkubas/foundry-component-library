@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import client from "./client";
+import { request } from "./client";
 
 type AboutPage = {
   aboutPage: {
@@ -104,7 +103,7 @@ export default async function getAboutPage({
   const homePage = language === "DE" ? "home-berlin-de" : "home-berlin";
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
-  const query = gql`
+  const query = `
     query GetPageBySlug($slug: ID!) {
       aboutPage: page(id: $slug, idType: URI) {
         customFieldsAboutBerlin {
@@ -205,11 +204,12 @@ export default async function getAboutPage({
   const variables = { slug: slug };
 
   console.time("graphql");
+
   const data: {
     aboutPage: AboutPage["aboutPage"];
     homePage: AboutPage["homePage"];
     contactPage: AboutPage["contactPage"];
-  } = await client.request(query, variables);
+  } = await request(query, variables);
 
   console.timeEnd("graphql");
 
