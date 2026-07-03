@@ -22,8 +22,14 @@ const ImageTitle = ({
       <div className={`${styles.imageTitle} ${inverseStyle}`}>
         <div className={styles.texts}>
           <div>
-            <div className={styles.heading}>{heading}</div>
-            <div className={styles.text}>{text}</div>
+            <div
+              className={styles.heading}
+              dangerouslySetInnerHTML={{ __html: heading || "" }}
+            />
+            <div
+              className={styles.text}
+              dangerouslySetInnerHTML={{ __html: text || "" }}
+            />
           </div>
         </div>
         {image && (

@@ -32,8 +32,18 @@ const TextSection = ({
             dangerouslySetInnerHTML={{ __html: heading }}
           />
         )}
-        {subheading && <div className={styles.subheading}>{subheading}</div>}
-        {text && <div className={styles.text}>{text}</div>}
+        {subheading && (
+          <div
+            className={styles.subheading}
+            dangerouslySetInnerHTML={{ __html: subheading }}
+          />
+        )}
+        {text && (
+          <div
+            className={styles.text}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+        )}
       </div>
     </Container>
   );
