@@ -49,8 +49,8 @@ const strings: Translations = {
   "News & Insights": {
     DE: "News & Insights",
   },
-  "": {
-    DE: "",
+  "Our Lovely Team": {
+    DE: "Unser nettes Team",
   },
   "": {
     DE: "",

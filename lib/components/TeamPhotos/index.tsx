@@ -20,7 +20,7 @@ const TheamPhotos = ({
 
   return (
     <Container noMobilePadding>
-      <div className={styles.heading}>{translate("Our Lovely Team")}</div>
+      <div className={styles.heading}>{translate("Our Lovely Team", "DE")}</div>
       <div
         ref={sectionRef}
         className={styles.people}
@@ -28,8 +28,7 @@ const TheamPhotos = ({
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        style={dragStyle as React.CSSProperties}
-      >
+        style={dragStyle as React.CSSProperties}>
         {people.map((person) => {
           return <Item key={person.name} person={person} Image={Image} />;
         })}

@@ -61,8 +61,7 @@ const Management = ({
           // animate={{ height }}
           // transition={{ duration: 0.4 }}
           className={styles.wrapper}
-          style={{ overflow: "hidden" }}
-        >
+          style={{ overflow: "hidden" }}>
           <div ref={contentRef}>
             <motion.div
               key={items[activePerson]?.name}
@@ -70,8 +69,7 @@ const Management = ({
               // animate={{ opacity: 1, y: 0 }}
               // exit={{ opacity: 0, y: -20 }}
               // transition={{ duration: 0.4 }}
-              className={styles.person}
-            >
+              className={styles.person}>
               <div className={styles.image}>
                 <Image
                   src={items[activePerson]?.image?.sourceUrl || ""}
@@ -81,9 +79,7 @@ const Management = ({
                 />
               </div>
               <div className={styles.texts}>
-                <div className={styles.quote}>
-                  &quot;{items[activePerson]?.quote}&quot;
-                </div>
+                <div className={styles.quote}>{items[activePerson]?.quote}</div>
                 <div className={styles.name}>{items[activePerson]?.name}</div>
                 <div className={styles.position}>
                   {items[activePerson]?.position}
