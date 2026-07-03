@@ -8,7 +8,9 @@ import useDrag from "../../hooks/useDrag";
 
 const Tiles = ({
   tiles,
+  heading,
 }: {
+  heading: string;
   tiles: {
     heading?: string;
     hoverText?: string;
@@ -22,10 +24,7 @@ const Tiles = ({
 
   return (
     <Container>
-      <TextSection
-        caption="team & careers"
-        heading="Agile global experts who would love to collaborate with you."
-      />
+      <TextSection caption="team & careers" heading={heading} />
       <div
         ref={sectionRef}
         className={styles.tiles}
@@ -33,8 +32,7 @@ const Tiles = ({
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        style={dragStyle as React.CSSProperties}
-      >
+        style={dragStyle as React.CSSProperties}>
         {tiles.map((tile, i) => {
           let background: "pink" | "yellow" | "brown" = "pink";
           if (i % 3 === 1) background = "yellow";
