@@ -1,4 +1,4 @@
-import { Case, Hub } from "../../lib/types";
+import { Case, Hub, Variables } from "../../lib/types";
 import { request } from "./client";
 import { type ContactPage } from "./getContactPage";
 
@@ -164,7 +164,7 @@ export default async function getHubBySlug({
     }
   `;
 
-  const variables = { slug };
+  const variables: Variables = { slug, language };
   const data: {
     hub: Hub;
     contactPage: ContactPage;

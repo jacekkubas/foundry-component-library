@@ -1,3 +1,4 @@
+import { Variables } from "../types";
 import { request } from "./client";
 
 type AboutPage = {
@@ -201,17 +202,13 @@ export default async function getAboutPage({
     }
   `;
 
-  const variables = { slug: slug };
-
-  console.time("graphql");
+  const variables: Variables = { slug: slug, language: language };
 
   const data: {
     aboutPage: AboutPage["aboutPage"];
     homePage: AboutPage["homePage"];
     contactPage: AboutPage["contactPage"];
   } = await request(query, variables);
-
-  console.timeEnd("graphql");
 
   return {
     aboutPage: data.aboutPage,

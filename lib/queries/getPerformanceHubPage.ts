@@ -1,3 +1,4 @@
+import { Variables } from "../types";
 import { request } from "./client";
 
 type PerformancePage = {
@@ -164,7 +165,7 @@ export default async function getPerformanceHubPage(): Promise<PerformancePage> 
     }
   `;
 
-  const variables = { slug: "performance-hub" };
+  const variables: Variables = { slug: "performance-hub", language: "EN" };
   const data: {
     homePage: PerformancePage["homePage"];
     performancePage: PerformancePage["performancePage"];

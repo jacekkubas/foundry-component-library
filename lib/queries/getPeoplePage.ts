@@ -1,6 +1,6 @@
 import { request } from "./client";
 import { type ContactPage } from "./getContactPage";
-import { Person } from "../types";
+import { Person, Variables } from "../types";
 
 type PeoplePage = {
   peoplePage: {
@@ -156,7 +156,7 @@ export default async function getContactPage({
     }
   `;
 
-  const variables = { slug: slug };
+  const variables: Variables = { slug: slug, language };
   const data: {
     page: PeoplePage["peoplePage"];
     contactPage: ContactPage;

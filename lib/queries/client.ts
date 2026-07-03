@@ -1,3 +1,5 @@
+import { Variables } from "../types";
+
 const baseUrl = process.env.WORDPRESS_URL || "https://data.foundry.ch";
 
 const headers: Record<string, string> = {
@@ -13,7 +15,7 @@ if (process.env.WP_PREVIEW_USER && process.env.WP_PREVIEW_PASS) {
 
 export async function request<T>(
   query: string,
-  variables?: Record<string, unknown>,
+  variables?: Variables,
 ): Promise<T> {
   const response = await fetch(`${baseUrl}/graphql`, {
     method: "POST",

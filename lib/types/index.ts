@@ -9,7 +9,8 @@ export type NextRouter = AppRouterInstance;
 export type NextSearchParams = ReadonlyURLSearchParams;
 
 export interface Variables {
-  perPage: number;
+  id?: string;
+  perPage?: number;
   before?: string | null;
   after?: string | null;
   search?: string;

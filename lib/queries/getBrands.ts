@@ -1,4 +1,4 @@
-import { Page } from "../../lib/types";
+import { Page, Variables } from "../../lib/types";
 import { request } from "./client";
 
 export default async function getBrands(): Promise<
@@ -19,7 +19,7 @@ export default async function getBrands(): Promise<
     }
   `;
 
-  const variables = { slug: "home", language: "EN" };
+  const variables: Variables = { slug: "home", language: "EN" };
   const data: { page: Page } = await request(query, variables);
   return data.page.customFields.brands;
 }

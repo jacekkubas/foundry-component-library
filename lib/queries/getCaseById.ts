@@ -1,4 +1,4 @@
-import { Case } from "../../lib/types";
+import { Case, Variables } from "../../lib/types";
 import { request } from "./client";
 import { type ContactPage } from "./getContactPage";
 
@@ -271,7 +271,7 @@ export default async function getCaseBySlug({
     }
   `;
 
-  const variables = { id };
+  const variables: Variables = { id, language };
   const data: {
     case: Case;
     contactPage: ContactPage;

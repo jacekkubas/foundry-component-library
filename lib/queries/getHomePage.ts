@@ -1,5 +1,5 @@
 import { request } from "./client";
-import { Hub, PostPreview } from "../types";
+import { Hub, PostPreview, Variables } from "../types";
 import { type ContactPage } from "./getContactPage";
 
 type HomePage = {
@@ -276,7 +276,7 @@ export default async function getHomePage({
     }
   `;
 
-  const variables = { slug: slug };
+  const variables: Variables = { slug: slug, language };
   const data: {
     page: HomePage["homePage"];
     hubs: { nodes: Hub[] };

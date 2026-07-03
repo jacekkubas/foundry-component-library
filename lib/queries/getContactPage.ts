@@ -1,3 +1,4 @@
+import { Variables } from "../types";
 import { request } from "./client";
 
 export type ContactPage = {
@@ -51,8 +52,10 @@ export type ContactPage = {
 
 export default async function getContactPage({
   slug,
+  language,
 }: {
   slug: string;
+  language: string;
 }): Promise<ContactPage | null> {
   const query = `
     query GetPageBySlug($slug: ID!) {
@@ -105,7 +108,7 @@ export default async function getContactPage({
     }
   `;
 
-  const variables = { slug: slug };
+  const variables: Variables = { slug: slug, language };
   const data: { page: ContactPage } = await request(query, variables);
   return data.page;
 }

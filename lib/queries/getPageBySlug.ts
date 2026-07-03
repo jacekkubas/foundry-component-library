@@ -1,10 +1,10 @@
-import { Page } from "../../lib/types";
+import { Page, Variables } from "../../lib/types";
 import { request } from "./client";
 import { ContactPage } from "./getContactPage";
 
 export default async function getPageBySlug(
   slug: string,
-  language: string
+  language: string,
 ): Promise<{ page: Page; contactPage: ContactPage }> {
   const contactPage = language === "DE" ? "contact-de" : "contact";
 
@@ -44,10 +44,10 @@ export default async function getPageBySlug(
     }
   `;
 
-  const variables = { slug };
+  const variables: Variables = { slug, language };
   const data: { page: Page; contactPage: ContactPage } = await request(
     query,
-    variables
+    variables,
   );
   return data;
 }

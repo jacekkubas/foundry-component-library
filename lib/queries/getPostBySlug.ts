@@ -1,4 +1,4 @@
-import { Post } from "../../lib/types";
+import { Post, Variables } from "../../lib/types";
 import { request } from "./client";
 import { ContactPage } from "./getContactPage";
 
@@ -131,10 +131,10 @@ export default async function getPostBySlug({
     }
   `;
 
-  const variables = { slug };
+  const variables: Variables = { slug, language };
   const data: { post: Post; contactPage: ContactPage } = await request(
     query,
-    variables
+    variables,
   );
 
   return {
