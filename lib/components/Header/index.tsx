@@ -7,7 +7,20 @@ import { NextLink } from "../../types";
 import lottie from "lottie-web";
 import logo from "../../assets/logo.json";
 
-function Header({ Link }: { Link: NextLink }) {
+function Header({
+  translations,
+  isCasePage,
+  Link,
+}: {
+  translations?: {
+    language: {
+      code: string;
+    };
+    slug: string;
+  }[];
+  isCasePage?: boolean;
+  Link: NextLink;
+}) {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const isOpen = isMenuOpen ? styles.isMenuOpen : "";
 
@@ -67,7 +80,18 @@ function Header({ Link }: { Link: NextLink }) {
           </div>
         </Container>
       </header>
-      <Menu isOpen={isOpen} setMenuOpen={setMenuOpen} Link={Link} />
+      <Menu
+        isOpen={isOpen}
+        setMenuOpen={setMenuOpen}
+        Link={Link}
+        translationsCode={
+          translations?.length
+            ? translations[0].language?.code?.toLowerCase()
+            : ""
+        }
+        translationsSlug={translations?.length ? translations[0].slug : ""}
+        isCasePage={isCasePage || false}
+      />
     </>
   );
 }

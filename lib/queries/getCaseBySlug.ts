@@ -35,6 +35,12 @@ export default async function getCaseBySlug({
       nodes {
         id
         title
+        translations {
+          language {
+            code
+          }
+          slug
+        }
         case {
           caption
           mainImage {

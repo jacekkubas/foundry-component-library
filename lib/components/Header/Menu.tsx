@@ -8,10 +8,16 @@ import Close from "../../assets/svg/close.svg";
 import { NextLink } from "../../types";
 
 function Menu({
+  translationsSlug,
+  translationsCode,
+  isCasePage,
   isOpen,
   setMenuOpen,
   Link,
 }: {
+  translationsSlug: string;
+  translationsCode: string;
+  isCasePage: boolean;
   isOpen: string;
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
   Link: NextLink;
@@ -34,7 +40,9 @@ function Menu({
       <div className={styles.menuWrapper}>
         <ul className={styles.menuList}>
           <li className={styles.menuListItem}>
-            <Link href={`${langPrefix}`}>{translate("Home", currentLang)}</Link>
+            <Link href={`${langPrefix}/`}>
+              {translate("Home", currentLang)}
+            </Link>
           </li>
           <li className={styles.menuListItem}>
             <Link href={`${langPrefix}/hubs`}>
@@ -88,17 +96,44 @@ function Menu({
           </li>
         </ul>
         <div className={styles.languageSwitcher} aria-label="Language switcher">
-          <a
-            href={path.replace(`${langPrefix}`, "")}
-            className={`${styles.langBtn} ${currentLang === "EN" ? styles.active : ""}`}>
-            EN
-          </a>
-          <div className={styles.divider} />
-          <a
-            href={currentLang === "DE" ? "" : ` /de${path}`}
-            className={`${styles.langBtn} ${currentLang === "DE" ? styles.active : ""}`}>
-            DE
-          </a>
+          {!isCasePage && (
+            <>
+              <a
+                href={path.replace(`${langPrefix}`, "")}
+                className={`${styles.langBtn} ${currentLang === "EN" ? styles.active : ""}`}>
+                EN
+              </a>
+              <div className={styles.divider} />
+              <a
+                href={currentLang === "DE" ? "" : ` /de${path}`}
+                className={`${styles.langBtn} ${currentLang === "DE" ? styles.active : ""}`}>
+                DE
+              </a>
+            </>
+          )}
+          {isCasePage && translationsCode && (
+            <>
+              <a
+                href={
+                  translationsCode === "en"
+                    ? `/cases/${translationsSlug}`
+                    : path
+                }
+                className={`${styles.langBtn} ${currentLang === "EN" ? styles.active : ""}`}>
+                EN
+              </a>
+              <div className={styles.divider} />
+              <a
+                href={
+                  translationsCode === "de"
+                    ? `/de/cases/${translationsSlug}`
+                    : path
+                }
+                className={`${styles.langBtn} ${currentLang === "DE" ? styles.active : ""}`}>
+                DE
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

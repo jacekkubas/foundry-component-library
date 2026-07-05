@@ -225,6 +225,12 @@ export type PostPreview = {
 export type Case = {
   id: string;
   title: string;
+  translations?: {
+    language: {
+      code: string;
+    };
+    slug: string;
+  }[];
   slug?: string;
   uri: string;
   link?: string;
