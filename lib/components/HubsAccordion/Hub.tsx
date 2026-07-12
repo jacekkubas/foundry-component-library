@@ -7,6 +7,10 @@ import Arrow from "../../assets/svg/arrow.svg";
 import useDrag from "../../hooks/useDrag";
 import Plus from "./plus.svg";
 import Minus from "./minus.svg";
+import TileGlass from "../ServiceHubsTeaserEffects/TileGlass";
+import TileFluid from "../ServiceHubsTeaserEffects/TileFluid";
+import TileBalls from "../ServiceHubsTeaserEffects/TileBalls";
+import TileRays from "../ServiceHubsTeaserEffects/TileRays";
 
 const Hub = ({
   hub,
@@ -38,9 +42,25 @@ const Hub = ({
     }
   }, [isActive, customFields]);
 
+  console.log("asd", hub);
+
   return (
     <div className={`${styles.hub} ${isActive ? styles.active : ""}`}>
       <div className={styles.top}>
+        <div className={styles.tile}>
+          <a href={hub.uri}>
+            {hub.slug === "content-campaigning" && <TileBalls />}
+          </a>
+          <a href={hub.uri}>
+            {hub.slug === "social-media-performance" && <TileRays />}
+          </a>
+          <a href={hub.uri}>
+            {hub.slug === "branding-corporate-id" && <TileFluid />}
+          </a>
+          <a href={hub.uri}>
+            {hub.slug === "strategy-positioning" && <TileGlass />}
+          </a>
+        </div>
         <div className={styles.title}>{hub.title}</div>
         <div className={styles.text}>{customFields.approach}</div>
         <button className={styles.icon} onClick={() => setIsActive(!isActive)}>

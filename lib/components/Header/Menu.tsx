@@ -99,7 +99,7 @@ function Menu({
           {!isCasePage && (
             <>
               <a
-                href={path.replace(`${langPrefix}`, "")}
+                href={path.replace(`${langPrefix}`, "") || "/"}
                 className={`${styles.langBtn} ${currentLang === "EN" ? styles.active : ""}`}>
                 EN
               </a>

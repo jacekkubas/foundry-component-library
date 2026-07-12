@@ -43,6 +43,7 @@
   padding: 64px 0;
   display: flex;
   justify-content: space-between;
+  gap: 30px;
 
   @media #{$QUERY-sm} {
     flex-wrap: wrap;
@@ -68,7 +69,7 @@
 }
 
 .text {
-  font-size: 34px;
+  font-size: 21px;
   width: 600px;
   font-family: $font-secondary;
 
@@ -270,4 +271,9 @@
   svg {
     flex-shrink: 0;
   }
+}
+
+.tile {
+  width: 250px;
+  height: 250px;
 }

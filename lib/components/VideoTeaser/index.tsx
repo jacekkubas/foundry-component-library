@@ -55,6 +55,7 @@ function VideoTeaser({ url }: { url: string }) {
             />
           )}
         </div>
+        <div className={styles.overlayMobile} />
       </div>
     </>
   );

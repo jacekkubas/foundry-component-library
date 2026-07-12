@@ -10,9 +10,11 @@ import useDrag from "../../hooks/useDrag";
 const TheamPhotos = ({
   people,
   Image,
+  lang,
 }: {
   people: Person[];
   Image: NextImage;
+  lang?: "EN" | "DE";
 }) => {
   const sectionRef = useRef(null);
   const { handleMouseDown, handleMouseMove, handleMouseUp, dragStyle } =
@@ -20,7 +22,7 @@ const TheamPhotos = ({
 
   return (
     <Container noMobilePadding>
-      <div className={styles.heading}>{translate("Our Lovely Team", "DE")}</div>
+      <div className={styles.heading}>{translate("Our Lovely Team", lang)}</div>
       <div
         ref={sectionRef}
         className={styles.people}

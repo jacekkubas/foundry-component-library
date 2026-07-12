@@ -23,7 +23,12 @@ function Top({
     <div className={styles.top}>
       {data.case.mainImage && (
         <div className={styles.mainImage}>
-          <Image src={data.case.mainImage.sourceUrl} alt={title} fill />
+          <Image
+            src={data.case.mainImage.sourceUrl}
+            alt={title}
+            fill
+            unoptimized
+          />
         </div>
       )}
       <Container>

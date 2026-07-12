@@ -32,6 +32,7 @@ const Center = ({
               layout="intrinsic"
               width={600}
               height={600}
+              unoptimized
             />
             {section.caption && (
               <div className={styles.caption}>{section.caption}</div>

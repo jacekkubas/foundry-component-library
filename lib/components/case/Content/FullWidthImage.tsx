@@ -29,6 +29,7 @@ function FullWidthImage({
                 layout="intrinsic"
                 width={1252}
                 height={600}
+                unoptimized
               />
             )}
           </div>
@@ -44,6 +45,7 @@ function FullWidthImage({
               layout="intrinsic"
               width={1400}
               height={600}
+              unoptimized
             />
           )}
         </div>
