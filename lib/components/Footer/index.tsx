@@ -1,8 +1,10 @@
+"use client";
 import Container from "../Container";
 import styles from "./styles.module.scss";
 import { translate } from "../../utils";
 import Logo from "../../assets/svg/footer-logo.svg";
 import { NextLink } from "../../types";
+import { usePathname } from "next/navigation";
 
 function Footer({
   details,
@@ -25,6 +27,12 @@ function Footer({
 }) {
   const { berlinEmail, zurichEmail, newyorkEmail } = details;
   const year = new Date().getFullYear();
+
+  const path = usePathname();
+  const currentLang = path.startsWith("/de") ? "DE" : "EN";
+
+  const langPrefix =
+    currentLang === "EN" ? "" : `/${currentLang.toLowerCase()}`;
 
   return (
     <footer className={styles.footer}>
@@ -69,22 +77,32 @@ function Footer({
           <div className={styles.right}>
             <ul className={styles.menu}>
               <li className={styles.menuItem}>
-                <Link href="/hubs">{translate("Service Hubs", lang)}</Link>
+                <Link href={`${langPrefix}/hubs`}>
+                  {translate("Service Hubs", lang)}
+                </Link>
               </li>
               <li className={styles.menuItem}>
-                <Link href="/about-us">{translate("About Us", lang)}</Link>
+                <Link href={`${langPrefix}/about-us`}>
+                  {translate("About Us", lang)}
+                </Link>
               </li>
               <li className={styles.menuItem}>
-                <Link href="/cases">{translate("Case Studies", lang)}</Link>
+                <Link href={`${langPrefix}/cases`}>
+                  {translate("Case Studies", lang)}
+                </Link>
               </li>
               {/* <li className={styles.menuItem}>
                 <Link href="/team">Team & Careers</Link>
               </li> */}
               <li className={styles.menuItem}>
-                <Link href="/news">{translate("News & Insights", lang)}</Link>
+                <Link href={`${langPrefix}/news`}>
+                  {translate("News & Insights", lang)}
+                </Link>
               </li>
               <li className={styles.menuItem}>
-                <Link href="/contact">{translate("Contact", lang)}</Link>
+                <Link href={`${langPrefix}/contact`}>
+                  {translate("Contact", lang)}
+                </Link>
               </li>
             </ul>
             <div className={styles.social}>
@@ -114,9 +132,11 @@ function Footer({
         <div className={styles.bottom}>
           <div>FOUNDRY © {year}</div>
           <div className={styles.bottomLinks}>
-            <Link href="/imprint">{translate("Imprint", lang)}</Link>
-            <Link href="/terms">{translate("Terms", lang)}</Link>
-            <Link href="/privacy-policy">
+            <Link href={`${langPrefix}/imprint`}>
+              {translate("Imprint", lang)}
+            </Link>
+            <Link href={`${langPrefix}/terms`}>{translate("Terms", lang)}</Link>
+            <Link href={`${langPrefix}/privacy-policy`}>
               {translate("Privacy policy", lang)}
             </Link>
           </div>

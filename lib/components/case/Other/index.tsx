@@ -62,6 +62,7 @@ function Other({
                         alt={item.title || ""}
                         width={308}
                         height={220}
+                        unoptimized
                       />
                     )}
                   </div>

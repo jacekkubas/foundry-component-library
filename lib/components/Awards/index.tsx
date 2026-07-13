@@ -71,7 +71,9 @@ const Awards = ({
               return (
                 <div key={image.sourceUrl + i} className={styles.award}>
                   <div className={styles.image}>
-                    {image && <Image src={image.sourceUrl} alt="" fill />}
+                    {image && (
+                      <Image src={image.sourceUrl} alt="" fill unoptimized />
+                    )}
                   </div>
                   {heading && <div className={styles.text}>{heading}</div>}
                   {text && <div className={styles.client}>{text}</div>}

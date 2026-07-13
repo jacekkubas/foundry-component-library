@@ -42,23 +42,29 @@ const Hub = ({
     }
   }, [isActive, customFields]);
 
-  console.log("asd", hub);
+  console.log(hub);
 
   return (
     <div className={`${styles.hub} ${isActive ? styles.active : ""}`}>
       <div className={styles.top}>
         <div className={styles.tile}>
           <a href={hub.uri}>
-            {hub.slug === "content-campaigning" && <TileBalls />}
+            {(hub.slug === "content-campaigning" ||
+              hub.slug === "strategie-positionierung") && <TileBalls />}
           </a>
           <a href={hub.uri}>
-            {hub.slug === "social-media-performance" && <TileRays />}
+            {(hub.slug === "social-media-performance" ||
+              hub.slug === "soziale-medien-leistung") && <TileRays />}
           </a>
           <a href={hub.uri}>
-            {hub.slug === "branding-corporate-id" && <TileFluid />}
+            {(hub.slug === "branding-corporate-id" ||
+              hub.slug === "markenbildung-unternehmensidentitaet") && (
+              <TileFluid />
+            )}
           </a>
           <a href={hub.uri}>
-            {hub.slug === "strategy-positioning" && <TileGlass />}
+            {(hub.slug === "strategy-positioning" ||
+              hub.slug === "inhalte-kampagnen") && <TileGlass />}
           </a>
         </div>
         <div className={styles.title}>{hub.title}</div>
