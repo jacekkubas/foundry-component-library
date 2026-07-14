@@ -50,7 +50,7 @@ const Hub = ({
         <div className={styles.tile}>
           <a href={hub.uri}>
             {(hub.slug === "content-campaigning" ||
-              hub.slug === "strategie-positionierung") && <TileBalls />}
+              hub.slug === "inhalte-kampagnen") && <TileBalls />}
           </a>
           <a href={hub.uri}>
             {(hub.slug === "social-media-performance" ||
@@ -64,7 +64,7 @@ const Hub = ({
           </a>
           <a href={hub.uri}>
             {(hub.slug === "strategy-positioning" ||
-              hub.slug === "inhalte-kampagnen") && <TileGlass />}
+              hub.slug === "strategie-positionierung") && <TileGlass />}
           </a>
         </div>
         <div className={styles.title}>{hub.title}</div>

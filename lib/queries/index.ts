@@ -3,6 +3,7 @@ import getPosts from "./getPosts";
 import getCategories from "./getCategories";
 import getMetadataBySlug from "./getMetadataBySlug";
 import getPageBySlug from "./getPageBySlug";
+import getPageById from "./getPageById";
 import getPostBySlug from "./getPostBySlug";
 import getCaseBySlug from "./getCaseBySlug";
 import getCaseById from "./getCaseById";
@@ -24,6 +25,7 @@ export {
   getCategories,
   getMetadataBySlug,
   getPageBySlug,
+  getPageById,
   getPostBySlug,
   getCaseBySlug,
   getCaseById,
