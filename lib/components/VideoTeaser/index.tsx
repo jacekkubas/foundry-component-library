@@ -50,12 +50,18 @@ function VideoTeaser({ url }: { url: string }) {
               muted={isMuted}
               loop={true}
               config={{
-                file: { attributes: { poster: "/video-poster.jpg" } },
+                file: {
+                  attributes: {
+                    playsInline: true,
+                    webkitPlaysInline: true,
+                    muted: true,
+                    poster: "/video-poster.jpg",
+                  },
+                },
               }}
             />
           )}
         </div>
-        <div className={styles.overlayMobile} />
       </div>
     </>
   );

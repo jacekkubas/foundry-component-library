@@ -34,8 +34,18 @@ const Video = ({ url }: { url: string }) => {
           loop
           muted
           playsinline
+          config={{
+            file: {
+              attributes: {
+                playsInline: true,
+                webkitPlaysInline: true,
+                muted: true,
+              },
+            },
+          }}
         />
       )}
+      asd
     </div>
   );
 };
