@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
-import ReactPlayer from "react-player/lazy";
+import { useState, useRef, useEffect } from "react";
 import styles from "./styles.module.scss";
 import Mute from "../../assets/svg/mute.svg";
 import Muted from "../../assets/svg/muted.svg";
@@ -10,17 +9,20 @@ import Logo from "../../assets/svg/footer-logo.svg";
 function VideoTeaser({ url }: { url: string }) {
   const [playing, setPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const [hasWindow, setHasWindow] = useState(false);
-
-  const handleClick = () => {
-    setPlaying(!playing);
-  };
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHasWindow(true);
-    }
+    videoRef.current?.setAttribute("fetchpriority", "high");
   }, []);
+
+  const handleClick = () => {
+    if (playing) {
+      videoRef.current?.pause();
+    } else {
+      videoRef.current?.play();
+    }
+    setPlaying(!playing);
+  };
 
   if (!url) return;
 
@@ -33,7 +35,10 @@ function VideoTeaser({ url }: { url: string }) {
         className={`${styles.wrapper} ${url ? styles.playCursor : ""} ${
           playing ? styles.playing : ""
         }`}>
-        <button className={styles.btnMute} onClick={() => setIsMuted(!isMuted)} aria-label={isMuted ? "Unmute video" : "Mute video"}>
+        <button
+          className={styles.btnMute}
+          onClick={() => setIsMuted(!isMuted)}
+          aria-label={isMuted ? "Unmute video" : "Mute video"}>
           {isMuted ? <Muted /> : <Mute />}
         </button>
         <div className={styles.video} onClick={handleClick}>
@@ -41,27 +46,15 @@ function VideoTeaser({ url }: { url: string }) {
             className={`${styles.playButton} ${playing ? styles.playing : ""}`}>
             <PlayButton />
           </div>
-          {hasWindow && (
-            <ReactPlayer
-              playing={playing}
-              url={url}
-              width="100%"
-              height="100%"
-              muted={isMuted}
-              loop={true}
-              config={{
-                file: {
-                  attributes: {
-                    playsInline: true,
-                    webkitPlaysInline: true,
-                    muted: true,
-                    poster: "/video-poster.jpg",
-                    fetchpriority: "high",
-                  },
-                },
-              }}
-            />
-          )}
+          <video
+            ref={videoRef}
+            src={url}
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            preload="auto"
+          />
         </div>
       </div>
     </>
