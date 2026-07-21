@@ -33,7 +33,7 @@ function VideoTeaser({ url }: { url: string }) {
         className={`${styles.wrapper} ${url ? styles.playCursor : ""} ${
           playing ? styles.playing : ""
         }`}>
-        <button className={styles.btnMute} onClick={() => setIsMuted(!isMuted)}>
+        <button className={styles.btnMute} onClick={() => setIsMuted(!isMuted)} aria-label={isMuted ? "Unmute video" : "Mute video"}>
           {isMuted ? <Muted /> : <Mute />}
         </button>
         <div className={styles.video} onClick={handleClick}>
@@ -56,6 +56,7 @@ function VideoTeaser({ url }: { url: string }) {
                     webkitPlaysInline: true,
                     muted: true,
                     poster: "/video-poster.jpg",
+                    fetchpriority: "high",
                   },
                 },
               }}

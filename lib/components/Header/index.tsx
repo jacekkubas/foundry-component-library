@@ -56,7 +56,7 @@ function Header({
         <Container>
           <div className={styles.wrapper}>
             <div className={styles.left}>
-              <Link href="/">
+              <Link href="/" aria-label="Home">
                 <div ref={containerRef} className={styles.logo} />
               </Link>
             </div>

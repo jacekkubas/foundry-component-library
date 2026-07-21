@@ -50,7 +50,8 @@ const ServiceHubsTeaserEffects = ({
                 <Link
                   href={tile.uri}
                   className={styles.tileWrapper}
-                  key={tile.id}>
+                  key={tile.id}
+                  aria-label={tile.title}>
                   <div className={`${styles.tile} ${styles[background]}`}>
                     {i === 0 && <TileGlass />}
                     {i === 1 && <TileFluid />}
