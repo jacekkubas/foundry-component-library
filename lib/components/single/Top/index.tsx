@@ -10,7 +10,7 @@ function Top({ data, Image }: { data?: Post; Image: NextImage }) {
   return (
     <>
       <div className={styles.mainImage}>
-        <Image src={thumbnailImage.sourceUrl || ""} alt={data.title} fill />
+        <Image src={thumbnailImage?.sourceUrl || ""} alt={data.title} fill />
       </div>
       <TextSection caption="Blog Article" heading={data.title} text={excerpt} />
     </>
