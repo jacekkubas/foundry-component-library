@@ -45,7 +45,6 @@ const Video = ({ url }: { url: string }) => {
           }}
         />
       )}
-      asd
     </div>
   );
 };

@@ -1,57 +1,57 @@
 "use client";
 import React from "react";
-import { useActionState, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useActionState, useState } from "react";
+// import { useRouter } from "next/navigation";
 import styles from "./styles.module.scss";
 import { translate } from "../../utils";
+import { HubLeadForm } from "./HubLeadForm";
+import { serviceForHub } from "./serviceForHub";
 
-type LeadResult =
-  | { success: true }
-  | { success: false; errors: Record<string, string> };
+// type LeadResult =
+//   | { success: true }
+//   | { success: false; errors: Record<string, string> };
 
 const GetInTouch = ({
-  submitLead,
   service,
+  lang,
 }: {
   service: string;
-  submitLead: (
-    prevState: LeadResult | null,
-    formData: FormData,
-  ) => Promise<LeadResult>;
+  lang?: "EN" | "DE";
 }) => {
-  const router = useRouter();
-  const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    note: "",
-  });
-  const [state, formAction] = useActionState(submitLead, null);
+  // const router = useRouter();
+  // const [submitting, setSubmitting] = useState(false);
+  // const [form, setForm] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   phone: "",
+  //   note: "",
+  // });
+  // const [state, formAction] = useActionState(submitLead, null);
 
-  if (state?.success) {
-    router.push("/hubs/thank-you");
-    return null;
-  }
+  // if (state?.success) {
+  //   router.push("/hubs/thank-you");
+  //   return null;
+  // }
 
-  const errors = state?.success === false ? state.errors : {};
+  // const errors = state?.success === false ? state.errors : {};
 
-  const endSubmitting = () => {
-    setSubmitting(false);
-  };
+  // const endSubmitting = () => {
+  //   setSubmitting(false);
+  // };
 
   return (
     <section id="get-in-touch" className={styles.formSection}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>{translate("Get in touch", "DE")}</h2>
+        <h2 className={styles.heading}>{translate("Get in touch", lang)}</h2>
         <p className={styles.subtitle}>
           {translate(
             "Tell us about your brand and discover how we can help.",
-            "DE",
+            lang,
           )}
         </p>
-        <form
+        <HubLeadForm service={serviceForHub(service)} />
+        {/* <form
           action={formAction}
           className={styles.form}
           onSubmit={() => setSubmitting(true)}
@@ -187,7 +187,7 @@ const GetInTouch = ({
           <button type="submit" className={styles.submit} disabled={submitting}>
             Submit
           </button>
-        </form>
+        </form> */}
       </div>
     </section>
   );

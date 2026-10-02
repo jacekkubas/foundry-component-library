@@ -1,6 +1,6 @@
 {
   "name": "foundry-component-library",
-  "version": "0.2.45",
+  "version": "0.2.46",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -67,6 +67,7 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.2",
     "@react-three/postprocessing": "^3.0.4",
+    "@typeform/embed-react": "^5.0.0",
     "three": "^0.182.0"
   }
 }

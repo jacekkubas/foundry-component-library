@@ -12,6 +12,7 @@ const Capabilities = ({
   items,
   Link,
   Image,
+  lang,
 }: {
   heading: string;
   items: {
@@ -21,6 +22,7 @@ const Capabilities = ({
   }[];
   Link?: typeof LinkType;
   Image: NextImage;
+  lang?: "EN" | "DE";
 }) => {
   const [active, setActive] = useState("");
 
@@ -29,7 +31,7 @@ const Capabilities = ({
   return (
     <Container>
       <a className={styles.button} href="#get-in-touch">
-        {translate("Get in touch", "DE")}
+        {translate("Get in touch", lang)}
       </a>
       <div className={styles.heading}>{heading}</div>
       <div className={styles.items}>
